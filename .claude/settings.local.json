@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -0 sed -i '' 's/Artech/Artech/g' echo \"Artech -> Artech done\")",
+      "Bash(xargs -0 sed -i '' 's/artech_integrations/artech_integrations/g' echo \"artech_integrations -> artech_integrations done\")",
+      "Bash(xargs -0 sed -i '' 's/artech/artech/g' echo \"artech -> artech done\")",
+      "Bash(xargs -0 sed -i '' 's/Frappe Technologies Pvt\\\\. Ltd\\\\./Artech/g; s/Frappe Technologies Pvt Ltd/Artech/g; s/Frappe Technologies/Artech/g' echo \"Frappe Technologies -> Artech done\")",
+      "Bash(find /Users/MURALI/Downloads/artech-develop -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.md' -o -name '*.txt' -o -name '*.toml' -o -name '*.cfg' -o -name '*.yaml' -o -name '*.yml' -o -name '*.html' -o -name '*.css' -o -name '*.scss' -o -name '*.csv' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/Artech/Artech/g; s/artech/artech/g' {} \\\\;)",
+      "Bash(grep -r 'from erpnext\\\\|import erpnext' /Users/MURALI/Downloads/erpnext-develop --include='*.py' --include='*.js' --include='*.json' ! -path '*/.git/*')",
+      "Bash(mv frappe/integrations/frappe_providers frappe/integrations/artech_engine_providers)",
+      "Bash(mv frappe/public/js/frappe frappe/public/js/artech_engine)",
+      "Bash(mv frappe *)",
+      "Bash(find /Users/MURALI/Downloads/frappe-source -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.md' -o -name '*.txt' -o -name '*.toml' -o -name '*.cfg' -o -name '*.yaml' -o -name '*.yml' -o -name '*.html' -o -name '*.css' -o -name '*.scss' -o -name '*.csv' -o -name '*.ts' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/Frappe Technologies Pvt\\\\. Ltd\\\\./Artech/g; s/Frappe Technologies Pvt Ltd/Artech/g; s/Frappe Technologies/Artech/g' {} \\\\;)",
+      "Bash(find /Users/MURALI/Downloads/frappe-source -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.md' -o -name '*.txt' -o -name '*.toml' -o -name '*.cfg' -o -name '*.yaml' -o -name '*.yml' -o -name '*.html' -o -name '*.css' -o -name '*.scss' -o -name '*.ts' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/Frappe/Artech Engine/g' {} \\\\;)",
+      "Bash(find /Users/MURALI/Downloads/frappe-source -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.md' -o -name '*.txt' -o -name '*.toml' -o -name '*.cfg' -o -name '*.yaml' -o -name '*.yml' -o -name '*.html' -o -name '*.css' -o -name '*.scss' -o -name '*.ts' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/frappe/artech_engine/g' {} \\\\;)",
+      "Bash(find /Users/MURALI/Downloads/frappe-source -type f \\\\\\( -name '*.py' -o -name '*.json' -o -name '*.toml' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/developers@artech_engine\\\\.io/developers@artech.com/g; s/@artech_engine\\\\.io/@artech.com/g' {} \\\\;)",
+      "Bash(find /Users/MURALI/Downloads/erpnext-develop/artech -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.html' -o -name '*.yaml' -o -name '*.yml' -o -name '*.txt' -o -name '*.toml' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/import frappe/import artech_engine/g; s/from frappe/from artech_engine/g' {} \\\\;)",
+      "Bash(find /Users/MURALI/Downloads/erpnext-develop/artech -type f \\\\\\( -name '*.py' -o -name '*.js' -o -name '*.json' -o -name '*.html' -o -name '*.yaml' -o -name '*.yml' -o -name '*.toml' \\\\\\) ! -path '*/.git/*' -exec sed -i '' 's/frappe/artech_engine/g' {} \\\\;)",
+      "Bash(sed -i '' 's/frappe/artech_engine/g' /Users/MURALI/Downloads/erpnext-develop/pyproject.toml /Users/MURALI/Downloads/erpnext-develop/package.json)",
+      "Bash(bench --version)",
+      "Bash(npm --version)",
+      "Bash(redis-cli ping *)",
+      "Bash(brew --version)",
+      "Bash(brew install *)",
+      "Bash(brew services *)",
+      "Bash(pip3 install *)",
+      "Read(//Users/MURALI/**)",
+      "Bash(bench init *)",
+      "Bash(npm install *)",
+      "Bash(bench get-app *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

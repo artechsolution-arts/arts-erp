@@ -1,0 +1,3 @@
+**/setup/setup_wizard/data/uom_data.json,artech.gettext.extractors.uom_data.extract
+**/setup/doctype/incoterm/incoterms.csv,artech.gettext.extractors.incoterms.extract
+**/setup/setup_wizard/data/*.txt,artech.gettext.extractors.lines_from_txt_file.extract

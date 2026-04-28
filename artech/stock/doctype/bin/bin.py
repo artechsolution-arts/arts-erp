@@ -1,0 +1,320 @@
+# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+# License: GNU General Public License v3. See license.txt
+
+
+import artech_engine
+from artech_engine.model.document import Document
+from artech_engine.query_builder import Case, Order
+from artech_engine.query_builder.functions import Coalesce, Sum
+from artech_engine.utils import flt
+
+
+class Bin(Document):
+	# begin: auto-generated types
+	# This code is auto-generated. Do not modify anything in this block.
+
+	from typing import TYPE_CHECKING
+
+	if TYPE_CHECKING:
+		from artech_engine.types import DF
+
+		actual_qty: DF.Float
+		company: DF.Link | None
+		indented_qty: DF.Float
+		item_code: DF.Link
+		ordered_qty: DF.Float
+		planned_qty: DF.Float
+		projected_qty: DF.Float
+		reserved_qty: DF.Float
+		reserved_qty_for_production: DF.Float
+		reserved_qty_for_production_plan: DF.Float
+		reserved_qty_for_sub_contract: DF.Float
+		reserved_stock: DF.Float
+		stock_uom: DF.Link | None
+		stock_value: DF.Float
+		valuation_rate: DF.Float
+		warehouse: DF.Link
+	# end: auto-generated types
+
+	@artech_engine.whitelist()
+	def recalculate_qty(self):
+		from artech.manufacturing.doctype.work_order.work_order import get_reserved_qty_for_production
+		from artech.stock.stock_balance import (
+			get_indented_qty,
+			get_ordered_qty,
+			get_planned_qty,
+			get_reserved_qty,
+		)
+
+		self.actual_qty = get_actual_qty(self.item_code, self.warehouse)
+		self.planned_qty = get_planned_qty(self.item_code, self.warehouse)
+		self.indented_qty = get_indented_qty(self.item_code, self.warehouse)
+		self.ordered_qty = get_ordered_qty(self.item_code, self.warehouse)
+		self.reserved_qty = get_reserved_qty(self.item_code, self.warehouse)
+		self.reserved_qty_for_production = get_reserved_qty_for_production(self.item_code, self.warehouse)
+
+		self.update_reserved_qty_for_sub_contracting(update_qty=False)
+		self.update_reserved_qty_for_production_plan(skip_project_qty_update=True, update_qty=False)
+		self.set_projected_qty()
+		self.save()
+
+	def before_save(self):
+		if self.get("__islocal") or not self.stock_uom:
+			self.stock_uom = artech_engine.get_cached_value("Item", self.item_code, "stock_uom")
+		self.set_projected_qty()
+
+	def set_projected_qty(self):
+		self.projected_qty = (
+			flt(self.actual_qty)
+			+ flt(self.ordered_qty)
+			+ flt(self.indented_qty)
+			+ flt(self.planned_qty)
+			- flt(self.reserved_qty)
+			- flt(self.reserved_qty_for_production)
+			- flt(self.reserved_qty_for_sub_contract)
+			- flt(self.reserved_qty_for_production_plan)
+		)
+
+	def update_reserved_qty_for_production_plan(self, skip_project_qty_update=False, update_qty=True):
+		"""Update qty reserved for production from Production Plan tables
+		in open production plan"""
+		from artech.manufacturing.doctype.production_plan.production_plan import (
+			get_reserved_qty_for_production_plan,
+		)
+
+		reserved_qty_for_production_plan = get_reserved_qty_for_production_plan(
+			self.item_code, self.warehouse
+		)
+
+		if reserved_qty_for_production_plan is None and not self.reserved_qty_for_production_plan:
+			return
+
+		self.reserved_qty_for_production_plan = flt(reserved_qty_for_production_plan)
+
+		if update_qty:
+			self.db_set(
+				"reserved_qty_for_production_plan",
+				flt(self.reserved_qty_for_production_plan),
+				update_modified=True,
+			)
+
+		if not skip_project_qty_update:
+			self.set_projected_qty()
+			self.db_set("projected_qty", self.projected_qty, update_modified=True)
+
+	def update_reserved_qty_for_for_sub_assembly(self):
+		from artech.manufacturing.doctype.production_plan.production_plan import (
+			get_reserved_qty_for_sub_assembly,
+		)
+
+		reserved_qty_for_production_plan = get_reserved_qty_for_sub_assembly(self.item_code, self.warehouse)
+
+		if reserved_qty_for_production_plan is None and not self.reserved_qty_for_production_plan:
+			return
+
+		self.reserved_qty_for_production_plan = flt(reserved_qty_for_production_plan)
+		self.set_projected_qty()
+
+		self.db_set(
+			{
+				"projected_qty": self.projected_qty,
+				"reserved_qty_for_production_plan": flt(self.reserved_qty_for_production_plan),
+			},
+			update_modified=True,
+		)
+
+	def update_reserved_qty_for_production(self):
+		"""Update qty reserved for production from Production Item tables
+		in open work orders"""
+		from artech.manufacturing.doctype.work_order.work_order import get_reserved_qty_for_production
+
+		self.reserved_qty_for_production = get_reserved_qty_for_production(self.item_code, self.warehouse)
+
+		self.db_set(
+			"reserved_qty_for_production", flt(self.reserved_qty_for_production), update_modified=True
+		)
+
+		self.update_reserved_qty_for_production_plan(skip_project_qty_update=True)
+
+		self.set_projected_qty()
+		self.db_set("projected_qty", self.projected_qty, update_modified=True)
+
+	def update_reserved_qty_for_sub_contracting(
+		self, subcontract_doctype="Subcontracting Order", update_qty=True
+	):
+		# reserved qty
+
+		subcontract_order = artech_engine.qb.DocType(subcontract_doctype)
+		supplied_item = artech_engine.qb.DocType(
+			"Purchase Order Item Supplied"
+			if subcontract_doctype == "Purchase Order"
+			else "Subcontracting Order Supplied Item"
+		)
+
+		conditions = (
+			(supplied_item.rm_item_code == self.item_code)
+			& (subcontract_order.name == supplied_item.parent)
+			& (subcontract_order.per_received < 100)
+			& (supplied_item.reserve_warehouse == self.warehouse)
+			& (
+				(
+					(subcontract_order.is_old_subcontracting_flow == 1)
+					& (subcontract_order.status != "Closed")
+					& (subcontract_order.docstatus == 1)
+				)
+				if subcontract_doctype == "Purchase Order"
+				else (subcontract_order.docstatus == 1)
+			)
+		)
+
+		reserved_qty_for_sub_contract = (
+			artech_engine.qb.from_(subcontract_order)
+			.from_(supplied_item)
+			.select(Sum(Coalesce(supplied_item.required_qty, 0)))
+			.where(conditions)
+		).run()[0][0] or 0.0
+
+		se = artech_engine.qb.DocType("Stock Entry")
+		se_item = artech_engine.qb.DocType("Stock Entry Detail")
+
+		if artech_engine.db.field_exists("Stock Entry", "is_return"):
+			qty_field = Case().when(se.is_return == 1, se_item.transfer_qty * -1).else_(se_item.transfer_qty)
+		else:
+			qty_field = se_item.transfer_qty
+
+		conditions = (
+			(se.docstatus == 1)
+			& (se.purpose == "Send to Subcontractor")
+			& ((se_item.item_code == self.item_code) | (se_item.original_item == self.item_code))
+			& (se.name == se_item.parent)
+			& (subcontract_order.docstatus == 1)
+			& (subcontract_order.per_received < 100)
+			& (
+				(
+					(Coalesce(se.purchase_order, "") != "")
+					& (subcontract_order.name == se.purchase_order)
+					& (subcontract_order.is_old_subcontracting_flow == 1)
+					& (subcontract_order.status != "Closed")
+				)
+				if subcontract_doctype == "Purchase Order"
+				else (
+					(Coalesce(se.subcontracting_order, "") != "")
+					& (subcontract_order.name == se.subcontracting_order)
+				)
+			)
+		)
+
+		materials_transferred = (
+			artech_engine.qb.from_(se)
+			.from_(se_item)
+			.from_(subcontract_order)
+			.select(Sum(qty_field))
+			.where(conditions)
+		).run()[0][0] or 0.0
+
+		if reserved_qty_for_sub_contract > materials_transferred:
+			reserved_qty_for_sub_contract = reserved_qty_for_sub_contract - materials_transferred
+		else:
+			reserved_qty_for_sub_contract = 0
+
+		self.reserved_qty_for_sub_contract = reserved_qty_for_sub_contract
+		if update_qty:
+			self.db_set("reserved_qty_for_sub_contract", reserved_qty_for_sub_contract, update_modified=True)
+			self.set_projected_qty()
+			self.db_set("projected_qty", self.projected_qty, update_modified=True)
+
+	def update_reserved_stock(self):
+		"""Update `Reserved Stock` on change in Reserved Qty of Stock Reservation Entry"""
+
+		from artech.stock.doctype.stock_reservation_entry.stock_reservation_entry import (
+			get_sre_reserved_qty_for_item_and_warehouse,
+		)
+
+		reserved_stock = get_sre_reserved_qty_for_item_and_warehouse(self.item_code, self.warehouse)
+
+		self.db_set("reserved_stock", flt(reserved_stock), update_modified=True)
+
+
+def on_doctype_update():
+	artech_engine.db.add_unique("Bin", ["item_code", "warehouse"], constraint_name="unique_item_warehouse")
+
+
+def get_bin_details(bin_name):
+	return artech_engine.db.get_value(
+		"Bin",
+		bin_name,
+		[
+			"actual_qty",
+			"ordered_qty",
+			"reserved_qty",
+			"indented_qty",
+			"planned_qty",
+			"reserved_qty_for_production",
+			"reserved_qty_for_sub_contract",
+			"reserved_qty_for_production_plan",
+		],
+		as_dict=1,
+	)
+
+
+def update_qty(bin_name, args):
+	from artech.controllers.stock_controller import future_sle_exists
+
+	bin_details = get_bin_details(bin_name)
+	# actual qty is already updated by processing current voucher
+	actual_qty = bin_details.actual_qty or 0.0
+
+	# actual qty is not up to date in case of backdated transaction
+	if future_sle_exists(args):
+		actual_qty = get_actual_qty(args.get("item_code"), args.get("warehouse"))
+
+	ordered_qty = flt(bin_details.ordered_qty) + flt(args.get("ordered_qty"))
+	reserved_qty = flt(bin_details.reserved_qty) + flt(args.get("reserved_qty"))
+	indented_qty = flt(bin_details.indented_qty) + flt(args.get("indented_qty"))
+	planned_qty = flt(bin_details.planned_qty) + flt(args.get("planned_qty"))
+
+	# compute projected qty
+	projected_qty = (
+		flt(actual_qty)
+		+ flt(ordered_qty)
+		+ flt(indented_qty)
+		+ flt(planned_qty)
+		- flt(reserved_qty)
+		- flt(bin_details.reserved_qty_for_production)
+		- flt(bin_details.reserved_qty_for_sub_contract)
+		- flt(bin_details.reserved_qty_for_production_plan)
+	)
+
+	artech_engine.db.set_value(
+		"Bin",
+		bin_name,
+		{
+			"actual_qty": actual_qty,
+			"ordered_qty": ordered_qty,
+			"reserved_qty": reserved_qty,
+			"indented_qty": indented_qty,
+			"planned_qty": planned_qty,
+			"projected_qty": projected_qty,
+		},
+		update_modified=True,
+	)
+
+
+def get_actual_qty(item_code, warehouse):
+	sle = artech_engine.qb.DocType("Stock Ledger Entry")
+
+	last_sle_qty = (
+		artech_engine.qb.from_(sle)
+		.select(sle.qty_after_transaction)
+		.where((sle.item_code == item_code) & (sle.warehouse == warehouse) & (sle.is_cancelled == 0))
+		.orderby(sle.posting_datetime, order=Order.desc)
+		.orderby(sle.creation, order=Order.desc)
+		.limit(1)
+		.run()
+	)
+
+	actual_qty = 0.0
+	if last_sle_qty:
+		actual_qty = last_sle_qty[0][0]
+
+	return actual_qty

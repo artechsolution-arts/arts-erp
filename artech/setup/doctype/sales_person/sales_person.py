@@ -1,0 +1,158 @@
+# Copyright (c) 2015, Artech and Contributors
+# License: GNU General Public License v3. See license.txt
+
+
+from collections import defaultdict
+from itertools import chain
+
+import artech_engine
+from artech_engine import _
+from artech_engine.query_builder import Interval
+from artech_engine.query_builder.functions import Count, CurDate, UnixTimestamp
+from artech_engine.utils import flt
+from artech_engine.utils.data import get_url_to_list
+from artech_engine.utils.nestedset import NestedSet, get_root_of
+
+from artech import get_default_currency
+
+
+class SalesPerson(NestedSet):
+	# begin: auto-generated types
+	# This code is auto-generated. Do not modify anything in this block.
+
+	from typing import TYPE_CHECKING
+
+	if TYPE_CHECKING:
+		from artech_engine.types import DF
+
+		from artech.setup.doctype.target_detail.target_detail import TargetDetail
+
+		commission_rate: DF.Data | None
+		department: DF.Link | None
+		employee: DF.Link | None
+		enabled: DF.Check
+		is_group: DF.Check
+		lft: DF.Int
+		old_parent: DF.Data | None
+		parent_sales_person: DF.Link | None
+		rgt: DF.Int
+		sales_person_name: DF.Data
+		targets: DF.Table[TargetDetail]
+	# end: auto-generated types
+
+	nsm_parent_field = "parent_sales_person"
+
+	def validate(self):
+		if not self.enabled:
+			self.validate_sales_person()
+
+		if not self.parent_sales_person:
+			self.parent_sales_person = get_root_of("Sales Person")
+
+		for d in self.get("targets") or []:
+			if not flt(d.target_qty) and not flt(d.target_amount):
+				artech_engine.throw(_("Either target qty or target amount is mandatory."))
+		self.validate_employee_id()
+
+	def onload(self):
+		self.load_dashboard_info()
+
+	def load_dashboard_info(self):
+		company_default_currency = get_default_currency()
+
+		allocated_amount_against_order = flt(
+			artech_engine.db.get_value(
+				"Sales Team",
+				{"docstatus": 1, "parenttype": "Sales Order", "sales_person": self.sales_person_name},
+				[{"SUM": "allocated_amount"}],
+			)
+		)
+
+		allocated_amount_against_invoice = flt(
+			artech_engine.db.get_value(
+				"Sales Team",
+				{"docstatus": 1, "parenttype": "Sales Invoice", "sales_person": self.sales_person_name},
+				[{"SUM": "allocated_amount"}],
+			)
+		)
+
+		info = {}
+		info["allocated_amount_against_order"] = allocated_amount_against_order
+		info["allocated_amount_against_invoice"] = allocated_amount_against_invoice
+		info["currency"] = company_default_currency
+
+		self.set_onload("dashboard_info", info)
+
+	def on_update(self):
+		super().on_update()
+		self.validate_one_root()
+
+	def validate_sales_person(self):
+		sales_team = artech_engine.qb.DocType("Sales Team")
+
+		query = (
+			artech_engine.qb.from_(sales_team)
+			.select(sales_team.sales_person)
+			.where((sales_team.sales_person == self.name) & (sales_team.parenttype == "Customer"))
+			.groupby(sales_team.sales_person)
+		).run(as_dict=True)
+
+		if query:
+			artech_engine.throw(
+				_("The Sales Person is linked with {0}").format(
+					artech_engine.bold(
+						f"""<a href="{get_url_to_list("Customer")}?sales_person={self.name}">{"Customers"}</a>"""
+					)
+				)
+			)
+
+	def get_email_id(self):
+		if self.employee:
+			user = artech_engine.db.get_value("Employee", self.employee, "user_id")
+			if not user:
+				artech_engine.throw(_("User ID not set for Employee {0}").format(self.employee))
+			else:
+				return artech_engine.db.get_value("User", user, "email") or user
+
+	def validate_employee_id(self):
+		if self.employee:
+			sales_person = artech_engine.db.get_value("Sales Person", {"employee": self.employee})
+
+			if sales_person and sales_person != self.name:
+				artech_engine.throw(
+					_("Another Sales Person {0} exists with the same Employee id").format(sales_person)
+				)
+
+
+def on_doctype_update():
+	artech_engine.db.add_index("Sales Person", ["lft", "rgt"])
+
+
+def get_timeline_data(doctype: str, name: str) -> dict[int, int]:
+	def _fetch_activity(doctype: str, date_field: str):
+		sales_team = artech_engine.qb.DocType("Sales Team")
+		transaction = artech_engine.qb.DocType(doctype)
+
+		return dict(
+			artech_engine.qb.from_(transaction)
+			.join(sales_team)
+			.on(transaction.name == sales_team.parent)
+			.select(UnixTimestamp(transaction[date_field]), Count("*"))
+			.where(sales_team.sales_person == name)
+			.where(transaction[date_field] > CurDate() - Interval(years=1))
+			.groupby(transaction[date_field])
+			.run()
+		)
+
+	sales_order_activity = _fetch_activity("Sales Order", "transaction_date")
+	sales_invoice_activity = _fetch_activity("Sales Invoice", "posting_date")
+	delivery_note_activity = _fetch_activity("Delivery Note", "posting_date")
+
+	merged_activities = defaultdict(int)
+
+	for ts, count in chain(
+		sales_order_activity.items(), sales_invoice_activity.items(), delivery_note_activity.items()
+	):
+		merged_activities[ts] += count
+
+	return merged_activities

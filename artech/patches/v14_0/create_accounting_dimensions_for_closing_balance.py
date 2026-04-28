@@ -1,0 +1,31 @@
+import artech_engine
+from artech_engine.custom.doctype.custom_field.custom_field import create_custom_field
+
+
+def execute():
+	accounting_dimensions = artech_engine.db.get_all(
+		"Accounting Dimension", fields=["fieldname", "label", "document_type", "disabled"]
+	)
+
+	if not accounting_dimensions:
+		return
+
+	doctype = "Account Closing Balance"
+
+	for d in accounting_dimensions:
+		field = artech_engine.db.get_value("Custom Field", {"dt": doctype, "fieldname": d.fieldname})
+
+		if field:
+			continue
+
+		df = {
+			"fieldname": d.fieldname,
+			"label": d.label,
+			"fieldtype": "Link",
+			"options": d.document_type,
+			"insert_after": "accounting_dimensions_section",
+		}
+
+		create_custom_field(doctype, df, ignore_validate=True)
+
+	artech_engine.clear_cache(doctype=doctype)

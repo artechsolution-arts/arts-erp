@@ -1,0 +1,18 @@
+{
+  "name": "artech",
+  "description": "Open Source ERP System powered by the Frappe Framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artech_engine/artech.git"
+  },
+  "homepage": "https://artech_engine.io/artech",
+  "author": "Artech",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/artech_engine/artech/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "onscan.js": "^1.5.2"
+  }
+}
