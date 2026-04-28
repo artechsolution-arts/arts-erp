@@ -19,3 +19,8 @@ node_modules/
 .backportrc.json
 # Aider AI Chat
 .aider*
+
+# Artech ERP local config — never commit secrets
+.env
+.tunnel-url
+.artech-pids/

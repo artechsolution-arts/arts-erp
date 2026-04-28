@@ -4,7 +4,7 @@ authors = [
     { name = "Artech", email = "developers@artech_engine.io"}
 ]
 description = "Open Source ERP"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = [

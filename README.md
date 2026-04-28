@@ -1,185 +1,299 @@
+# Artech ERP
 
-<div align="center">
-    <a href="https://frappe.io/artech">
-	<img src="./artech/public/images/v16/artech.svg" alt="Artech Logo" height="80px" width="80px"/>
-    </a>
-    <h2>Artech</h2>
-    <div align="center">
-        <p>Powerful, Intuitive and Open-Source ERP</p>
-    </div>
+Enterprise resource planning platform — Accounting, Buying, Selling, Inventory, Manufacturing, Projects, HR, and more.
 
-[![Learn on Frappe School](https://img.shields.io/badge/Frappe%20School-Learn%20Artech-blue?style=flat-square)](https://frappe.school)<br><br>
-[![CI](https://github.com/frappe/artech/actions/workflows/server-tests-mariadb.yml/badge.svg?event=schedule)](https://github.com/frappe/artech/actions/workflows/server-tests-mariadb.yml)
-[![docker pulls](https://img.shields.io/docker/pulls/frappe/artech-worker.svg)](https://hub.docker.com/r/frappe/artech-worker)
+![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white)
 
-</div>
+---
 
-<div align="center">
-	<img src="./artech/public/images/v16/hero_image.png" alt="Artech Hero Image"/>
-</div>
+## One-Command Setup
 
-<div align="center">
-	<a href="https://artech-demo.frappe.cloud/api/method/artech_demo.artech_demo.auth.login_demo">Live Demo</a>
-	-
-	<a href="https://frappe.io/artech">Website</a>
-	-
-	<a href="https://docs.frappe.io/artech/">Documentation</a>
-</div>
+`setup.sh` installs **every dependency**, creates the database, creates the site, installs the app, and launches it. Nothing else needed.
 
-## Artech
+### ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)
 
-100% Open-Source ERP System to help you run your business.
-
-### Motivation
-
-Running a business is a complex task - handling invoices, tracking stock, managing personnel, and other daily operations. In a market where software is sold separately to manage each of these tasks, Artech does all of the above and more, for free.
-
-### Key Features
-
-- **Accounting**: All the tools you need to manage cash flow in one place, right from recording transactions to summarizing and analyzing financial reports.
-- **Order Management**: Track inventory levels, replenish stock, and manage sales orders, customers, suppliers, shipments, deliverables, and order fulfillment.
-- **Manufacturing**: Simplifies the production cycle, helps track material consumption, exhibits capacity planning, handles subcontracting, and more!
-- **Asset Management**: From purchase to disposal, IT infrastructure to equipment. Covers every branch of your organization, all in one centralized system.
-- **Projects**: Deliver both internal and external projects on time, budget and profitability. Track tasks, timesheets, and issues by project.
-
-<details open>
-
-<summary>More</summary>
-	<img src="https://artech.com/files/v16_bom.png"/>
-	<img src="https://artech.com/files/v16_stock_summary.png"/>
-	<img src="https://artech.com/files/v16_job_card.png"/>
-	<img src="https://artech.com/files/v16_tasks.png"/>
-</details>
-
-### Under the Hood
-
-- [**Frappe Framework**](https://github.com/frappe/frappe): A full-stack web application framework written in Python and JavaScript. The framework provides a robust foundation for building web applications, including a database abstraction layer, user authentication, and a REST API.
-
-- [**Frappe UI**](https://github.com/frappe/frappe-ui): A Vue-based UI library, to provide a modern user interface. The Frappe UI library provides a variety of components that can be used to build single-page applications on top of the Frappe Framework.
-
-## Production Setup
-
-### Managed Hosting
-
-You can try [Frappe Cloud](https://frappecloud.com), a simple, user-friendly, and sophisticated [open-source](https://github.com/frappe/press) platform to host Frappe applications reliably and securely.
-
-It handles installation, setup, upgrades, monitoring, maintenance, and support of your Frappe deployments. It is a fully featured developer platform with an ability to manage and control multiple Frappe deployments.
-
-<div>
-	<a href="https://artech-demo.frappe.cloud/app/home" target="_blank" rel="noopener noreferrer">
-		<picture>
-			<source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/try-on-fc-white.png">
-			<img src="https://frappe.io/files/try-on-fc-black.png" alt="Try on Frappe Cloud" height="28" />
-		</picture>
-	</a>
-</div>
-
-
-### Self-Hosted
-#### Docker
-
-See [Frappe Docker Documentation](https://github.com/frappe/frappe_docker) for full documentation & FAQ on Docker setup
-
-#### Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose v2](https://docs.docker.com/compose/)
-- [git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
-
-> For Docker basics and best practices refer to Docker's [documentation](https://docs.docker.com)
-
-#### Demo setup
-
-The fastest way to try Artech is to play in a pre-configured sandbox, in your browser, click the button below:
-
-<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/frappe/frappe_docker/main/pwd.yml">
-  <img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="Try in PWD"/>
-</a>
-
-### Try on your environment
-
-> **⚠️ Disposable demo only**
->
-> **This setup is intended for quick evaluation. Expect to throw the environment away.** You will not be able to install custom apps to this setup. For production deployments, custom configurations, and detailed explanations, see the full documentation.
-
-First clone the repo:
-
-```sh
-git clone https://github.com/frappe/frappe_docker
-cd frappe_docker
+```bash
+git clone https://github.com/YOUR_ORG/artech.git
+cd artech
+bash setup.sh
 ```
 
-Then run:
+### ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
 
-```sh
-docker compose -f pwd.yml up -d
+```bash
+git clone https://github.com/YOUR_ORG/artech.git
+cd artech
+bash setup.sh
 ```
-Wait for a couple of minutes for Artech site to be created or check the `create-site` container logs before opening browser on port `8080`. (username: `Administrator`, password: `admin`)
 
-See [Frappe Docker](https://github.com/frappe/frappe_docker/blob/main/docs/01-getting-started/03-arm64.md) for ARM based docker setup
+### ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL 2
 
+`setup.sh` detects Windows and prints WSL 2 instructions automatically.  
+Open **PowerShell as Administrator** and run once:
 
-## Development Setup
-### Manual Install
+```powershell
+wsl --install
+```
 
-The Easy Way: our install script for bench will install all dependencies (e.g. MariaDB). See https://github.com/frappe/bench for more details.
+Restart, open **Ubuntu** from the Start Menu, then run:
 
-New passwords will be created for the Artech "Administrator" user, the MariaDB root user, and the Frappe user (the script displays the passwords and saves them to ~/frappe_passwords.txt).
+```bash
+git clone https://github.com/YOUR_ORG/artech.git
+cd artech
+bash setup.sh
+```
 
+---
 
-### Local
+## What Gets Installed Automatically
 
-To setup the repository locally follow the steps mentioned below:
+| Dependency | Version | ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white) | ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black) | ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL |
+|---|---|---|---|---|
+| Python | 3.13+ | Homebrew | apt / dnf | apt |
+| Node.js | 18+ | Homebrew | NodeSource | NodeSource |
+| MariaDB | 10.6+ | Homebrew | apt / dnf | apt |
+| Redis | 6+ | Homebrew | apt / dnf | apt |
+| wkhtmltopdf | 0.12+ | Homebrew | apt | apt |
+| bench CLI | latest | pip | pip | pip |
+| ngrok | 3+ | Homebrew | apt | apt |
+| cloudflared | latest | Homebrew | wget | wget |
 
-1. Setup bench by following the [Installation Steps](https://frappeframework.com/docs/user/en/installation) and start the server
-   ```
-   bench start
-   ```
+---
 
-2. In a separate terminal window, run the following commands:
-   ```
-   # Create a new site
-   bench new-site artech.localhost
-   ```
+## Configuration
 
-3. Get the Artech app and install it
-   ```
-   # Get the Artech app
-   bench get-app https://github.com/frappe/artech
+`setup.sh` creates a `.env` file automatically by asking you a few questions.  
+You can also create it manually before running setup:
 
-   # Install the app
-   bench --site artech.localhost install-app artech
-   ```
+```bash
+cp .env.example .env
+# edit .env with your values
+bash setup.sh
+```
 
-4. Open the URL `http://artech.localhost:8000/app` in your browser, you should see the app running
+### `.env` reference
 
-## Learning and Community
+| Variable | Description | Default |
+|---|---|---|
+| `SITE_NAME` | Local site hostname | `artech.localhost` |
+| `SITE_ADMIN_PASSWORD` | Admin login password | `admin` |
+| `DB_NAME` | MariaDB database name | `artech_site` |
+| `DB_USER` | MariaDB username | `artech_site` |
+| `DB_PASSWORD` | MariaDB password | `artech123` |
+| `PORT` | Local server port | `8000` |
+| `NGROK_AUTHTOKEN` | ngrok auth token (for public URL) | — |
+| `NGROK_STATIC_DOMAIN` | Permanent public domain | — |
 
-1. [Frappe School](https://school.frappe.io) - Learn Frappe Framework and Artech from the various courses by the maintainers or from the community.
-2. [Official documentation](https://docs.artech.com/) - Extensive documentation for Artech.
-3. [Discussion Forum](https://discuss.frappe.io/c/artech/6) - Engage with the community of Artech users and service providers.
-4. [Telegram Group](https://artech_public.t.me) - Get instant help from huge community of users.
+> `.env` is **git-ignored** — your passwords and tokens never get committed.
 
+---
 
-## Contributing
+## Permanent Public URL (Optional)
 
-1. [Issue Guidelines](https://github.com/frappe/artech/wiki/Issue-Guidelines)
-2. [Report Security Vulnerabilities](https://artech.com/security)
-3. [Pull Request Requirements](https://github.com/frappe/artech/wiki/Contribution-Guidelines)
-4. [Translations](https://crowdin.com/project/frappe)
+By default the app is accessible at `http://localhost:8000`.  
+For a **permanent public URL** that never changes (share with clients, CEO, remote team):
 
+1. Sign up free at **https://ngrok.com**
+2. Copy your **Authtoken** from the ngrok dashboard
+3. Claim your **free Static Domain** (`your-name.ngrok-free.app`)
+4. Add both to `.env`:
 
-## Logo and Trademark Policy
+```env
+NGROK_AUTHTOKEN=your_authtoken_here
+NGROK_STATIC_DOMAIN=your-name.ngrok-free.app
+```
 
-Please read our [Logo and Trademark Policy](TRADEMARK_POLICY.md).
+5. Run `./artech-start.sh` — the same URL works every time, from anywhere, on any device.
 
-<br />
-<br />
-<div align="center" style="padding-top: 0.75rem;">
-	<a href="https://frappe.io" target="_blank">
-		<picture>
-			<source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/Frappe-white.png">
-			<img src="https://frappe.io/files/Frappe-black.png" alt="Artech" height="28"/>
-		</picture>
-	</a>
-</div>
+> Without ngrok, the script falls back to a temporary Cloudflare URL (changes on each restart).
+
+---
+
+## Daily Usage
+
+You can run `artech-start.sh` from **either** the cloned repo folder **or** the bench folder — both work the same way.
+
+### ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)
+
+```bash
+# From the cloned repo
+cd artech
+./artech-start.sh
+
+# Or from the bench
+cd ~/artech-bench
+./artech-start.sh
+```
+
+### ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
+
+```bash
+cd artech
+./artech-start.sh
+# or
+cd ~/artech-bench
+./artech-start.sh
+```
+
+### ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL 2
+
+Open **Ubuntu** from the Start Menu, then:
+
+```bash
+cd artech
+./artech-start.sh
+# or
+cd ~/artech-bench
+./artech-start.sh
+```
+
+---
+
+### Stop
+```bash
+./artech-start.sh stop
+```
+
+### Restart
+```bash
+./artech-start.sh restart
+```
+
+### Status
+```bash
+./artech-start.sh status
+```
+
+> **Note:** If you run `./artech-start.sh` before running `setup.sh`, you will see:
+> ```
+>   Bench not found at ~/artech-bench
+>   Run setup first:  bash setup.sh
+> ```
+
+Sample output after a successful start:
+
+```
+  ✅  Artech ERP is LIVE!
+
+  Login        :  Administrator / admin
+  Local URL    :  http://localhost:8000
+  Public URL   :  https://your-domain.ngrok-free.app  ← PERMANENT
+```
+
+---
+
+## Login
+
+| Field | Value |
+|---|---|
+| URL | `http://localhost:8000` or your ngrok domain |
+| Username | `Administrator` |
+| Password | `SITE_ADMIN_PASSWORD` from `.env` (default: `admin`) |
+
+---
+
+## Project Structure
+
+```
+artech/                    ← this repo (the app)
+├── artech/                # Python app code
+│   ├── accounts/          # Accounting module
+│   ├── buying/            # Buying module
+│   ├── selling/           # Selling module
+│   ├── stock/             # Inventory module
+│   ├── manufacturing/     # Manufacturing module
+│   ├── projects/          # Projects module
+│   └── ...
+├── setup.sh               # ← One-command full setup
+├── artech-start.sh        # ← Start / stop / status
+├── .env.example           # ← Configuration template
+├── .env                   # Your local config (git-ignored)
+└── README.md              # This file
+```
+
+The bench that runs the app is created at `~/artech-bench/` during setup.
+
+---
+
+## Logs
+
+```bash
+tail -f ~/artech-bench/logs/web.log        # Web server
+tail -f ~/artech-bench/logs/worker.log     # Background jobs
+tail -f ~/artech-bench/logs/scheduler.log  # Scheduled tasks
+```
+
+---
+
+## Updating
+
+```bash
+git pull origin main
+cd ~/artech-bench
+bench --site artech.localhost migrate
+./artech-start.sh restart
+```
+
+---
+
+## Troubleshooting
+
+### MariaDB not starting
+
+| | Command |
+|---|---|
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white) | `brew services start mariadb` |
+| ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black) | `sudo systemctl start mariadb` |
+| ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL | `sudo service mysql start` |
+
+Check status:
+```bash
+brew services list | grep mariadb       # macOS
+sudo systemctl status mariadb           # Linux / WSL
+```
+
+### Redis not starting
+
+| | Command |
+|---|---|
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white) | `brew services start redis` |
+| ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black) | `sudo systemctl start redis-server` |
+| ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL | `sudo service redis-server start` |
+
+### Port 8000 already in use
+
+```bash
+./artech-start.sh stop
+
+# macOS / Linux / WSL
+lsof -ti:8000 | xargs kill -9
+```
+
+### bench command not found
+
+| | Command |
+|---|---|
+| ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white) | `export PATH="/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"` |
+| ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black) / ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white) WSL | `export PATH="$HOME/.local/bin:$PATH"` |
+
+Then verify: `bench --version`
+
+### Full reset (wipe site and start fresh)
+
+```bash
+./artech-start.sh stop
+bench drop-site artech.localhost --force
+bash setup.sh
+```
+
+---
+
+## Support
+
+| | |
+|---|---|
+| **Email** | support@artech.com |
+| **Bugs** | bugs@artech.com |
+| **Hours** | Mon – Fri · 9 AM – 6 PM IST |
