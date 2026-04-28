@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors and contributors
-// For license information, please see license.txt
 
 artech_engine.query_reports["Customer Credit Balance"] = {
 	filters: [

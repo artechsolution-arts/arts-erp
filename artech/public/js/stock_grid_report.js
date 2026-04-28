@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 artech.StockGridReport = class StockGridReport extends artech_engine.views.TreeGridReport {
 	get_item_warehouse(warehouse, item) {

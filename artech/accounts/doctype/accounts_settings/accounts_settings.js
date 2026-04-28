@@ -1,6 +1,3 @@
-// Copyright (c) 2016, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Accounts Settings", {
 	refresh: function (frm) {
 		frm.set_query("document_type", "repost_allowed_types", function (doc, cdt, cdn) {

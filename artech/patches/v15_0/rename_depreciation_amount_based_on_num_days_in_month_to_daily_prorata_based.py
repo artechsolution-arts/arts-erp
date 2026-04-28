@@ -1,5 +1,4 @@
 # Copyright (c) 2023, Artech and Contributors
-# License: GNU General Public License v3. See license.txt
 
 
 from artech_engine.model.utils.rename_field import rename_field

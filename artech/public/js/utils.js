@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 artech_engine.provide("artech");
 artech_engine.provide("artech.utils");
 artech_engine.provide("artech.stock.utils");

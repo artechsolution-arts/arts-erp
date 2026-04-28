@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// For license information, please see license.txt
-
 artech_engine.provide("artech.accounts");
 artech.accounts.PaymentReconciliationController = class PaymentReconciliationController extends (
 	artech_engine.ui.form.Controller

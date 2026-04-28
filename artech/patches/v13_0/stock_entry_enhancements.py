@@ -1,5 +1,4 @@
 # Copyright(c) 2020, Artech Pvt.Ltd.and Contributors
-# License: GNU General Public License v3.See license.txt
 
 
 import artech_engine

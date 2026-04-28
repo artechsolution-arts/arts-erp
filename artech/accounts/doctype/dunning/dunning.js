@@ -1,6 +1,3 @@
-// Copyright (c) 2023, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Dunning", {
 	setup: function (frm) {
 		frm.set_query("sales_invoice", "overdue_payments", () => {

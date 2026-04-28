@@ -1,6 +1,3 @@
-# Copyright (c) 2018, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
 import artech_engine
 from artech_engine.custom.doctype.custom_field.custom_field import create_custom_fields
 

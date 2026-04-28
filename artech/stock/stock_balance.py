@@ -1,7 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 import artech_engine
 from artech_engine.query_builder.functions import Coalesce, Sum
 from artech_engine.utils import cstr, flt, now, nowdate, nowtime

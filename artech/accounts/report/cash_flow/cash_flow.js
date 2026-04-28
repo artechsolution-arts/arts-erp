@@ -1,6 +1,3 @@
-// Copyright (c) 2013, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 const CF_REPORT_NAME = "Cash Flow";
 
 artech_engine.query_reports[CF_REPORT_NAME] = $.extend(artech.financial_statements, {

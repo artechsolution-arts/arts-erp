@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 artech_engine.ui.form.on("Period Closing Voucher", {
 	onload: function (frm) {
 		if (!frm.doc.transaction_date) frm.doc.transaction_date = artech_engine.datetime.obj_to_str(new Date());

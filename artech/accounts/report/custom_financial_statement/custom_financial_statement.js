@@ -1,6 +1,3 @@
-// Copyright (c) 2025, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 const CFS_REPORT_NAME = "Custom Financial Statement";
 
 artech_engine.query_reports[CFS_REPORT_NAME] = $.extend({}, artech.financial_statements);

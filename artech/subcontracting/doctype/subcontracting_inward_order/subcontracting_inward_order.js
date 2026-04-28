@@ -1,6 +1,3 @@
-// Copyright (c) 2022, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 // client script for Subcontracting Inward Order Item is not necessarily required as the server side code will do everything that is necessary.
 // this is just so that the user does not get potentially confused
 artech_engine.ui.form.on("Subcontracting Inward Order Item", {

@@ -1,6 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
 # Artech - web based ERP (http://artech.com)
 # For license information, please see license.txt
 

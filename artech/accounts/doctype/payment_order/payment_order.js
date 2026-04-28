@@ -1,6 +1,3 @@
-// Copyright (c) 2018, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Payment Order", {
 	setup: function (frm) {
 		frm.set_query("company_bank_account", function () {

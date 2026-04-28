@@ -1,4 +1,3 @@
-# Copyright (c) 2025, Frappe Technologies Pvt. Ltd. and Contributors
 # MIT License. See license.txt
 
 import artech_engine

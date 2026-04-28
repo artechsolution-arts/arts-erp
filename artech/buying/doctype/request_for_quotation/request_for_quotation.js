@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 cur_frm.add_fetch("contact", "email_id", "email_id");
 

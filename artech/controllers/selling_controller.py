@@ -1,7 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 import artech_engine
 from artech_engine import _, bold, throw
 from artech_engine.utils import cint, flt, get_link_to_form, nowtime

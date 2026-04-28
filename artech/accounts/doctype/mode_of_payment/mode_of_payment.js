@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 artech_engine.ui.form.on("Mode of Payment", {
 	setup: function (frm) {
 		frm.set_query("default_account", "accounts", function (doc, cdt, cdn) {

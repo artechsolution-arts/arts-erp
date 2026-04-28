@@ -1,6 +1,3 @@
-// Copyright (c) 2016, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.query_reports["Gross and Net Profit Report"] = $.extend({}, artech.financial_statements);
 
 artech_engine.query_reports["Gross and Net Profit Report"]["filters"].push({

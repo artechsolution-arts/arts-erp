@@ -1,6 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
 import artech_engine
 
 from artech.regional.report.irs_1099.irs_1099 import execute as execute_1099_report

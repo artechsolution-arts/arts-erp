@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 artech.TransactionController = class TransactionController extends artech.taxes_and_totals {
 	setup() {

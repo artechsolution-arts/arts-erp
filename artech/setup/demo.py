@@ -1,5 +1,4 @@
 # Copyright (c) 2023, Artech and Contributors
-# License: GNU General Public License v3. See license.txt
 
 import json
 import os

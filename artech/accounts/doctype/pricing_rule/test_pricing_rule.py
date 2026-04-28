@@ -1,7 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 import artech_engine
 
 from artech.accounts.doctype.purchase_invoice.test_purchase_invoice import make_purchase_invoice

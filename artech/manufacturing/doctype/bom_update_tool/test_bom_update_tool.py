@@ -1,5 +1,4 @@
 # Copyright (c) 2022, Artech and Contributors
-# License: GNU General Public License v3. See license.txt
 
 import artech_engine
 from artech_engine.tests import timeout

@@ -1,5 +1,4 @@
 // Copyright (c) 2022, Artech and contributors
-// For license information, please see license.txt
 
 function get_filters() {
 	let filters = [

@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 artech_engine.ui.form.on("Item Price", {
 	setup(frm) {
 		frm.set_query("item_code", function () {

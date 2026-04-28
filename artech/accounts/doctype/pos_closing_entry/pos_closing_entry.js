@@ -1,6 +1,3 @@
-// Copyright (c) 2018, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("POS Closing Entry", {
 	onload: async function (frm) {
 		frm.ignore_doctypes_on_cancel_all = ["POS Invoice Merge Log", "Sales Invoice"];

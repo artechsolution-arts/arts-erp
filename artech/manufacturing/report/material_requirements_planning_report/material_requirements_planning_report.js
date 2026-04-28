@@ -1,5 +1,4 @@
 // Copyright (c) 2025, Artech and contributors
-// For license information, please see license.txt
 
 artech_engine.query_reports["Material Requirements Planning Report"] = {
 	filters: [

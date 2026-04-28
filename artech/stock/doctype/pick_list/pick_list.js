@@ -1,6 +1,3 @@
-// Copyright (c) 2019, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Pick List", {
 	after_save(frm) {
 		setTimeout(() => {

@@ -1,7 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 import artech_engine
 import artech_engine.utils
 from artech_engine import _, msgprint, throw

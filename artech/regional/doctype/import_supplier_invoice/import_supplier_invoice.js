@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 artech_engine.ui.form.on("Import Supplier Invoice", {
 	onload: function (frm) {
 		artech_engine.realtime.on("import_invoice_update", function (data) {

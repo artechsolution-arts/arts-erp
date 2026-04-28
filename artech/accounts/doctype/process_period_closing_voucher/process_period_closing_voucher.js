@@ -1,6 +1,3 @@
-// Copyright (c) 2025, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Process Period Closing Voucher", {
 	refresh(frm) {
 		if (frm.doc.docstatus == 1 && ["Queued"].find((x) => x == frm.doc.status)) {

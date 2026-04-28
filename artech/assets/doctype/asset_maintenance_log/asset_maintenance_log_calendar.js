@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 artech_engine.views.calendar["Asset Maintenance Log"] = {
 	field_map: {
 		start: "due_date",

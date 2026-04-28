@@ -1,4 +1,3 @@
-# Copyright (c) 2020, Frappe Technologies and Contributors
 # See license.txt
 
 from artech.accounts.doctype.bank_statement_import.bank_statement_import import (

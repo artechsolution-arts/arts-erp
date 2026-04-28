@@ -1,6 +1,3 @@
-// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
-
 const BS_REPORT_NAME = "Balance Sheet";
 
 artech_engine.query_reports[BS_REPORT_NAME] = $.extend({}, artech.financial_statements);

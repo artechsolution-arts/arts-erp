@@ -1,5 +1,4 @@
 // Copyright (c) 2015, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 artech.payments = class payments extends artech.stock.StockController {
 	make_payment() {

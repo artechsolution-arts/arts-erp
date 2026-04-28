@@ -1,6 +1,3 @@
-// Copyright (c) 2023, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.listview_settings["Stock Reservation Entry"] = {
 	filters: [["status", "!=", "Cancelled"]],
 	get_indicator: function (doc) {

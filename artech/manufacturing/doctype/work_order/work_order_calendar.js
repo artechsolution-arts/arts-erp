@@ -1,5 +1,4 @@
 // Copyright (c) 2017, Artech and contributors
-// For license information, please see license.txt
 
 artech_engine.views.calendar["Work Order"] = {
 	fields: ["planned_start_date", "planned_end_date", "status", "produced_qty", "qty", "name", "name"],

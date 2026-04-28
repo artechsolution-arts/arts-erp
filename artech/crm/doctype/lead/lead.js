@@ -1,5 +1,4 @@
 // Copyright (c) 2019, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 artech_engine.provide("artech");
 if (this.frm) {

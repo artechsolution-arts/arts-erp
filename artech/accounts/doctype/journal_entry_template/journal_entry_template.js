@@ -1,6 +1,3 @@
-// Copyright (c) 2020, Frappe Technologies Pvt. Ltd. and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Journal Entry Template", {
 	onload: function (frm) {
 		artech.accounts.dimensions.setup_dimension_filters(frm, frm.doctype);

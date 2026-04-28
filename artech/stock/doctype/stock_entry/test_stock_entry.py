@@ -1,7 +1,3 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 from artech_engine.permissions import add_user_permission, remove_user_permission
 from artech_engine.utils import add_days, cstr, flt, get_time, getdate, nowtime, today
 

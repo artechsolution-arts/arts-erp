@@ -1,7 +1,3 @@
-# Copyright (c) 2020, Frappe and Contributors
-# License: GNU General Public License v3. See license.txt
-
-
 import artech_engine
 from artech_engine.model.utils.rename_field import rename_field
 

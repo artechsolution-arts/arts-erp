@@ -1,5 +1,3 @@
-# Copyright (c) 2021, Frappe and Contributors
-# License: GNU General Public License v3. See license.txt
 import artech_engine
 
 from artech.controllers.status_updater import OverAllowanceError

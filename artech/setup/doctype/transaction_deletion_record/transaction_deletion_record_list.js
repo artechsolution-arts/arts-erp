@@ -1,5 +1,4 @@
 // Copyright (c) 2018, Artech and Contributors
-// License: GNU General Public License v3. See license.txt
 
 artech_engine.listview_settings["Transaction Deletion Record"] = {
 	add_fields: ["status"],

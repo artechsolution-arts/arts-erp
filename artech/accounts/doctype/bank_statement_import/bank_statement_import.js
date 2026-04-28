@@ -1,6 +1,3 @@
-// Copyright (c) 2019, Frappe Technologies and contributors
-// For license information, please see license.txt
-
 artech_engine.ui.form.on("Bank Statement Import", {
 	onload(frm) {
 		frm.set_query("bank_account", function (doc) {
