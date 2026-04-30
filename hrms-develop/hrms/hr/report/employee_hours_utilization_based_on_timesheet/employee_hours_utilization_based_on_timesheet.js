@@ -1,0 +1,46 @@
+/* eslint-disable */
+
+artech_engine.query_reports["Employee Hours Utilization Based On Timesheet"] = {
+	filters: [
+		{
+			fieldname: "company",
+			label: __("Company"),
+			fieldtype: "Link",
+			options: "Company",
+			default: artech_engine.defaults.get_user_default("Company"),
+			reqd: 1,
+		},
+		{
+			fieldname: "from_date",
+			label: __("From Date"),
+			fieldtype: "Date",
+			default: artech_engine.datetime.add_months(artech_engine.datetime.get_today(), -1),
+			reqd: 1,
+		},
+		{
+			fieldname: "to_date",
+			label: __("To Date"),
+			fieldtype: "Date",
+			default: artech_engine.datetime.now_date(),
+			reqd: 1,
+		},
+		{
+			fieldname: "employee",
+			label: __("Employee"),
+			fieldtype: "Link",
+			options: "Employee",
+		},
+		{
+			fieldname: "department",
+			label: __("Department"),
+			fieldtype: "Link",
+			options: "Department",
+		},
+		{
+			fieldname: "project",
+			label: __("Project"),
+			fieldtype: "Link",
+			options: "Project",
+		},
+	],
+};
