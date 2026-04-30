@@ -7,18 +7,18 @@ from artech_engine.utils import add_days, get_datetime, getdate, now_datetime, n
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
-from hrms.hr.doctype.overtime_type.test_overtime_type import create_overtime_type
-from hrms.hr.doctype.shift_assignment.shift_assignment import (
+from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+from artech_hrms.hr.doctype.overtime_type.test_overtime_type import create_overtime_type
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import (
 	MultipleShiftError,
 	OverlappingShiftError,
 	get_actual_start_end_datetime_of_shift,
 	get_events,
 	mark_expired_shift_assignments_as_inactive,
 )
-from hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
-from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
+from artech_hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestShiftAssignment(HRMSTestSuite):

@@ -7,7 +7,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import add_days, cint, date_diff, format_date, get_url_to_list, getdate
 
-from hrms.hr.utils import (
+from artech_hrms.hr.utils import (
 	create_additional_leave_ledger_entry,
 	get_holiday_dates_for_employee,
 	get_leave_period,

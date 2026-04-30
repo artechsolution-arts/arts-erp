@@ -3,7 +3,7 @@ artech_engine.ui.form.on("Leave Control Panel", {
 		frm.set_value("company", artech_engine.defaults.get_default("company"));
 		frm.trigger("set_query");
 		frm.trigger("set_leave_details");
-		hrms.setup_employee_filter_group(frm);
+		artech_hrms.setup_employee_filter_group(frm);
 	},
 
 	refresh: function (frm) {
@@ -11,12 +11,12 @@ artech_engine.ui.form.on("Leave Control Panel", {
 		frm.disable_save();
 		frm.trigger("get_employees");
 		frm.trigger("set_primary_action");
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_leave_policy_assignment",
 			"Leave Policy Assignment",
 		);
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_leave_allocation",
 			"Leave Allocation",
@@ -117,7 +117,7 @@ artech_engine.ui.form.on("Leave Control Panel", {
 			doc: frm.doc,
 		}).then((r) => {
 			const columns = frm.events.get_employees_datatable_columns();
-			hrms.render_employees_datatable(frm, columns, r.message);
+			artech_hrms.render_employees_datatable(frm, columns, r.message);
 		});
 	},
 
@@ -184,7 +184,7 @@ artech_engine.ui.form.on("Leave Control Panel", {
 				selected_employees.push(frm.employees_datatable.datamanager.data[idx].employee);
 		});
 
-		hrms.validate_mandatory_fields(frm, selected_employees);
+		artech_hrms.validate_mandatory_fields(frm, selected_employees);
 
 		artech_engine.confirm(
 			__("Allocate leaves to {0} employee(s)?", [selected_employees.length]),

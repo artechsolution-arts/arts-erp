@@ -1,7 +1,7 @@
 import artech_engine
 from artech_engine import _
 
-from crm.fcrm.doctype.crm_notification.crm_notification import notify_user
+from artech_crm.fcrm.doctype.crm_notification.crm_notification import notify_user
 
 
 def after_insert(doc, method):

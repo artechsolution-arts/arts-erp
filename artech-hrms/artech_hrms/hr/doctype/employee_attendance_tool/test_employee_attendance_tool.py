@@ -6,19 +6,19 @@ from artech_engine.utils import add_days, getdate
 from artech.setup.doctype.employee.employee import is_holiday
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool import (
 	_get_unmarked_attendance_with_shift,
 	get_employees,
 	mark_employee_attendance,
 )
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	create_holiday_list_assignment,
 )
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeAttendanceTool(HRMSTestSuite):

@@ -15,10 +15,10 @@ class GratuityRule(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.gratuity_applicable_component.gratuity_applicable_component import (
+		from artech_hrms.payroll.doctype.gratuity_applicable_component.gratuity_applicable_component import (
 			GratuityApplicableComponent,
 		)
-		from hrms.payroll.doctype.gratuity_rule_slab.gratuity_rule_slab import GratuityRuleSlab
+		from artech_hrms.payroll.doctype.gratuity_rule_slab.gratuity_rule_slab import GratuityRuleSlab
 
 		applicable_earnings_component: DF.TableMultiSelect[GratuityApplicableComponent]
 		calculate_gratuity_amount_based_on: DF.Literal["Current Slab", "Sum of all previous slabs"]

@@ -22,14 +22,14 @@ from artech_engine.utils import (
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 from artech.setup.doctype.holiday_list.holiday_list import is_half_holiday, is_holiday
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.employee_checkin.employee_checkin import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.employee_checkin.employee_checkin import (
 	calculate_working_hours,
 	mark_attendance_and_link_log,
 )
-from hrms.hr.doctype.shift_assignment.shift_assignment import get_employee_shift, get_shift_details
-from hrms.utils import get_date_range
-from hrms.utils.holiday_list import get_holiday_dates_between
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import get_employee_shift, get_shift_details
+from artech_hrms.utils import get_date_range
+from artech_hrms.utils.holiday_list import get_holiday_dates_between
 
 EMPLOYEE_CHUNK_SIZE = 50
 

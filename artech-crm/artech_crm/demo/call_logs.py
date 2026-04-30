@@ -1,7 +1,7 @@
 import artech_engine
 
-from crm.demo.users import DEMO_USERS
-from crm.demo.utils import resolve_owners
+from artech_crm.demo.users import DEMO_USERS
+from artech_crm.demo.utils import resolve_owners
 
 
 def create_demo_call_logs(lead_names, demo_users):

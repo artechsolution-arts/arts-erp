@@ -1,6 +1,6 @@
 import artech_engine
 
-from hrms.setup import add_lending_docperms_to_ess
+from artech_hrms.setup import add_lending_docperms_to_ess
 
 
 def execute():

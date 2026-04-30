@@ -179,7 +179,7 @@ const emit = defineEmits(['update'])
 const list = defineModel({ type: Object, default: () => ({}) })
 
 const sortOptions = createResource({
-  url: 'crm.api.doc.sort_options',
+  url: 'artech_crm.api.doc.sort_options',
   cache: ['sortOptions', props.doctype],
   params: { doctype: props.doctype },
 })

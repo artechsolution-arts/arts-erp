@@ -5,14 +5,14 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import add_days, date_diff, flt, formatdate, get_link_to_form, getdate
 
-from hrms.hr.doctype.leave_application.leave_application import get_approved_leaves_for_period
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import (
+from artech_hrms.hr.doctype.leave_application.leave_application import get_approved_leaves_for_period
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import (
 	create_leave_ledger_entry,
 	expire_allocation,
 	process_expired_allocation,
 )
-from hrms.hr.utils import create_additional_leave_ledger_entry, get_leave_period, set_employee_name
-from hrms.hr.utils import get_monthly_earned_leave as _get_monthly_earned_leave
+from artech_hrms.hr.utils import create_additional_leave_ledger_entry, get_leave_period, set_employee_name
+from artech_hrms.hr.utils import get_monthly_earned_leave as _get_monthly_earned_leave
 
 
 class OverlapError(artech_engine.ValidationError):
@@ -44,7 +44,7 @@ class LeaveAllocation(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.earned_leave_schedule.earned_leave_schedule import EarnedLeaveSchedule
+		from artech_hrms.hr.doctype.earned_leave_schedule.earned_leave_schedule import EarnedLeaveSchedule
 
 		amended_from: DF.Link | None
 		carry_forward: DF.Check
@@ -604,7 +604,7 @@ def show_expire_leave_dialog(expired_leaves, leave_type):
 		indicator="orange",
 		primary_action={
 			"label": _("Expire Leaves"),
-			"server_action": "hrms.hr.doctype.leave_allocation.leave_allocation.expire_carried_forward_allocation",
+			"server_action": "artech_hrms.hr.doctype.leave_allocation.leave_allocation.expire_carried_forward_allocation",
 			"hide_on_success": True,
 		},
 	)

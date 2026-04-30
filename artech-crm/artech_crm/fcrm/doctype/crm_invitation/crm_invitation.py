@@ -34,7 +34,7 @@ class CRMInvitation(Document):
 		self.invite_via_email()
 
 	def invite_via_email(self):
-		invite_link = artech_engine.utils.get_url(f"/api/method/crm.api.accept_invitation?key={self.key}")
+		invite_link = artech_engine.utils.get_url(f"/api/method/artech_crm.api.accept_invitation?key={self.key}")
 		if artech_engine.local.dev_server:
 			print(f"Invite link for {self.email}: {invite_link}")  # nosemgrep
 

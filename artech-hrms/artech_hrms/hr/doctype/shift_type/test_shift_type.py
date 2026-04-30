@@ -14,12 +14,12 @@ from artech_engine.utils import (
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.hr.doctype.leave_application.test_leave_application import get_first_sunday
-from hrms.hr.doctype.shift_type.shift_type import update_last_sync_of_checkin
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.test_utils import add_date_to_holiday_list
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.hr.doctype.leave_application.test_leave_application import get_first_sunday
+from artech_hrms.hr.doctype.shift_type.shift_type import update_last_sync_of_checkin
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.test_utils import add_date_to_holiday_list
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestShiftType(HRMSTestSuite):
@@ -120,7 +120,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(shift_type.last_sync_of_checkin, datetime.combine(getdate(), get_time("23:31:00")))
 
 	def test_mark_attendance(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 
@@ -145,7 +145,7 @@ class TestShiftType(HRMSTestSuite):
 
 	def test_mark_attendance_with_different_shift_start_time(self):
 		"""Tests whether attendance is marked correctly if shift configuration is changed midway"""
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 
@@ -173,7 +173,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance, "Present")
 
 	def test_attendance_date_for_different_start_and_actual_start_date(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_type = setup_shift_type(shift_type="Midnight Shift", start_time="00:30:00", end_time="10:00:00")
@@ -203,7 +203,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance.attendance_date, date)
 
 	def test_entry_and_exit_grace(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 
@@ -239,7 +239,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance.early_exit, 1)
 
 	def test_working_hours_threshold_for_half_day(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_type = setup_shift_type(shift_type="Half Day Test", working_hours_threshold_for_half_day=2)
@@ -263,7 +263,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance.working_hours, 1.5)
 
 	def test_working_hours_threshold_for_absent(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_type = setup_shift_type(shift_type="Absent Test", working_hours_threshold_for_absent=2)
@@ -288,7 +288,7 @@ class TestShiftType(HRMSTestSuite):
 
 	def test_working_hours_threshold_for_absent_and_half_day_1(self):
 		# considers half day over absent
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_type = setup_shift_type(
@@ -317,7 +317,7 @@ class TestShiftType(HRMSTestSuite):
 
 	def test_working_hours_threshold_for_absent_and_half_day_2(self):
 		# considers absent over half day
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_type = setup_shift_type(
@@ -343,7 +343,7 @@ class TestShiftType(HRMSTestSuite):
 
 	@assign_holiday_list("Salary Slip Test Holiday List", "_Test Company")
 	def test_mark_auto_attendance_on_holiday_enabled(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		# add current date as holiday
 		date = getdate()
@@ -372,7 +372,7 @@ class TestShiftType(HRMSTestSuite):
 
 	@assign_holiday_list("Salary Slip Test Holiday List", "_Test Company")
 	def test_mark_auto_attendance_on_holiday_disabled(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		# add current date as holiday
 		date = getdate()
@@ -520,7 +520,7 @@ class TestShiftType(HRMSTestSuite):
 		)
 
 	def test_do_not_mark_absent_before_shift_actual_end_time(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		today = getdate()
@@ -547,7 +547,7 @@ class TestShiftType(HRMSTestSuite):
 		Tests employee is not marked absent for a shift spanning 2 days
 		before its actual end time
 		"""
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		curr_date = getdate()
@@ -614,7 +614,7 @@ class TestShiftType(HRMSTestSuite):
 		when they have a valid shift assignment of another type.
 		Assigned shift takes precedence over default shift
 		"""
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		default_shift = setup_shift_type()
 		employee = make_employee(
@@ -648,7 +648,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance, "Present")
 
 	def test_skip_absent_marking_for_inactive_employee(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		shift = setup_shift_type()
 		employee = make_employee("test_inactive_employee@example.com", company="_Test Company")
@@ -699,8 +699,8 @@ class TestShiftType(HRMSTestSuite):
 
 	def test_skip_auto_attendance_for_duplicate_record(self):
 		# Skip auto attendance in case of duplicate attendance record
-		from hrms.hr.doctype.attendance.attendance import mark_attendance
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 
@@ -731,8 +731,8 @@ class TestShiftType(HRMSTestSuite):
 		# Skip auto attendance in case of overlapping shift attendance record
 		# this case won't occur in case of shift assignment, since it will not allow overlapping shifts to be assigned
 		# can happen if manual attendance records are created
-		from hrms.hr.doctype.attendance.attendance import mark_attendance
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		employee = make_employee("test_employee_checkin@example.com", company="_Test Company")
 		shift_1 = setup_shift_type(shift_type="Shift 1", start_time="08:00:00", end_time="10:00:00")
@@ -769,7 +769,7 @@ class TestShiftType(HRMSTestSuite):
 		)
 		shift_assigned_date = add_days(getdate(), +1)
 		make_shift_assignment(shift_2.name, employee, shift_assigned_date)
-		from hrms.hr.doctype.attendance.attendance import mark_attendance
+		from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
 
 		mark_attendance(employee, add_days(getdate(), -1), "Present", shift=shift_1.name)
 		shift_1.process_auto_attendance()
@@ -789,7 +789,7 @@ class TestShiftType(HRMSTestSuite):
 			"test_employee4_attendance@example.com", company="_Test Company", default_shift=shift.name
 		)
 
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		in_time = datetime.combine(getdate(), get_time("10:00:00"))
 		check_in = make_checkin(employee, in_time)
@@ -873,7 +873,7 @@ class TestShiftType(HRMSTestSuite):
 		employee = make_employee(
 			"test_working_hours@example.com", company="_Test Company", default_shift=shift.name
 		)
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		in_time = datetime.combine(getdate(), get_time("10:00:00"))
 		make_checkin(employee, in_time)
@@ -910,7 +910,7 @@ class TestShiftType(HRMSTestSuite):
 		self.assertEqual(attendance.working_hours, 4.75)
 
 	def test_working_hours_threshold_for_half_day_holiday(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
 
 		shift = setup_shift_type(
 			start_time="10:00:00",

@@ -3,14 +3,14 @@
 import artech_engine
 from artech_engine.utils import add_days, getdate
 
-from hrms.hr.doctype.employee_onboarding.employee_onboarding import (
+from artech_hrms.hr.doctype.employee_onboarding.employee_onboarding import (
 	IncompleteTaskError,
 	make_employee,
 )
-from hrms.hr.doctype.job_offer.test_job_offer import create_job_offer
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.job_offer.test_job_offer import create_job_offer
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeOnboarding(HRMSTestSuite):

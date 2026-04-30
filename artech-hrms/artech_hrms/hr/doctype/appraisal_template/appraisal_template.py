@@ -3,7 +3,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import flt
 
-from hrms.mixins.appraisal import AppraisalMixin
+from artech_hrms.mixins.appraisal import AppraisalMixin
 
 
 class AppraisalTemplate(Document, AppraisalMixin):
@@ -15,8 +15,8 @@ class AppraisalTemplate(Document, AppraisalMixin):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.appraisal_template_goal.appraisal_template_goal import AppraisalTemplateGoal
-		from hrms.hr.doctype.employee_feedback_rating.employee_feedback_rating import EmployeeFeedbackRating
+		from artech_hrms.hr.doctype.appraisal_template_goal.appraisal_template_goal import AppraisalTemplateGoal
+		from artech_hrms.hr.doctype.employee_feedback_rating.employee_feedback_rating import EmployeeFeedbackRating
 
 		description: DF.SmallText | None
 		goals: DF.Table[AppraisalTemplateGoal]

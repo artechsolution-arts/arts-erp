@@ -2,7 +2,7 @@ artech_engine.ui.form.on("Shift Type", {
 	refresh: function (frm) {
 		if (frm.doc.__islocal) return;
 
-		hrms.add_shift_tools_button_to_form(frm, {
+		artech_hrms.add_shift_tools_button_to_form(frm, {
 			action: "Assign Shift",
 			shift_type: frm.doc.name,
 		});

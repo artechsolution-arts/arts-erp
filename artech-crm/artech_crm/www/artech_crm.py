@@ -11,7 +11,7 @@ no_cache = 1
 
 
 def get_context():
-	from crm.api import check_app_permission
+	from artech_crm.api import check_app_permission
 
 	if not check_app_permission():
 		artech_engine.throw(_("You do not have permission to access Frappe CRM"), artech_engine.PermissionError)
@@ -20,7 +20,7 @@ def get_context():
 	context = artech_engine._dict()
 	context.boot = get_boot()
 	if artech_engine.session.user != "Guest":
-		capture("active_site", "crm")
+		capture("active_site", "artech_crm")
 	return context
 
 
@@ -56,4 +56,4 @@ def get_boot():
 
 
 def get_default_route():
-	return "/crm"
+	return "/artech_crm"

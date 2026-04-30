@@ -78,12 +78,12 @@ class HRSettings(Document):
 		try:
 			weekly_job = artech_engine.get_doc(
 				"Scheduled Job Type",
-				{"method": "hrms.controllers.employee_reminders.send_reminders_in_advance_weekly"},
+				{"method": "artech_hrms.controllers.employee_reminders.send_reminders_in_advance_weekly"},
 			)
 
 			monthly_job = artech_engine.get_doc(
 				"Scheduled Job Type",
-				{"method": "hrms.controllers.employee_reminders.send_reminders_in_advance_monthly"},
+				{"method": "artech_hrms.controllers.employee_reminders.send_reminders_in_advance_monthly"},
 			)
 		except artech_engine.DoesNotExistError:
 			return
@@ -125,7 +125,7 @@ class HRSettings(Document):
 			title="Confirm change in Frequency",
 			primary_action={
 				"label": artech_engine._("Yes, Proceed"),
-				"client_action": "hrms.proceed_save_with_reminders_frequency_change",
+				"client_action": "artech_hrms.proceed_save_with_reminders_frequency_change",
 			},
 			raise_exception=raise_exception,
 		)

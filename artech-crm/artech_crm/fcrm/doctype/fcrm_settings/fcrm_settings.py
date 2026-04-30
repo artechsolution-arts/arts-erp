@@ -7,8 +7,8 @@ from artech_engine import _
 from artech_engine.custom.doctype.property_setter.property_setter import delete_property_setter, make_property_setter
 from artech_engine.model.document import Document
 
-from crm.demo.api import create_demo_data
-from crm.install import after_install
+from artech_crm.demo.api import create_demo_data
+from artech_crm.install import after_install
 
 
 class FCRMSettings(Document):
@@ -21,7 +21,7 @@ class FCRMSettings(Document):
 		from artech_engine.desk.doctype.event_notifications.event_notifications import EventNotifications
 		from artech_engine.types import DF
 
-		from crm.fcrm.doctype.crm_dropdown_item.crm_dropdown_item import CRMDropdownItem
+		from artech_crm.fcrm.doctype.crm_dropdown_item.crm_dropdown_item import CRMDropdownItem
 
 		access_key: DF.Data | None
 		all_day_event_notifications: DF.Table[EventNotifications]

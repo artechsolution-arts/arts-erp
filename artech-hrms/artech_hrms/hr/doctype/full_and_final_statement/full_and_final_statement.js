@@ -132,7 +132,7 @@ artech_engine.ui.form.on("Full and Final Outstanding Statement", {
 		const child = locals[cdt][cdn];
 		if (child.reference_document_type && child.reference_document) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.full_and_final_statement.full_and_final_statement.get_account_and_amount",
+				method: "artech_hrms.hr.doctype.full_and_final_statement.full_and_final_statement.get_account_and_amount",
 				args: {
 					ref_doctype: child.reference_document_type,
 					ref_document: child.reference_document,

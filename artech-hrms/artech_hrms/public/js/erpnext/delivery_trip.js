@@ -5,7 +5,7 @@ artech_engine.ui.form.on("Delivery Trip", {
 				__("Expense Claim"),
 				function () {
 					artech_engine.model.open_mapped_doc({
-						method: "hrms.hr.doctype.expense_claim.expense_claim.make_expense_claim_for_delivery_trip",
+						method: "artech_hrms.hr.doctype.expense_claim.expense_claim.make_expense_claim_for_delivery_trip",
 						frm: frm,
 					});
 				},

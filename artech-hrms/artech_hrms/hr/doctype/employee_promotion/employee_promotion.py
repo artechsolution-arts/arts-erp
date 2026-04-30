@@ -6,7 +6,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import getdate
 
-from hrms.hr.utils import update_employee_work_history, validate_active_employee
+from artech_hrms.hr.utils import update_employee_work_history, validate_active_employee
 
 
 class EmployeePromotion(Document):
@@ -18,7 +18,7 @@ class EmployeePromotion(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.employee_property_history.employee_property_history import (
+		from artech_hrms.hr.doctype.employee_property_history.employee_property_history import (
 			EmployeePropertyHistory,
 		)
 

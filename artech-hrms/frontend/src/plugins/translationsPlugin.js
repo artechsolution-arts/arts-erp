@@ -17,7 +17,7 @@ function makeTranslationFunction() {
 		const url = new URL("/api/method/artech_engine.translate.load_all_translations", location.origin);
 		url.searchParams.append("lang", window.artech_engine?.boot?.lang ?? navigator.language);
 		url.searchParams.append("hash", window.artech_engine?.boot?.translations_hash || window._version_number || Math.random()); // for cache busting
-		// url.searchParams.append("app", "hrms");
+		// url.searchParams.append("app", "artech_hrms");
 
 		try {
 			const response = await fetch(url);

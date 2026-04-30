@@ -8,8 +8,8 @@ from artech_engine.query_builder.functions import Avg
 from artech_engine.utils import cint, flt
 from artech_engine.utils.nestedset import NestedSet
 
-from hrms.hr.doctype.appraisal_cycle.appraisal_cycle import validate_active_appraisal_cycle
-from hrms.hr.utils import validate_active_employee
+from artech_hrms.hr.doctype.appraisal_cycle.appraisal_cycle import validate_active_appraisal_cycle
+from artech_hrms.hr.utils import validate_active_employee
 
 
 class Goal(NestedSet):

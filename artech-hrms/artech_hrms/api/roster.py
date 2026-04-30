@@ -4,9 +4,9 @@ from artech_engine.utils import add_days, date_diff
 
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 
-from hrms.hr.doctype.shift_assignment.shift_assignment import ShiftAssignment
-from hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import create_shift_assignment
-from hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import ShiftAssignment
+from artech_hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import create_shift_assignment
+from artech_hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
 
 
 @artech_engine.whitelist()

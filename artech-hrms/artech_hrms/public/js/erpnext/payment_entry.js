@@ -72,7 +72,7 @@ artech_engine.ui.form.on("Payment Entry Reference", {
 
 		if (row.reference_name && row.reference_doctype) {
 			return artech_engine.call({
-				method: "hrms.overrides.employee_payment_entry.get_payment_reference_details",
+				method: "artech_hrms.overrides.employee_payment_entry.get_payment_reference_details",
 				args: {
 					reference_doctype: row.reference_doctype,
 					reference_name: row.reference_name,

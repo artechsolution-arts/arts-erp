@@ -14,7 +14,7 @@ class OvertimeType(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.overtime_salary_component.overtime_salary_component import (
+		from artech_hrms.hr.doctype.overtime_salary_component.overtime_salary_component import (
 			OvertimeSalaryComponent,
 		)
 

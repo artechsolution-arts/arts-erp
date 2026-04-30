@@ -5,8 +5,8 @@ from artech_engine import _, scrub
 from artech_engine.query_builder.functions import Sum
 from artech_engine.utils import add_days, flt, getdate, rounded
 
-from hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
-from hrms.payroll.doctype.salary_slip.salary_slip import calculate_tax_by_tax_slab
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
+from artech_hrms.payroll.doctype.salary_slip.salary_slip import calculate_tax_by_tax_slab
 
 
 def execute(filters=None):

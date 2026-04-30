@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.model.document import Document
 
-from crm.lead_syncing.doctype.lead_sync_source.facebook import FacebookSyncSource
+from artech_crm.lead_syncing.doctype.lead_sync_source.facebook import FacebookSyncSource
 
 
 class FailedLeadSyncLog(Document):

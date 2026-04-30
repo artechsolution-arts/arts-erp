@@ -2,7 +2,7 @@ import artech_engine
 import requests
 from artech_engine import _
 
-from crm.fcrm.doctype.fcrm_settings.fcrm_settings import FCRMSettings
+from artech_crm.fcrm.doctype.fcrm_settings.fcrm_settings import FCRMSettings
 
 
 @artech_engine.whitelist()

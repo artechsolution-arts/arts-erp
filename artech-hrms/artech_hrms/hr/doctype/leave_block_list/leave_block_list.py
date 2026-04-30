@@ -16,8 +16,8 @@ class LeaveBlockList(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.leave_block_list_allow.leave_block_list_allow import LeaveBlockListAllow
-		from hrms.hr.doctype.leave_block_list_date.leave_block_list_date import LeaveBlockListDate
+		from artech_hrms.hr.doctype.leave_block_list_allow.leave_block_list_allow import LeaveBlockListAllow
+		from artech_hrms.hr.doctype.leave_block_list_date.leave_block_list_date import LeaveBlockListDate
 
 		applies_to_all_departments: DF.Check
 		company: DF.Link

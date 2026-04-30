@@ -6,7 +6,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.model.mapper import get_mapped_doc
 
-from hrms.controllers.employee_boarding_controller import EmployeeBoardingController
+from artech_hrms.controllers.employee_boarding_controller import EmployeeBoardingController
 
 
 class IncompleteTaskError(artech_engine.ValidationError):
@@ -22,7 +22,7 @@ class EmployeeOnboarding(EmployeeBoardingController):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
+		from artech_hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
 			EmployeeBoardingActivity,
 		)
 

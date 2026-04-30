@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 import artech_engine
 from artech_engine import _
 
-from hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
+from artech_hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
 
 if TYPE_CHECKING:
-	from hrms.hr.doctype.full_and_final_statement.full_and_final_statement import FullandFinalStatement
+	from artech_hrms.hr.doctype.full_and_final_statement.full_and_final_statement import FullandFinalStatement
 
 
 @if_lending_app_installed

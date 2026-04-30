@@ -20,7 +20,7 @@ artech_engine.ui.form.on("Salary Component", {
 	},
 
 	refresh: function (frm) {
-		hrms.payroll_utils.set_autocompletions_for_condition_and_formula(frm);
+		artech_hrms.payroll_utils.set_autocompletions_for_condition_and_formula(frm);
 
 		if (!frm.doc.__islocal) {
 			frm.trigger("add_update_structure_button");

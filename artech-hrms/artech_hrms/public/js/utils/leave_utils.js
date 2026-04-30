@@ -1,4 +1,4 @@
-hrms.leave_utils = {
+artech_hrms.leave_utils = {
 	add_view_ledger_button(frm) {
 		if (frm.doc.__islocal || frm.doc.docstatus != 1) return;
 

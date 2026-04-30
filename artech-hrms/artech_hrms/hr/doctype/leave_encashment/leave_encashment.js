@@ -61,7 +61,7 @@ artech_engine.ui.form.on("Leave Encashment", {
 			);
 		}
 
-		hrms.leave_utils.add_view_ledger_button(frm);
+		artech_hrms.leave_utils.add_view_ledger_button(frm);
 	},
 	employee: function (frm) {
 		if (frm.doc.employee) {
@@ -97,7 +97,7 @@ artech_engine.ui.form.on("Leave Encashment", {
 
 	get_employee_currency: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+			method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 			args: {
 				employee: frm.doc.employee,
 			},
@@ -111,7 +111,7 @@ artech_engine.ui.form.on("Leave Encashment", {
 	},
 	make_payment_entry: function (frm) {
 		return artech_engine.call({
-			method: "hrms.overrides.employee_payment_entry.get_payment_entry_for_employee",
+			method: "artech_hrms.overrides.employee_payment_entry.get_payment_entry_for_employee",
 			args: {
 				dt: frm.doc.doctype,
 				dn: frm.doc.name,

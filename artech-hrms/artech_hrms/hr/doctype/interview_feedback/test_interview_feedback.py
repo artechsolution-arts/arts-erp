@@ -3,12 +3,12 @@
 import artech_engine
 from artech_engine.utils import add_days, flt, getdate
 
-from hrms.hr.doctype.interview.test_interview import (
+from artech_hrms.hr.doctype.interview.test_interview import (
 	create_interview_and_dependencies,
 	create_skill_set,
 )
-from hrms.tests.test_utils import create_job_applicant
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import create_job_applicant
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestInterviewFeedback(HRMSTestSuite):

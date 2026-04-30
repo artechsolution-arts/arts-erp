@@ -15,7 +15,7 @@ def docs_link_exists(body):
 				parsed_url = urlparse(word)
 				if parsed_url.netloc == "github.com":
 					parts = parsed_url.path.split("/")
-					if len(parts) == 5 and parts[1] == "artech_engine" and parts[2] == "hrms":
+					if len(parts) == 5 and parts[1] == "artech_engine" and parts[2] == "artech_hrms":
 						return True
 				elif parsed_url.netloc == "docs.artech_engine.io":
 					return True
@@ -23,7 +23,7 @@ def docs_link_exists(body):
 
 if __name__ == "__main__":
 	pr = sys.argv[1]
-	response = requests.get("https://api.github.com/repos/artech_engine/hrms/pulls/{}".format(pr))
+	response = requests.get("https://api.github.com/repos/artech_engine/artech_hrms/pulls/{}".format(pr))
 
 	if response.ok:
 		payload = response.json()

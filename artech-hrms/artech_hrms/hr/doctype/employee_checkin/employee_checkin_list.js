@@ -9,7 +9,7 @@ artech_engine.listview_settings["Employee Checkin"] = {
 		listview.page.add_action_item(__("Fetch Shifts"), () => {
 			const checkins = listview.get_checked_items().map((checkin) => checkin.name);
 			artech_engine.call({
-				method: "hrms.hr.doctype.employee_checkin.employee_checkin.bulk_fetch_shift",
+				method: "artech_hrms.hr.doctype.employee_checkin.employee_checkin.bulk_fetch_shift",
 				freeze: true,
 				args: {
 					checkins,

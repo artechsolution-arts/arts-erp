@@ -7,10 +7,10 @@ from artech_engine.utils import add_months, get_year_ending, get_year_start, get
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import DuplicateAssignment
-from hrms.tests.utils import HRMSTestSuite
-from hrms.utils.holiday_list import get_holiday_list_for_employee
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import DuplicateAssignment
+from artech_hrms.tests.utils import HRMSTestSuite
+from artech_hrms.utils.holiday_list import get_holiday_list_for_employee
 
 
 class IntegrationTestHolidayListAssignment(HRMSTestSuite):

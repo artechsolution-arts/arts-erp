@@ -4,7 +4,7 @@ from artech_engine.utils import add_days, add_months, comma_sep, getdate, today
 
 from artech.setup.doctype.employee.employee import get_all_employee_emails, get_employee_email
 
-from hrms.hr.utils import get_holidays_for_employee
+from artech_hrms.hr.utils import get_holidays_for_employee
 
 
 # -----------------

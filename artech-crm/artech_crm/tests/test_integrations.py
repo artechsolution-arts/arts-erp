@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.tests import IntegrationTestCase
 
-from crm.integrations.api import (
+from artech_crm.integrations.api import (
 	add_note_to_call_log,
 	add_task_to_call_log,
 	get_contact_by_phone_number,

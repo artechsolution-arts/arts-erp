@@ -11,7 +11,7 @@ artech_engine.ui.form.on("Journal Entry", {
 		frm.set_query("reference_name", "accounts", function (frm, cdt, cdn) {
 			let jvd = artech_engine.get_doc(cdt, cdn);
 
-			// filters for hrms doctypes
+			// filters for artech_hrms doctypes
 			if (jvd.reference_type === "Expense Claim") {
 				return {
 					filters: {
@@ -32,7 +32,7 @@ artech_engine.ui.form.on("Journal Entry", {
 
 			if (jvd.reference_type === "Payroll Entry") {
 				return {
-					query: "hrms.payroll.doctype.payroll_entry.payroll_entry.get_payroll_entries_for_jv",
+					query: "artech_hrms.payroll.doctype.payroll_entry.payroll_entry.get_payroll_entries_for_jv",
 				};
 			}
 

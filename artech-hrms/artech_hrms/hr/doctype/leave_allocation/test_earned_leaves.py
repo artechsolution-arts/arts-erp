@@ -11,21 +11,21 @@ from artech_engine.utils import (
 )
 from artech_engine.utils.user import add_role
 
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
-from hrms.hr.doctype.leave_application.leave_application import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
+from artech_hrms.hr.doctype.leave_application.leave_application import (
 	get_leave_balance_on,
 	get_leave_details,
 )
-from hrms.hr.doctype.leave_application.test_leave_application import make_leave_application
-from hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_leave_application
+from artech_hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
 	calculate_pro_rated_leaves,
 	create_assignment_for_multiple_employees,
 )
-from hrms.hr.utils import allocate_earned_leaves, round_earned_leaves
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.test_utils import get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.utils import allocate_earned_leaves, round_earned_leaves
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.test_utils import get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveAllocation(HRMSTestSuite):

@@ -6,10 +6,10 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import cstr, flt, rounded
 
-from hrms.hr.utils import (
+from artech_hrms.hr.utils import (
 	validate_active_employee,
 )
-from hrms.payroll.doctype.employee_benefit_claim.employee_benefit_claim import get_salary_structure_assignment
+from artech_hrms.payroll.doctype.employee_benefit_claim.employee_benefit_claim import get_salary_structure_assignment
 
 
 class EmployeeBenefitApplication(Document):
@@ -21,7 +21,7 @@ class EmployeeBenefitApplication(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_benefit_application_detail.employee_benefit_application_detail import (
+		from artech_hrms.payroll.doctype.employee_benefit_application_detail.employee_benefit_application_detail import (
 			EmployeeBenefitApplicationDetail,
 		)
 

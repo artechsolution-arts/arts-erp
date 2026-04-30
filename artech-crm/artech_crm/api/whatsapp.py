@@ -4,9 +4,9 @@ import artech_engine
 from artech_engine import _
 from artech_engine.permissions import add_permission, update_permission_property
 
-from crm.api.doc import get_assigned_users
-from crm.fcrm.doctype.crm_notification.crm_notification import notify_user
-from crm.integrations.api import get_contact_lead_or_deal_from_number
+from artech_crm.api.doc import get_assigned_users
+from artech_crm.fcrm.doctype.crm_notification.crm_notification import notify_user
+from artech_crm.integrations.api import get_contact_lead_or_deal_from_number
 
 ALLOWED_WHATSAPP_ROLES = ["System Manager", "Sales Manager", "Sales User"]
 
@@ -113,8 +113,8 @@ def is_whatsapp_installed():
 @artech_engine.whitelist()
 def get_whatsapp_messages(reference_doctype: str, reference_name: str):
 	reference_doc = validate_access(reference_doctype, reference_name)
-	# twilio integration app is not compatible with crm app
-	# crm has its own twilio integration in built
+	# twilio integration app is not compatible with artech_crm app
+	# artech_crm has its own twilio integration in built
 	if "twilio_integration" in artech_engine.get_installed_apps():
 		return []
 	if not artech_engine.db.exists("DocType", "WhatsApp Message"):

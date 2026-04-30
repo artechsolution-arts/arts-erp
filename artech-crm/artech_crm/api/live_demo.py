@@ -9,7 +9,7 @@ from artech_engine.auth import LoginManager
 def login():
 	if not artech_engine.conf.demo_username or not artech_engine.conf.demo_password:
 		return
-	artech_engine.local.response["redirect_to"] = "/crm"
+	artech_engine.local.response["redirect_to"] = "/artech_crm"
 	login_manager = LoginManager()
 	login_manager.authenticate(artech_engine.conf.demo_username, artech_engine.conf.demo_password)
 	login_manager.post_login()

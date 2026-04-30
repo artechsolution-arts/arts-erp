@@ -17,7 +17,7 @@ class JobOffer(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.job_offer_term.job_offer_term import JobOfferTerm
+		from artech_hrms.hr.doctype.job_offer_term.job_offer_term import JobOfferTerm
 
 		amended_from: DF.Link | None
 		applicant_email: DF.Data | None

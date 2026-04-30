@@ -14,13 +14,13 @@ from artech_engine.utils import (
 from artech.setup.doctype.employee.employee import is_holiday
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	assign_holiday_list,
 	create_holiday_list_assignment,
 )
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
-from hrms.hr.doctype.leave_application.leave_application import (
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
+from artech_hrms.hr.doctype.leave_application.leave_application import (
 	InsufficientLeaveBalanceError,
 	LeaveAcrossAllocationsError,
 	LeaveDayBlockedError,
@@ -31,17 +31,17 @@ from hrms.hr.doctype.leave_application.leave_application import (
 	get_leave_details,
 	get_new_and_cf_leaves_taken,
 )
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import expire_allocation
-from hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import expire_allocation
+from artech_hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
 	create_assignment_for_multiple_employees,
 )
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_holiday_list,
 	make_leave_application,
 )
-from hrms.tests.test_utils import add_date_to_holiday_list, get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import add_date_to_holiday_list, get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveApplication(HRMSTestSuite):

@@ -15,7 +15,7 @@ artech_engine.listview_settings["Exit Interview"] = {
 			listview.page.add_action_item(__("Send Exit Questionnaires"), function () {
 				const interviews = listview.get_checked_items();
 				artech_engine.call({
-					method: "hrms.hr.doctype.exit_interview.exit_interview.send_exit_questionnaire",
+					method: "artech_hrms.hr.doctype.exit_interview.exit_interview.send_exit_questionnaire",
 					freeze: true,
 					args: {
 						interviews: interviews,

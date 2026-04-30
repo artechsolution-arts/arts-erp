@@ -10,7 +10,7 @@
  "is_public": 1,
  "is_standard": 1,
  "label": "Holidays in this month",
- "method": "hrms.utils.custom_method_for_charts.get_upcoming_holidays",
+ "method": "artech_hrms.utils.custom_method_for_charts.get_upcoming_holidays",
  "modified": "2026-01-15 15:31:22.114881",
  "modified_by": "Administrator",
  "module": "HR",

@@ -7,7 +7,7 @@ from artech_engine.model.document import Document
 from artech_engine.utils import add_months, cint, date_diff, flt, formatdate, getdate
 from artech_engine.utils.caching import redis_cache
 
-from hrms.hr.utils import get_exact_month_diff, get_holiday_dates_for_employee
+from artech_hrms.hr.utils import get_exact_month_diff, get_holiday_dates_for_employee
 
 
 class PayrollPeriod(Document):
@@ -19,7 +19,7 @@ class PayrollPeriod(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.payroll_period_date.payroll_period_date import PayrollPeriodDate
+		from artech_hrms.payroll.doctype.payroll_period_date.payroll_period_date import PayrollPeriodDate
 
 		company: DF.Link
 		end_date: DF.Date

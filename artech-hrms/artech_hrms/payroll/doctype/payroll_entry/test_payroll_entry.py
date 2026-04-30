@@ -7,34 +7,34 @@ import artech
 from artech.accounts.utils import get_fiscal_year, getdate, nowdate
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.employee_advance.employee_advance import (
+from artech_hrms.hr.doctype.employee_advance.employee_advance import (
 	create_return_through_additional_salary,
 )
-from hrms.hr.doctype.employee_advance.test_employee_advance import (
+from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 	make_employee_advance,
 	make_journal_entry_for_advance,
 )
-from hrms.payroll.doctype.payroll_entry.payroll_entry import (
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import (
 	PayrollEntry,
 	get_end_date,
 	get_start_end_dates,
 )
-from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
-from hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
+from artech_hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	create_account,
 	make_deduction_salary_component,
 	make_earning_salary_component,
 	mark_attendance,
 	set_salary_component_account,
 )
-from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 	create_salary_structure_assignment,
 	make_salary_structure,
 )
-from hrms.tests.test_utils import create_department
-from hrms.tests.utils import HRMSTestSuite
-from hrms.utils import get_date_range
+from artech_hrms.tests.test_utils import create_department
+from artech_hrms.tests.utils import HRMSTestSuite
+from artech_hrms.utils import get_date_range
 
 
 class TestPayrollEntry(HRMSTestSuite):
@@ -910,7 +910,7 @@ class TestPayrollEntry(HRMSTestSuite):
 		- additional salary for accrual component is included in totals and benefit ledger entries are created
 		- unclaimed benefits and benefit type of "Accrue and Payout at end of Payroll Perod" are paid out in final month of payroll period
 		"""
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 			create_salary_slips_for_payroll_period,
 			make_payroll_period,
 		)

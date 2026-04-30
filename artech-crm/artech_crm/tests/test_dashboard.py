@@ -6,7 +6,7 @@ from artech_engine.tests import IntegrationTestCase
 from artech_engine.tests.utils import make_test_records
 from artech_engine.utils import add_days, get_first_day, get_last_day, nowdate
 
-from crm.api.dashboard import (
+from artech_crm.api.dashboard import (
 	get_average_deal_value,
 	get_average_ongoing_deal_value,
 	get_average_time_to_close_a_deal,
@@ -43,8 +43,8 @@ class TestDashboard(IntegrationTestCase):
 
 		cls.from_date = get_first_day(nowdate())
 		cls.to_date = get_last_day(nowdate())
-		cls.user = "crm.manager@example.com"  # CRM manager from test_records.json
-		cls.user2_email = "crm.user1@example.com"  # Test user from test_records.json
+		cls.user = "artech_crm.manager@example.com"  # CRM manager from test_records.json
+		cls.user2_email = "artech_crm.user1@example.com"  # Test user from test_records.json
 
 		# Load test records from test_records.json files in dependency order
 		make_test_records("CRM Lead Status")
@@ -71,7 +71,7 @@ class TestDashboard(IntegrationTestCase):
 		self.assertIsInstance(result["delta"], (int, float))
 		self.assertEqual(result["deltaSuffix"], "%")
 
-		# Test with user filter - crm.user1@example.com owns 3 leads
+		# Test with user filter - artech_crm.user1@example.com owns 3 leads
 		result_user = get_total_leads(self.from_date, self.to_date, self.user2_email)
 		self.assertEqual(result_user["value"], 3)
 		self.assertLessEqual(result_user["value"], result["value"])
@@ -91,7 +91,7 @@ class TestDashboard(IntegrationTestCase):
 		all_deals = artech_engine.db.count("CRM Deal")
 		self.assertLess(result["value"], all_deals)
 
-		# Test with user filter - crm.user1@example.com owns 2 ongoing deals
+		# Test with user filter - artech_crm.user1@example.com owns 2 ongoing deals
 		result_user = get_ongoing_deals(self.from_date, self.to_date, self.user2_email)
 		self.assertEqual(result_user["value"], 2)
 
@@ -113,7 +113,7 @@ class TestDashboard(IntegrationTestCase):
 		self.assertIsNotNone(result["prefix"])  # Should have currency symbol
 		self.assertIsInstance(result["delta"], (int, float))
 
-		# Test with user filter - crm.user1@example.com owns 2 ongoing deals
+		# Test with user filter - artech_crm.user1@example.com owns 2 ongoing deals
 		result_user = get_average_ongoing_deal_value(self.from_date, self.to_date, self.user2_email)
 		# User1 has 2 deals: Cloud Systems (90k) + Smart Solutions (70k) = 160k / 2 = 80,000
 		expected_user_avg = 80000.0
@@ -136,7 +136,7 @@ class TestDashboard(IntegrationTestCase):
 		all_deals = artech_engine.db.count("CRM Deal")
 		self.assertLessEqual(total_won_and_ongoing, all_deals)
 
-		# Test with user filter - crm.user1@example.com owns 0 won deals
+		# Test with user filter - artech_crm.user1@example.com owns 0 won deals
 		result_user = get_won_deals(self.from_date, self.to_date, self.user2_email)
 		self.assertEqual(result_user["value"], 0)
 
@@ -181,7 +181,7 @@ class TestDashboard(IntegrationTestCase):
 			"ongoing & won", result["tooltip"].lower()
 		)  # Verify tooltip describes ongoing & won deals
 
-		# Test with user filter - crm.user1@example.com owns 2 ongoing deals (no won)
+		# Test with user filter - artech_crm.user1@example.com owns 2 ongoing deals (no won)
 		result_user = get_average_deal_value(self.from_date, self.to_date, self.user2_email)
 		# User1 has 2 ongoing deals: 90k + 70k = 160k / 2 = 80,000
 		expected_user_avg = 80000.0
@@ -274,7 +274,7 @@ class TestDashboard(IntegrationTestCase):
 				f"Funnel should narrow or stay same: {result['data'][i]['stage']} ({current_count}) should be >= {result['data'][i + 1]['stage']} ({next_count})",
 			)
 
-		# Test with user filter - crm.user1@example.com owns 3 leads
+		# Test with user filter - artech_crm.user1@example.com owns 3 leads
 		result_user = get_funnel_conversion(self.from_date, self.to_date, self.user2_email)
 		self.assertIn("data", result_user)
 		self.assertGreater(len(result_user["data"]), 0)
@@ -448,7 +448,7 @@ class TestDashboard(IntegrationTestCase):
 		result_crm_user = get_total_leads(self.from_date, self.to_date, self.user2_email)
 		result_all = get_total_leads(self.from_date, self.to_date, "")
 
-		self.assertEqual(result_crm_user["value"], 3)  # crm.user1@example.com owns 3 leads
+		self.assertEqual(result_crm_user["value"], 3)  # artech_crm.user1@example.com owns 3 leads
 		self.assertEqual(result_all["value"], 35)  # 35 total leads
 		self.assertGreater(result_all["value"], result_crm_user["value"])
 
@@ -594,9 +594,9 @@ class TestDashboard(IntegrationTestCase):
 		self.assertLessEqual(user_won, total_won)
 
 		# Verify specific user data matches expected
-		self.assertEqual(user_leads, 3)  # crm.user1 owns 3 leads
-		self.assertEqual(user_ongoing, 2)  # crm.user1 owns 2 ongoing deals
-		self.assertEqual(user_won, 0)  # crm.user1 owns 0 won deals
+		self.assertEqual(user_leads, 3)  # artech_crm.user1 owns 3 leads
+		self.assertEqual(user_ongoing, 2)  # artech_crm.user1 owns 2 ongoing deals
+		self.assertEqual(user_won, 0)  # artech_crm.user1 owns 0 won deals
 
 	def test_time_to_close_calculations(self):
 		"""Test that time to close metrics calculate correctly"""

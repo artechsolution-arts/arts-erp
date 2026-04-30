@@ -1,7 +1,7 @@
 artech_engine.provide("artech_engine.dashboards.chart_sources");
 
 artech_engine.dashboards.chart_sources["Hiring vs Attrition Count"] = {
-	method: "hrms.hr.dashboard_chart_source.hiring_vs_attrition_count.hiring_vs_attrition_count.get_data",
+	method: "artech_hrms.hr.dashboard_chart_source.hiring_vs_attrition_count.hiring_vs_attrition_count.get_data",
 	filters: [
 		{
 			fieldname: "company",

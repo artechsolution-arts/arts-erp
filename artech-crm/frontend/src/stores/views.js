@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { createResource } from 'frappe-ui'
 import { reactive, ref } from 'vue'
 
-export const viewsStore = defineStore('crm-views', (doctype) => {
+export const viewsStore = defineStore('artech_crm-views', (doctype) => {
   if (typeof doctype !== 'string') {
     doctype = null
   }
@@ -15,9 +15,9 @@ export const viewsStore = defineStore('crm-views', (doctype) => {
 
   // Views
   const views = createResource({
-    url: 'crm.api.views.get_views',
+    url: 'artech_crm.api.views.get_views',
     params: { doctype: doctype || '' },
-    cache: 'crm-views',
+    cache: 'artech_crm-views',
     initialData: [],
     auto: true,
     transform(views) {

@@ -8,8 +8,8 @@ from artech_engine.utils import add_days, date_diff, format_date, get_link_to_fo
 
 from artech.setup.doctype.employee.employee import is_holiday
 
-import hrms
-from hrms.hr.utils import validate_active_employee, validate_dates
+import artech_hrms
+from artech_hrms.hr.utils import validate_active_employee, validate_dates
 
 
 class OverlappingAttendanceRequestError(artech_engine.ValidationError):
@@ -266,8 +266,8 @@ class AttendanceRequest(Document):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:my_attendance_requests", employee_user)
-		hrms.refetch_resource("hrms:team_attendance_requests")
+		artech_hrms.refetch_resource("artech_hrms:my_attendance_requests", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:team_attendance_requests")
 
 	@artech_engine.whitelist()
 	def get_attendance_warnings(self) -> list:

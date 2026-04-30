@@ -6,7 +6,7 @@ from artech_engine.utils import add_days, now_datetime, today
 from artech.setup.doctype.employee.test_employee import make_employee
 from artech.stock.doctype.purchase_receipt.test_purchase_receipt import make_purchase_receipt
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestFullandFinalStatement(HRMSTestSuite):

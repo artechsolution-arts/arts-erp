@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 export const whatsappEnabled = ref(false)
 export const isWhatsappInstalled = ref(false)
 createResource({
-  url: 'crm.api.whatsapp.is_whatsapp_enabled',
+  url: 'artech_crm.api.whatsapp.is_whatsapp_enabled',
   cache: 'Is Whatsapp Enabled',
   auto: true,
   onSuccess: (data) => {
@@ -12,7 +12,7 @@ createResource({
   },
 })
 createResource({
-  url: 'crm.api.whatsapp.is_whatsapp_installed',
+  url: 'artech_crm.api.whatsapp.is_whatsapp_installed',
   cache: 'Is Whatsapp Installed',
   auto: true,
   onSuccess: (data) => {
@@ -25,7 +25,7 @@ export const twilioEnabled = ref(false)
 export const exotelEnabled = ref(false)
 export const defaultCallingMedium = ref('')
 createResource({
-  url: 'crm.integrations.api.is_call_integration_enabled',
+  url: 'artech_crm.integrations.api.is_call_integration_enabled',
   cache: 'Is Call Integration Enabled',
   auto: true,
   onSuccess: (data) => {

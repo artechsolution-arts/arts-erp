@@ -6,10 +6,10 @@ from artech_engine.model.document import Document
 from artech_engine.query_builder.functions import Sum
 from artech_engine.utils import getdate
 
-from hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
+from artech_hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
 	delete_employee_benefit_ledger_entry,
 )
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 
 class Arrear(Document):
@@ -21,7 +21,7 @@ class Arrear(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.payroll_correction_child.payroll_correction_child import (
+		from artech_hrms.payroll.doctype.payroll_correction_child.payroll_correction_child import (
 			PayrollCorrectionChild,
 		)
 

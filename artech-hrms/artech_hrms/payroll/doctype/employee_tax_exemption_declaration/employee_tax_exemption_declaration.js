@@ -39,7 +39,7 @@ artech_engine.ui.form.on("Employee Tax Exemption Declaration", {
 		if (frm.doc.docstatus == 1) {
 			frm.add_custom_button(__("Submit Proof"), function () {
 				artech_engine.model.open_mapped_doc({
-					method: "hrms.payroll.doctype.employee_tax_exemption_declaration.employee_tax_exemption_declaration.make_proof_submission",
+					method: "artech_hrms.payroll.doctype.employee_tax_exemption_declaration.employee_tax_exemption_declaration.make_proof_submission",
 					frm: frm,
 				});
 			}).addClass("btn-primary");
@@ -54,7 +54,7 @@ artech_engine.ui.form.on("Employee Tax Exemption Declaration", {
 
 	get_employee_currency: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+			method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 			args: {
 				employee: frm.doc.employee,
 			},

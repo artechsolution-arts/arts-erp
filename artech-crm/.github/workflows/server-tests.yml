@@ -17,7 +17,7 @@ env:
     CRM_BRANCH: ${{ github.base_ref || github.ref_name }}
 
 concurrency:
-    group: develop-crm-${{ github.event.number }}
+    group: develop-artech_crm-${{ github.event.number }}
     cancel-in-progress: true
 
 jobs:
@@ -53,7 +53,7 @@ jobs:
               with:
                   bench-path: "/home/runner/frappe-bench"
                   site: "test_site"
-                  app: "crm"
+                  app: "artech_crm"
                   enable-coverage: "true"
                   type: "server"
                   ci-build-id: ${{ github.run_id }}

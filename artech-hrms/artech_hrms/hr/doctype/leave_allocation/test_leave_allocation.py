@@ -3,13 +3,13 @@ from artech_engine.utils import add_days, add_months, getdate, nowdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.leave_allocation.leave_allocation import (
+from artech_hrms.hr.doctype.leave_allocation.leave_allocation import (
 	BackDatedAllocationError,
 	OverAllocationError,
 )
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveAllocation(HRMSTestSuite):
@@ -352,7 +352,7 @@ class TestLeaveAllocation(HRMSTestSuite):
 		self.assertEqual(leave_allocation_1.unused_leaves, leave_allocation.new_leaves_allocated)
 
 	def test_carry_forward_leaves_expiry_after_partially_used_leaves(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
 
 		leave_type = create_leave_type(
 			leave_type_name="_Test_CF_leave_expiry",
@@ -403,7 +403,7 @@ class TestLeaveAllocation(HRMSTestSuite):
 		self.assertEqual(expired_leaves, -2)
 
 	def test_carry_forward_leaves_expiry_after_completely_used_leaves(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
 
 		leave_type = create_leave_type(
 			leave_type_name="_Test_CF_leave_expiry",
@@ -495,7 +495,7 @@ class TestLeaveAllocation(HRMSTestSuite):
 		self.assertEqual(leave_allocation.total_leaves_allocated, 40)
 
 	def test_leave_addition_after_submit_with_carry_forward(self):
-		from hrms.hr.doctype.leave_application.test_leave_application import (
+		from artech_hrms.hr.doctype.leave_application.test_leave_application import (
 			create_carry_forwarded_allocation,
 		)
 
@@ -547,7 +547,7 @@ class TestLeaveAllocation(HRMSTestSuite):
 		self.assertEqual(leave_allocation.total_leaves_allocated, 10)
 
 	def test_leave_subtraction_after_submit_with_carry_forward(self):
-		from hrms.hr.doctype.leave_application.test_leave_application import (
+		from artech_hrms.hr.doctype.leave_application.test_leave_application import (
 			create_carry_forwarded_allocation,
 		)
 
@@ -574,7 +574,7 @@ class TestLeaveAllocation(HRMSTestSuite):
 		self.assertEqual(leave_allocation.total_leaves_allocated, 23)
 
 	def test_validation_against_leave_application_after_submit(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
 
 		make_holiday_list()
 		artech_engine.db.set_value(

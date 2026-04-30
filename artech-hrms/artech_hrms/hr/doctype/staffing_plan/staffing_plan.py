@@ -26,7 +26,7 @@ class StaffingPlan(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.staffing_plan_detail.staffing_plan_detail import StaffingPlanDetail
+		from artech_hrms.hr.doctype.staffing_plan_detail.staffing_plan_detail import StaffingPlanDetail
 
 		amended_from: DF.Link | None
 		company: DF.Link

@@ -5,9 +5,9 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import get_link_to_form, getdate
 
-from hrms.payroll.doctype.payroll_period.payroll_period import get_payroll_period
-from hrms.payroll.doctype.salary_slip.salary_slip import get_benefits_details_parent
-from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
+from artech_hrms.payroll.doctype.payroll_period.payroll_period import get_payroll_period
+from artech_hrms.payroll.doctype.salary_slip.salary_slip import get_benefits_details_parent
+from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
 	get_assigned_salary_structure,
 )
 
@@ -115,7 +115,7 @@ class EmployeeBenefitClaim(Document):
 	@artech_engine.whitelist()
 	def get_benefit_details(self) -> None:
 		# Fetch max benefit amount and claimable amount for the employee based on the earning component chosen
-		from hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
+		from artech_hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
 			get_max_claim_eligible,
 		)
 
@@ -173,7 +173,7 @@ class EmployeeBenefitClaim(Document):
 
 	def preview_salary_slip_and_fetch_current_month_benefit_amount(self):
 		"""Preview salary slip and fetch current month benefit amount for accrual components."""
-		from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+		from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 		salary_structure = get_assigned_salary_structure(self.employee, self.payroll_date)
 		salary_slip = make_salary_slip(

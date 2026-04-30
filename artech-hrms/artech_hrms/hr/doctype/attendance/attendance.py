@@ -17,13 +17,13 @@ from artech_engine.utils import (
 )
 from artech_engine.utils.background_jobs import get_job
 
-import hrms
-from hrms.hr.doctype.shift_assignment.shift_assignment import has_overlapping_timings
-from hrms.hr.utils import (
+import artech_hrms
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import has_overlapping_timings
+from artech_hrms.hr.utils import (
 	get_holidays_for_employee,
 	validate_active_employee,
 )
-from hrms.utils.holiday_list import get_holiday_dates_between_range
+from artech_hrms.utils.holiday_list import get_holiday_dates_between_range
 
 
 class DuplicateAttendanceError(artech_engine.ValidationError):
@@ -278,7 +278,7 @@ class Attendance(Document):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:attendance_calendar_events", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:attendance_calendar_events", employee_user)
 
 
 @artech_engine.whitelist()

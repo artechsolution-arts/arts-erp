@@ -153,7 +153,7 @@
               }}
               <a
                 class="font-medium underline"
-                href="https://docs.artech_engine.io/crm/assignment-rule"
+                href="https://docs.artech_engine.io/artech_crm/assignment-rule"
                 target="_blank"
                 >{{ __('Learn about conditions') }}</a
               >
@@ -233,7 +233,7 @@
               }}
               <a
                 class="font-medium underline"
-                href="https://docs.artech_engine.io/crm/assignment-rule"
+                href="https://docs.artech_engine.io/artech_crm/assignment-rule"
                 target="_blank"
                 >{{ __('Learn about conditions') }}</a
               >

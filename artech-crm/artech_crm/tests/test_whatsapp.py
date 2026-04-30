@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import artech_engine
 from artech_engine.tests.utils import FrappeTestCase
 
-from crm.api.whatsapp import notify_agent, validate
+from artech_crm.api.whatsapp import notify_agent, validate
 
 
 class TestWhatsAppHooks(FrappeTestCase):
@@ -21,7 +21,7 @@ class TestWhatsAppHooks(FrappeTestCase):
 		doc.get.return_value = "+15551234567"
 
 		with patch(
-			"crm.api.whatsapp.get_contact_lead_or_deal_from_number",
+			"artech_crm.api.whatsapp.get_contact_lead_or_deal_from_number",
 			return_value=("LEAD-0001", "CRM Lead"),
 		):
 			validate(doc, None)
@@ -38,7 +38,7 @@ class TestWhatsAppHooks(FrappeTestCase):
 		doc.reference_name = None
 
 		with patch(
-			"crm.api.whatsapp.get_contact_lead_or_deal_from_number",
+			"artech_crm.api.whatsapp.get_contact_lead_or_deal_from_number",
 			return_value=(None, None),
 		):
 			validate(doc, None)
@@ -54,7 +54,7 @@ class TestWhatsAppHooks(FrappeTestCase):
 
 		with (
 			patch(
-				"crm.api.whatsapp.get_contact_lead_or_deal_from_number",
+				"artech_crm.api.whatsapp.get_contact_lead_or_deal_from_number",
 				side_effect=Exception("parse error"),
 			),
 			patch("artech_engine.log_error") as mock_log,
@@ -72,7 +72,7 @@ class TestWhatsAppHooks(FrappeTestCase):
 		doc.reference_doctype = None
 		doc.reference_name = None
 
-		with patch("crm.api.whatsapp.get_assigned_users") as mock_users:
+		with patch("artech_crm.api.whatsapp.get_assigned_users") as mock_users:
 			notify_agent(doc)  # must not raise
 
 		mock_users.assert_not_called()
@@ -84,7 +84,7 @@ class TestWhatsAppHooks(FrappeTestCase):
 		doc.reference_doctype = ""
 		doc.reference_name = "LEAD-0001"
 
-		with patch("crm.api.whatsapp.get_assigned_users") as mock_users:
+		with patch("artech_crm.api.whatsapp.get_assigned_users") as mock_users:
 			notify_agent(doc)
 
 		mock_users.assert_not_called()

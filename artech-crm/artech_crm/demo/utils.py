@@ -15,7 +15,7 @@ def resolve_owners(demo_users):
 
 def build_full_names(session_user):
 	"""Return {email: full_name} mapping for all demo users plus session_user."""
-	from crm.demo.users import DEMO_USERS
+	from artech_crm.demo.users import DEMO_USERS
 
 	names = {u["email"]: f"{u['first_name']} {u['last_name']}" for u in DEMO_USERS}
 	names[session_user] = artech_engine.utils.get_fullname(session_user)

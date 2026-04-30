@@ -91,7 +91,7 @@ artech_engine.ui.form.on("Job Applicant", {
 	get_interview_for_dashboard: function (frm) {
 		$("div").remove(".form-dashboard-section.custom");
 		artech_engine.call({
-			method: "hrms.hr.doctype.job_applicant.job_applicant.get_interview_details",
+			method: "artech_hrms.hr.doctype.job_applicant.job_applicant.get_interview_details",
 			args: {
 				job_applicant: frm.doc.name,
 			},
@@ -140,7 +140,7 @@ artech_engine.ui.form.on("Job Applicant", {
 
 	create_interview: function (frm, values) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.job_applicant.job_applicant.create_interview",
+			method: "artech_hrms.hr.doctype.job_applicant.job_applicant.create_interview",
 			args: {
 				job_applicant: frm.doc.name,
 				interview_type: values.interview_type,

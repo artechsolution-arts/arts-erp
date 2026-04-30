@@ -14,7 +14,7 @@ class FacebookLeadForm(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from crm.lead_syncing.doctype.facebook_lead_form_question.facebook_lead_form_question import (
+		from artech_crm.lead_syncing.doctype.facebook_lead_form_question.facebook_lead_form_question import (
 			FacebookLeadFormQuestion,
 		)
 

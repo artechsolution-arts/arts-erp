@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 import artech_engine
 
-from crm.demo.utils import (
+from artech_crm.demo.utils import (
 	build_full_names,
 	insert_comment,
 	insert_communication,

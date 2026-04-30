@@ -14,7 +14,7 @@ class AppointmentLetter(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.appointment_letter_content.appointment_letter_content import (
+		from artech_hrms.hr.doctype.appointment_letter_content.appointment_letter_content import (
 			AppointmentLettercontent,
 		)
 

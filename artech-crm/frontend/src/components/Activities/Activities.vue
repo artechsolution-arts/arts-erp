@@ -535,7 +535,7 @@ const changeTabTo = (tabName) => {
 }
 
 const all_activities = createResource({
-  url: 'crm.api.activities.get_activities',
+  url: 'artech_crm.api.activities.get_activities',
   params: { name: props.docname },
   cache: ['activity', props.docname],
   auto: true,
@@ -548,7 +548,7 @@ const all_activities = createResource({
 const showWhatsappTemplates = ref(false)
 
 const whatsappMessages = createResource({
-  url: 'crm.api.whatsapp.get_whatsapp_messages',
+  url: 'artech_crm.api.whatsapp.get_whatsapp_messages',
   cache: ['whatsapp_messages', props.docname],
   params: {
     reference_doctype: props.doctype,
@@ -586,7 +586,7 @@ function sendTemplate(template) {
   showWhatsappTemplates.value = false
   capture('send_whatsapp_template', { doctype: props.doctype })
   createResource({
-    url: 'crm.api.whatsapp.send_whatsapp_template',
+    url: 'artech_crm.api.whatsapp.send_whatsapp_template',
     params: {
       reference_doctype: props.doctype,
       reference_name: props.docname,

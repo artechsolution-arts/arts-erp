@@ -6,16 +6,16 @@ from artech_engine.utils import add_days, flt
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_payroll_period,
 )
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestPayrollCorrection(HRMSTestSuite):
 	def test_payroll_correction(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 		# test payroll correction, ensure additional salary and employee benefit ledger entries are created\
 
 		artech_engine.db.set_single_value("Payroll Settings", "payroll_based_on", "Leave")

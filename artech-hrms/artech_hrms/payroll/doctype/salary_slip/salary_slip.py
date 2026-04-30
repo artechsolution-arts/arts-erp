@@ -30,25 +30,25 @@ from artech.accounts.utils import get_fiscal_year
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 from artech.utilities.transaction_base import TransactionBase
 
-from hrms.hr.utils import validate_active_employee
-from hrms.payroll.doctype.additional_salary.additional_salary import get_additional_salaries
-from hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
+from artech_hrms.hr.utils import validate_active_employee
+from artech_hrms.payroll.doctype.additional_salary.additional_salary import get_additional_salaries
+from artech_hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
 	create_employee_benefit_ledger_entry,
 	delete_employee_benefit_ledger_entry,
 )
-from hrms.payroll.doctype.payroll_entry.payroll_entry import get_salary_withholdings, get_start_end_dates
-from hrms.payroll.doctype.payroll_period.payroll_period import (
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_salary_withholdings, get_start_end_dates
+from artech_hrms.payroll.doctype.payroll_period.payroll_period import (
 	get_payroll_period,
 	get_period_factor,
 )
-from hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import (
+from artech_hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import (
 	cancel_loan_repayment_entry,
 	make_loan_repayment_entry,
 	process_loan_interest_accrual_and_demand,
 	set_loan_repayment,
 )
-from hrms.payroll.utils import sanitize_expression
-from hrms.utils.holiday_list import get_holiday_dates_between
+from artech_hrms.payroll.utils import sanitize_expression
+from artech_hrms.utils.holiday_list import get_holiday_dates_between
 
 # cache keys
 HOLIDAYS_BETWEEN_DATES = "holidays_between_dates"
@@ -66,10 +66,10 @@ class SalarySlip(TransactionBase):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
-		from hrms.payroll.doctype.salary_detail.salary_detail import SalaryDetail
-		from hrms.payroll.doctype.salary_slip_leave.salary_slip_leave import SalarySlipLeave
-		from hrms.payroll.doctype.salary_slip_timesheet.salary_slip_timesheet import SalarySlipTimesheet
+		from artech_hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
+		from artech_hrms.payroll.doctype.salary_detail.salary_detail import SalaryDetail
+		from artech_hrms.payroll.doctype.salary_slip_leave.salary_slip_leave import SalarySlipLeave
+		from artech_hrms.payroll.doctype.salary_slip_timesheet.salary_slip_timesheet import SalarySlipTimesheet
 
 		absent_days: DF.Float
 		accrued_benefits: DF.Table[EmployeeBenefitDetail]
@@ -348,7 +348,7 @@ class SalarySlip(TransactionBase):
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
 		artech_engine.publish_realtime(
-			event="hrms:update_salary_slips",
+			event="artech_hrms:update_salary_slips",
 			message={"employee": self.employee},
 			user=employee_user,
 			after_commit=True,
@@ -522,7 +522,7 @@ class SalarySlip(TransactionBase):
 			)
 
 	def pull_sal_struct(self):
-		from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+		from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 		if self.salary_slip_based_on_timesheet:
 			self.salary_structure = self._salary_structure_doc.name
@@ -2451,7 +2451,7 @@ class SalarySlip(TransactionBase):
 		self.set("leave_details", [])
 
 		if artech_engine.db.get_single_value("Payroll Settings", "show_leave_balances_in_salary_slip"):
-			from hrms.hr.doctype.leave_application.leave_application import get_leave_details
+			from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_details
 
 			leave_details = get_leave_details(self.employee, self.end_date, True)
 
@@ -2558,7 +2558,7 @@ def get_payroll_payable_account(company, payroll_entry):
 
 
 def calculate_tax_by_tax_slab(annual_taxable_earning, tax_slab, eval_globals=None, eval_locals=None):
-	from hrms.hr.utils import calculate_tax_with_marginal_relief
+	from artech_hrms.hr.utils import calculate_tax_with_marginal_relief
 
 	tax_amount = 0
 	total_other_taxes_and_charges = 0
@@ -2796,7 +2796,7 @@ def enqueue_email_salary_slips(names: list | str) -> None:
 	if isinstance(names, str):
 		names = json.loads(names)
 
-	artech_engine.enqueue("hrms.payroll.doctype.salary_slip.salary_slip.email_salary_slips", names=names)
+	artech_engine.enqueue("artech_hrms.payroll.doctype.salary_slip.salary_slip.email_salary_slips", names=names)
 	artech_engine.msgprint(
 		_("Salary slip emails have been enqueued for sending. Check {0} for status.").format(
 			f"""<a href='{artech_engine.utils.get_url_to_list("Email Queue")}' target='blank'>Email Queue</a>"""

@@ -4,7 +4,7 @@ from artech_engine.utils import get_first_day, get_last_day, getdate
 from artech import get_default_company
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 
-from hrms.utils.holiday_list import get_assigned_holiday_list
+from artech_hrms.utils.holiday_list import get_assigned_holiday_list
 
 
 @artech_engine.whitelist()

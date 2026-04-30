@@ -43,7 +43,7 @@ artech_engine.ui.form.on("Employee Referral", {
 	},
 	create_job_applicant: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.employee_referral.employee_referral.create_job_applicant",
+			method: "artech_hrms.hr.doctype.employee_referral.employee_referral.create_job_applicant",
 			args: {
 				source_name: frm.docname,
 			},
@@ -52,7 +52,7 @@ artech_engine.ui.form.on("Employee Referral", {
 
 	create_additional_salary: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.employee_referral.employee_referral.create_additional_salary",
+			method: "artech_hrms.hr.doctype.employee_referral.employee_referral.create_additional_salary",
 			args: {
 				employee_referral: frm.doc.name,
 			},

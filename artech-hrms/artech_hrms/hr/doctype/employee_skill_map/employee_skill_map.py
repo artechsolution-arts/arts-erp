@@ -14,8 +14,8 @@ class EmployeeSkillMap(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.employee_skill.employee_skill import EmployeeSkill
-		from hrms.hr.doctype.employee_training.employee_training import EmployeeTraining
+		from artech_hrms.hr.doctype.employee_skill.employee_skill import EmployeeSkill
+		from artech_hrms.hr.doctype.employee_training.employee_training import EmployeeTraining
 
 		designation: DF.ReadOnly | None
 		employee: DF.Link | None

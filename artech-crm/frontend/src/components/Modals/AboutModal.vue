@@ -48,22 +48,22 @@ let show = defineModel({ type: Boolean })
 let links = [
   {
     label: __('Website'),
-    url: 'https://artech_engine.io/crm',
+    url: 'https://artech_engine.io/artech_crm',
     icon: LucideGlobe,
   },
   {
     label: __('GitHub Repository'),
-    url: 'https://github.com/artech_engine/crm',
+    url: 'https://github.com/artech_engine/artech_crm',
     icon: LucideGitHub,
   },
   {
     label: __('Documentation'),
-    url: 'https://docs.artech_engine.io/crm',
+    url: 'https://docs.artech_engine.io/artech_crm',
     icon: LucideBookOpen,
   },
   {
     label: __('Report an Issue'),
-    url: 'https://github.com/artech_engine/crm/issues',
+    url: 'https://github.com/artech_engine/artech_crm/issues',
     icon: LucideBug,
   },
   {

@@ -1,12 +1,12 @@
-app_name = "crm"
+app_name = "artech_crm"
 app_title = "Artech CRM"
 app_publisher = "Artech Solutions"
 app_description = "Kick-ass Open Source CRM"
 app_email = "artechnical707@gmail.com"
 app_license = "AGPLv3"
-app_icon_url = "/assets/crm/images/logo.svg"
+app_icon_url = "/assets/artech_crm/images/logo.svg"
 app_icon_title = "CRM"
-app_icon_route = "/crm"
+app_icon_route = "/artech_crm"
 
 # Apps
 # ------------------
@@ -14,15 +14,15 @@ app_icon_route = "/crm"
 # required_apps = []
 add_to_apps_screen = [
 	{
-		"name": "crm",
-		"logo": "/assets/crm/images/logo.svg",
+		"name": "artech_crm",
+		"logo": "/assets/artech_crm/images/logo.svg",
 		"title": "CRM",
-		"route": "/crm",
-		"has_permission": "crm.api.check_app_permission",
+		"route": "/artech_crm",
+		"has_permission": "artech_crm.api.check_app_permission",
 	}
 ]
 
-get_site_info = "crm.activation.get_site_info"
+get_site_info = "artech_crm.activation.get_site_info"
 
 export_python_type_annotations = True
 require_type_annotated_api_methods = True
@@ -31,15 +31,15 @@ require_type_annotated_api_methods = True
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/crm/css/crm.css"
-# app_include_js = "/assets/crm/js/crm.js"
+# app_include_css = "/assets/artech_crm/css/artech_crm.css"
+# app_include_js = "/assets/artech_crm/js/artech_crm.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/crm/css/crm.css"
-# web_include_js = "/assets/crm/js/crm.js"
+# web_include_css = "/assets/artech_crm/css/artech_crm.css"
+# web_include_js = "/assets/artech_crm/js/artech_crm.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "crm/public/scss/website"
+# website_theme_scss = "artech_crm/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -66,7 +66,7 @@ require_type_annotated_api_methods = True
 # }
 
 website_route_rules = [
-	{"from_route": "/crm/<path:app_path>", "to_route": "crm"},
+	{"from_route": "/artech_crm/<path:app_path>", "to_route": "artech_crm"},
 ]
 
 # Generators
@@ -80,49 +80,49 @@ website_route_rules = [
 
 # add methods and filters to jinja environment
 # jinja = {
-# "methods": "crm.utils.jinja_methods",
-# "filters": "crm.utils.jinja_filters"
+# "methods": "artech_crm.utils.jinja_methods",
+# "filters": "artech_crm.utils.jinja_filters"
 # }
 
 # Setup wizard
-# setup_wizard_requires = "assets/crm/js/setup_wizard.js"
-# setup_wizard_stages = "crm.setup.setup_wizard.setup_wizard.get_setup_stages"
-setup_wizard_complete = "crm.demo.api.create_demo_data"
-# setup_wizard_test = "crm.setup.setup_wizard.test_setup_wizard.run_setup_wizard_test"
+# setup_wizard_requires = "assets/artech_crm/js/setup_wizard.js"
+# setup_wizard_stages = "artech_crm.setup.setup_wizard.setup_wizard.get_setup_stages"
+setup_wizard_complete = "artech_crm.demo.api.create_demo_data"
+# setup_wizard_test = "artech_crm.setup.setup_wizard.test_setup_wizard.run_setup_wizard_test"
 
 # Installation
 # ------------
 
-before_install = "crm.install.before_install"
-after_install = "crm.install.after_install"
+before_install = "artech_crm.install.before_install"
+after_install = "artech_crm.install.after_install"
 
 # Uninstallation
 # ------------
 
-before_uninstall = "crm.uninstall.before_uninstall"
-# after_uninstall = "crm.uninstall.after_uninstall"
+before_uninstall = "artech_crm.uninstall.before_uninstall"
+# after_uninstall = "artech_crm.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "crm.utils.before_app_install"
-# after_app_install = "crm.utils.after_app_install"
+# before_app_install = "artech_crm.utils.before_app_install"
+# after_app_install = "artech_crm.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "crm.utils.before_app_uninstall"
-# after_app_uninstall = "crm.utils.after_app_uninstall"
+# before_app_uninstall = "artech_crm.utils.before_app_uninstall"
+# after_app_uninstall = "artech_crm.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See artech_engine.core.notifications.get_notification_config
 
-# notification_config = "crm.notifications.get_notification_config"
+# notification_config = "artech_crm.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -141,8 +141,8 @@ before_uninstall = "crm.uninstall.before_uninstall"
 # Override standard doctype classes
 
 override_doctype_class = {
-	"Contact": "crm.overrides.contact.CustomContact",
-	"Email Template": "crm.overrides.email_template.CustomEmailTemplate",
+	"Contact": "artech_crm.overrides.contact.CustomContact",
+	"Email Template": "artech_crm.overrides.email_template.CustomEmailTemplate",
 }
 
 # Document Events
@@ -151,32 +151,32 @@ override_doctype_class = {
 
 doc_events = {
 	"Contact": {
-		"validate": ["crm.api.contact.validate"],
+		"validate": ["artech_crm.api.contact.validate"],
 	},
 	"ToDo": {
-		"after_insert": ["crm.api.todo.after_insert"],
-		"on_update": ["crm.api.todo.on_update"],
+		"after_insert": ["artech_crm.api.todo.after_insert"],
+		"on_update": ["artech_crm.api.todo.on_update"],
 	},
 	"Communication": {
-		"after_insert": ["crm.utils.on_communication_insert"],
-		"on_update": ["crm.utils.on_communication_update"],
+		"after_insert": ["artech_crm.utils.on_communication_insert"],
+		"on_update": ["artech_crm.utils.on_communication_update"],
 	},
 	"Comment": {
-		"after_insert": ["crm.utils.on_comment_insert"],
-		"on_update": ["crm.api.comment.on_update"],
+		"after_insert": ["artech_crm.utils.on_comment_insert"],
+		"on_update": ["artech_crm.api.comment.on_update"],
 	},
 	"WhatsApp Message": {
-		"validate": ["crm.api.whatsapp.validate"],
-		"on_update": ["crm.api.whatsapp.on_update"],
+		"validate": ["artech_crm.api.whatsapp.validate"],
+		"on_update": ["artech_crm.api.whatsapp.on_update"],
 	},
 	"CRM Deal": {
 		"on_update": [
-			"crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.create_customer_in_erpnext"
+			"artech_crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.create_customer_in_erpnext"
 		],
 	},
 	"User": {
-		"before_validate": ["crm.api.live_demo.validate_user"],
-		"validate_reset_password": ["crm.api.live_demo.validate_reset_password"],
+		"before_validate": ["artech_crm.api.live_demo.validate_user"],
+		"validate_reset_password": ["artech_crm.api.live_demo.validate_reset_password"],
 	},
 }
 
@@ -184,37 +184,37 @@ doc_events = {
 # ---------------
 
 scheduler_events = {
-	"all": ["crm.api.event.trigger_offset_event_notifications"],
-	"hourly": ["crm.api.event.trigger_hourly_event_notifications"],
-	"daily": ["crm.api.event.trigger_daily_event_notifications"],
-	"weekly": ["crm.api.event.trigger_weekly_event_notifications"],
-	"daily_long": ["crm.lead_syncing.background_sync.sync_leads_from_sources_daily"],
-	"hourly_long": ["crm.lead_syncing.background_sync.sync_leads_from_sources_hourly"],
-	"monthly_long": ["crm.lead_syncing.background_sync.sync_leads_from_sources_monthly"],
+	"all": ["artech_crm.api.event.trigger_offset_event_notifications"],
+	"hourly": ["artech_crm.api.event.trigger_hourly_event_notifications"],
+	"daily": ["artech_crm.api.event.trigger_daily_event_notifications"],
+	"weekly": ["artech_crm.api.event.trigger_weekly_event_notifications"],
+	"daily_long": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_daily"],
+	"hourly_long": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_hourly"],
+	"monthly_long": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_monthly"],
 	"cron": {
-		"*/5 * * * *": ["crm.lead_syncing.background_sync.sync_leads_from_sources_5_minutes"],
-		"*/10 * * * *": ["crm.lead_syncing.background_sync.sync_leads_from_sources_10_minutes"],
-		"*/15 * * * *": ["crm.lead_syncing.background_sync.sync_leads_from_sources_15_minutes"],
+		"*/5 * * * *": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_5_minutes"],
+		"*/10 * * * *": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_10_minutes"],
+		"*/15 * * * *": ["artech_crm.lead_syncing.background_sync.sync_leads_from_sources_15_minutes"],
 	},
 }
 
 # Testing
 # -------
 
-before_tests = "crm.tests.before_tests"
+before_tests = "artech_crm.tests.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# "artech_engine.desk.doctype.event.event.get_events": "crm.event.get_events"
+# "artech_engine.desk.doctype.event.event.get_events": "artech_crm.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# "Task": "crm.task.get_dashboard_data"
+# "Task": "artech_crm.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -228,13 +228,13 @@ ignore_links_on_delete = ["Failed Lead Sync Log"]
 
 # Request Events
 # ----------------
-# before_request = ["crm.utils.before_request"]
-# after_request = ["crm.utils.after_request"]
+# before_request = ["artech_crm.utils.before_request"]
+# after_request = ["artech_crm.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["crm.utils.before_job"]
-# after_job = ["crm.utils.after_job"]
+# before_job = ["artech_crm.utils.before_job"]
+# after_job = ["artech_crm.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -264,12 +264,12 @@ ignore_links_on_delete = ["Failed Lead Sync Log"]
 # --------------------------------
 
 # auth_hooks = [
-# "crm.auth.validate"
+# "artech_crm.auth.validate"
 # ]
 
 after_migrate = [
-	"crm.fcrm.doctype.fcrm_settings.fcrm_settings.after_migrate",
-	"crm.api.whatsapp.add_roles",
+	"artech_crm.fcrm.doctype.fcrm_settings.fcrm_settings.after_migrate",
+	"artech_crm.api.whatsapp.add_roles",
 ]
 
 standard_dropdown_items = [

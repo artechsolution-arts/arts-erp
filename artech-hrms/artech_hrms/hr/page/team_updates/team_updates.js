@@ -36,7 +36,7 @@ artech_engine.team_updates = {
 	run: function () {
 		var me = artech_engine.team_updates;
 		artech_engine.call({
-			method: "hrms.hr.page.team_updates.team_updates.get_data",
+			method: "artech_hrms.hr.page.team_updates.team_updates.get_data",
 			args: {
 				start: me.start,
 			},

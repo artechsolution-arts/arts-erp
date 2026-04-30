@@ -32,7 +32,7 @@ artech_engine.ui.form.on("Gratuity", {
 		if (frm.doc.docstatus == 1 && !frm.doc.pay_via_salary_slip && frm.doc.status == "Unpaid") {
 			frm.add_custom_button(__("Create Payment Entry"), function () {
 				return artech_engine.call({
-					method: "hrms.overrides.employee_payment_entry.get_payment_entry_for_employee",
+					method: "artech_hrms.overrides.employee_payment_entry.get_payment_entry_for_employee",
 					args: {
 						dt: frm.doc.doctype,
 						dn: frm.doc.name,

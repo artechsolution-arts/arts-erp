@@ -7,7 +7,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import flt
 
-from hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
+from artech_hrms.payroll.doctype.employee_benefit_ledger.employee_benefit_ledger import (
 	delete_employee_benefit_ledger_entry,
 )
 
@@ -21,7 +21,7 @@ class PayrollCorrection(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.payroll_correction_child.payroll_correction_child import (
+		from artech_hrms.payroll.doctype.payroll_correction_child.payroll_correction_child import (
 			PayrollCorrectionChild,
 		)
 

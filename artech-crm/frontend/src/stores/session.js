@@ -3,7 +3,7 @@ import { createResource } from 'frappe-ui'
 import router from '@/router'
 import { ref, computed } from 'vue'
 
-export const sessionStore = defineStore('crm-session', () => {
+export const sessionStore = defineStore('artech_crm-session', () => {
   function sessionUser() {
     let cookies = new URLSearchParams(document.cookie.split('; ').join('&'))
     let _sessionUser = cookies.get('user_id')
@@ -32,7 +32,7 @@ export const sessionStore = defineStore('crm-session', () => {
     url: 'logout',
     onSuccess() {
       user.value = null
-      window.location.href = '/login?redirect-to=/crm'
+      window.location.href = '/login?redirect-to=/artech_crm'
     },
   })
 

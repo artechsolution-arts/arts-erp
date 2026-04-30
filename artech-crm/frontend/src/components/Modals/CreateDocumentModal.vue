@@ -95,7 +95,7 @@ const dialogOptions = computed(() => {
 })
 
 const tabs = createResource({
-  url: 'crm.fcrm.doctype.crm_fields_layout.crm_fields_layout.get_fields_layout',
+  url: 'artech_crm.fcrm.doctype.crm_fields_layout.crm_fields_layout.get_fields_layout',
   cache: ['QuickEntry', props.doctype],
   params: { doctype: props.doctype, type: 'Quick Entry' },
   auto: true,

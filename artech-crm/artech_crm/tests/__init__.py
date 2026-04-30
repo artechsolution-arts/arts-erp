@@ -9,7 +9,7 @@ def before_tests():
 
 
 def load_crm_user_test_records():
-	"""Load CRM user test records from crm/tests/test_records.json"""
+	"""Load CRM user test records from artech_crm/tests/test_records.json"""
 	test_records_path = os.path.join(os.path.dirname(__file__), "test_records.json")
 
 	if os.path.exists(test_records_path):

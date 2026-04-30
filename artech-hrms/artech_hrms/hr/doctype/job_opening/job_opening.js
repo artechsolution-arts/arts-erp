@@ -14,7 +14,7 @@ artech_engine.ui.form.on("Job Opening", {
 		}
 		if (frm.doc.designation && frm.doc.company) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.staffing_plan.staffing_plan.get_active_staffing_plan_details",
+				method: "artech_hrms.hr.doctype.staffing_plan.staffing_plan.get_active_staffing_plan_details",
 				args: {
 					company: frm.doc.company,
 					designation: frm.doc.designation,

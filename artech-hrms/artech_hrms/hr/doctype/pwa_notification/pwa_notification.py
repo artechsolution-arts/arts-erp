@@ -2,7 +2,7 @@
 import artech_engine
 from artech_engine.model.document import Document
 
-import hrms
+import artech_hrms
 
 
 class PWANotification(Document):
@@ -24,7 +24,7 @@ class PWANotification(Document):
 	# end: auto-generated types
 
 	def on_update(self):
-		hrms.refetch_resource("hrms:notifications", self.to_user)
+		artech_hrms.refetch_resource("artech_hrms:notifications", self.to_user)
 
 	def after_insert(self):
 		self.send_push_notification()
@@ -33,14 +33,14 @@ class PWANotification(Document):
 		try:
 			from artech_engine.push_notification import PushNotification
 
-			push_notification = PushNotification("hrms")
+			push_notification = PushNotification("artech_hrms")
 			if push_notification.is_enabled():
 				push_notification.send_notification_to_user(
 					self.to_user,
 					self.reference_document_type,
 					self.message,
 					link=self.get_notification_link(),
-					icon=f"{artech_engine.utils.get_url()}/assets/hrms/manifest/favicon-196.png",
+					icon=f"{artech_engine.utils.get_url()}/assets/artech_hrms/manifest/favicon-196.png",
 				)
 		except ImportError:
 			# push notifications are not supported in the current framework version
@@ -49,7 +49,7 @@ class PWANotification(Document):
 			self.log_error(f"Error sending push notification: {self.name}")
 
 	def get_notification_link(self):
-		base_url = f"{artech_engine.utils.get_url()}/hrms"
+		base_url = f"{artech_engine.utils.get_url()}/artech_hrms"
 
 		if self.reference_document_type == "Leave Application":
 			return f"{base_url}/leave-applications/{self.reference_document_name}"

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import artech_engine
 from artech_engine.query_builder import DocType
 
-from crm.demo.utils import (
+from artech_crm.demo.utils import (
 	backdate,
 	build_full_names,
 	fix_auto_records,
@@ -16,7 +16,7 @@ from crm.demo.utils import (
 
 def create_demo_deals(lead_names, demo_users):
 	"""Convert seven leads into deals and add deal-specific activity."""
-	from crm.fcrm.doctype.crm_lead.crm_lead import convert_to_deal
+	from artech_crm.fcrm.doctype.crm_lead.crm_lead import convert_to_deal
 
 	session_user, owner_1, owner_2, _ = resolve_owners(demo_users)
 	_full_names = build_full_names(session_user)
@@ -74,13 +74,13 @@ def create_demo_deals(lead_names, demo_users):
 	_deal_owners = [session_user, owner_1, owner_2, session_user, owner_1, owner_2, session_user]
 	# Organization logos keyed by org name (index order: alice, david, henry, iris, jack, karen, leo)
 	_org_logos = {
-		"Acme Corp": "/assets/crm/images/demo/acme-corp.png",
-		"TechStart Inc": "/assets/crm/images/demo/techstart-inc.png",
-		"PivotTech Solutions": "/assets/crm/images/demo/pivottech-solutions.png",
-		"ScaleUp Labs": "/assets/crm/images/demo/scaleup-labs.png",
-		"Meridian Systems": "/assets/crm/images/demo/meridian-systems.png",
-		"Vertex Analytics": "/assets/crm/images/demo/vertex-analytics.png",
-		"Forge Digital": "/assets/crm/images/demo/forge-digital.png",
+		"Acme Corp": "/assets/artech_crm/images/demo/acme-corp.png",
+		"TechStart Inc": "/assets/artech_crm/images/demo/techstart-inc.png",
+		"PivotTech Solutions": "/assets/artech_crm/images/demo/pivottech-solutions.png",
+		"ScaleUp Labs": "/assets/artech_crm/images/demo/scaleup-labs.png",
+		"Meridian Systems": "/assets/artech_crm/images/demo/meridian-systems.png",
+		"Vertex Analytics": "/assets/artech_crm/images/demo/vertex-analytics.png",
+		"Forge Digital": "/assets/artech_crm/images/demo/forge-digital.png",
 	}
 	now = datetime.now()
 

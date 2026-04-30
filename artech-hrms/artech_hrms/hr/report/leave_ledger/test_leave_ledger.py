@@ -3,20 +3,20 @@ from artech_engine.utils import add_days, add_months, flt, get_year_ending, get_
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	create_holiday_list_assignment,
 )
-from hrms.hr.doctype.leave_allocation.test_earned_leaves import (
+from artech_hrms.hr.doctype.leave_allocation.test_earned_leaves import (
 	allocate_earned_leaves_for_months,
 	create_earned_leave_type,
 	make_policy_assignment,
 )
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
-from hrms.hr.doctype.leave_application.test_leave_application import make_leave_application
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.hr.report.leave_ledger.leave_ledger import execute
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_leave_application
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.hr.report.leave_ledger.leave_ledger import execute
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveLedger(HRMSTestSuite):

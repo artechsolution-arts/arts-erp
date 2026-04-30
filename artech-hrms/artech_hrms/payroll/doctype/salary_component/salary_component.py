@@ -7,7 +7,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.model.naming import append_number_if_name_exists
 
-from hrms.payroll.utils import sanitize_expression
+from artech_hrms.payroll.utils import sanitize_expression
 
 
 class SalaryComponent(Document):
@@ -19,7 +19,7 @@ class SalaryComponent(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.salary_component_account.salary_component_account import (
+		from artech_hrms.payroll.doctype.salary_component_account.salary_component_account import (
 			SalaryComponentAccount,
 		)
 
@@ -75,7 +75,7 @@ class SalaryComponent(Document):
 			self.db_set("formula", self._formula)
 
 	def clear_cache(self):
-		from hrms.payroll.doctype.salary_slip.salary_slip import (
+		from artech_hrms.payroll.doctype.salary_slip.salary_slip import (
 			SALARY_COMPONENT_VALUES,
 			TAX_COMPONENTS_BY_COMPANY,
 		)

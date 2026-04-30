@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import artech_engine
 from artech_engine.tests.utils import FrappeTestCase
 
-from crm.api.exchange_rate import (
+from artech_crm.api.exchange_rate import (
 	_fetch_from_exchangerate_api,
 	_fetch_from_exchangerate_host,
 	_fetch_from_fawaz_api,
@@ -31,7 +31,7 @@ def _mock_settings(provider: str, access_key: str = "") -> MagicMock:
 
 
 class TestFetchFromFrankfurter(FrappeTestCase):
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_rate_on_success(self, mock_get):
 		mock_get.return_value = _make_response(True, {"rates": {"INR": 83.5}})
 
@@ -40,7 +40,7 @@ class TestFetchFromFrankfurter(FrappeTestCase):
 		self.assertEqual(rate, 83.5)
 		mock_get.assert_called_once()
 
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_none_when_response_not_ok(self, mock_get):
 		mock_get.return_value = _make_response(False, {})
 
@@ -48,7 +48,7 @@ class TestFetchFromFrankfurter(FrappeTestCase):
 
 		self.assertIsNone(rate)
 
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_none_on_missing_currency_key(self, mock_get):
 		# response is ok but to_currency key is absent — should not raise KeyError
 		mock_get.return_value = _make_response(True, {"rates": {}})
@@ -58,7 +58,7 @@ class TestFetchFromFrankfurter(FrappeTestCase):
 		self.assertIsNone(rate)
 
 	@patch(
-		"crm.api.exchange_rate.requests.get",
+		"artech_crm.api.exchange_rate.requests.get",
 		side_effect=Exception("Connection refused"),
 	)
 	def test_returns_none_on_network_error(self, mock_get):
@@ -68,7 +68,7 @@ class TestFetchFromFrankfurter(FrappeTestCase):
 
 
 class TestFetchFromFawazApi(FrappeTestCase):
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_rate_on_success(self, mock_get):
 		mock_get.return_value = _make_response(True, {"usd": {"inr": 83.5}})
 
@@ -76,7 +76,7 @@ class TestFetchFromFawazApi(FrappeTestCase):
 
 		self.assertEqual(rate, 83.5)
 
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_falls_back_to_second_url_when_first_fails(self, mock_get):
 		# First URL raises, second URL succeeds
 		mock_get.side_effect = [
@@ -90,7 +90,7 @@ class TestFetchFromFawazApi(FrappeTestCase):
 		self.assertEqual(mock_get.call_count, 2)
 
 	@patch(
-		"crm.api.exchange_rate.requests.get",
+		"artech_crm.api.exchange_rate.requests.get",
 		side_effect=Exception("Network error"),
 	)
 	def test_returns_none_when_all_urls_fail(self, mock_get):
@@ -100,7 +100,7 @@ class TestFetchFromFawazApi(FrappeTestCase):
 
 
 class TestFetchFromExchangeRateHost(FrappeTestCase):
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_rate_on_success(self, mock_get):
 		mock_get.return_value = _make_response(True, {"result": 83.5})
 		settings = _mock_settings("exchangerate.host", access_key="test_key")
@@ -115,7 +115,7 @@ class TestFetchFromExchangeRateHost(FrappeTestCase):
 		with self.assertRaises(artech_engine.exceptions.ValidationError):
 			_fetch_from_exchangerate_host(settings, "USD", "INR", "latest")
 
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_none_when_response_not_ok(self, mock_get):
 		mock_get.return_value = _make_response(False, {})
 		settings = _mock_settings("exchangerate.host", access_key="test_key")
@@ -126,7 +126,7 @@ class TestFetchFromExchangeRateHost(FrappeTestCase):
 
 
 class TestFetchFromExchangeRateApi(FrappeTestCase):
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_rate_on_success(self, mock_get):
 		mock_get.return_value = _make_response(True, {"result": "success", "conversion_rate": 83.5})
 		settings = _mock_settings("exchangerate-api", access_key="test_key")
@@ -141,7 +141,7 @@ class TestFetchFromExchangeRateApi(FrappeTestCase):
 		with self.assertRaises(artech_engine.exceptions.ValidationError):
 			_fetch_from_exchangerate_api(settings, "USD", "INR")
 
-	@patch("crm.api.exchange_rate.requests.get")
+	@patch("artech_crm.api.exchange_rate.requests.get")
 	def test_returns_none_when_api_result_is_not_success(self, mock_get):
 		mock_get.return_value = _make_response(True, {"result": "error", "error-type": "invalid-key"})
 		settings = _mock_settings("exchangerate-api", access_key="bad_key")
@@ -156,7 +156,7 @@ class TestGetExchangeRate(FrappeTestCase):
 		artech_engine.cache().delete_value("exchange_rate_USD_INR_latest")
 		artech_engine.cache().delete_value(f"exchange_rate_USD_INR_{artech_engine.utils.today()}")
 
-	@patch("crm.api.exchange_rate._fetch_exchange_rate")
+	@patch("artech_crm.api.exchange_rate._fetch_exchange_rate")
 	def test_returns_rate_on_success(self, mock_fetch):
 		mock_fetch.return_value = (83.5, "frankfurter")
 
@@ -164,7 +164,7 @@ class TestGetExchangeRate(FrappeTestCase):
 
 		self.assertEqual(rate, 83.5)
 
-	@patch("crm.api.exchange_rate._fetch_exchange_rate")
+	@patch("artech_crm.api.exchange_rate._fetch_exchange_rate")
 	def test_caches_result_and_skips_second_fetch(self, mock_fetch):
 		mock_fetch.return_value = (83.5, "frankfurter")
 
@@ -174,7 +174,7 @@ class TestGetExchangeRate(FrappeTestCase):
 		# _fetch_exchange_rate should only be called once; second call hits cache
 		mock_fetch.assert_called_once()
 
-	@patch("crm.api.exchange_rate._fetch_exchange_rate")
+	@patch("artech_crm.api.exchange_rate._fetch_exchange_rate")
 	def test_raises_when_all_providers_fail(self, mock_fetch):
 		mock_fetch.return_value = (None, "frankfurter")
 

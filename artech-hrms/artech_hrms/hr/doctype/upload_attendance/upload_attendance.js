@@ -1,6 +1,6 @@
-artech_engine.provide("hrms.hr");
+artech_engine.provide("artech_hrms.hr");
 
-hrms.hr.AttendanceControlPanel = class AttendanceControlPanel extends artech_engine.ui.form.Controller {
+artech_hrms.hr.AttendanceControlPanel = class AttendanceControlPanel extends artech_engine.ui.form.Controller {
 	onload() {
 		this.frm.set_value("att_fr_date", artech_engine.datetime.get_today());
 		this.frm.set_value("att_to_date", artech_engine.datetime.get_today());
@@ -20,7 +20,7 @@ hrms.hr.AttendanceControlPanel = class AttendanceControlPanel extends artech_eng
 		window.location.href = repl(
 			artech_engine.request.url + "?cmd=%(cmd)s&from_date=%(from_date)s&to_date=%(to_date)s",
 			{
-				cmd: "hrms.hr.doctype.upload_attendance.upload_attendance.get_template",
+				cmd: "artech_hrms.hr.doctype.upload_attendance.upload_attendance.get_template",
 				from_date: this.frm.doc.att_fr_date,
 				to_date: this.frm.doc.att_to_date,
 			},
@@ -31,7 +31,7 @@ hrms.hr.AttendanceControlPanel = class AttendanceControlPanel extends artech_eng
 		let $wrapper = $(this.frm.fields_dict.upload_html.wrapper).empty();
 		new artech_engine.ui.FileUploader({
 			wrapper: $wrapper,
-			method: "hrms.hr.doctype.upload_attendance.upload_attendance.upload",
+			method: "artech_hrms.hr.doctype.upload_attendance.upload_attendance.upload",
 		});
 		$wrapper.addClass("pb-5");
 	}
@@ -71,4 +71,4 @@ hrms.hr.AttendanceControlPanel = class AttendanceControlPanel extends artech_eng
 };
 
 // nosemgrep: frappe-semgrep-rules.rules.frappe-cur-frm-usage
-cur_frm.cscript = new hrms.hr.AttendanceControlPanel({ frm: cur_frm });
+cur_frm.cscript = new artech_hrms.hr.AttendanceControlPanel({ frm: cur_frm });

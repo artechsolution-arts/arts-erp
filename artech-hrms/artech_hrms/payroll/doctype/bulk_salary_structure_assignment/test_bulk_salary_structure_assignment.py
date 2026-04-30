@@ -5,12 +5,12 @@ from artech_engine.utils import getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.bulk_salary_structure_assignment.bulk_salary_structure_assignment import (
+from artech_hrms.payroll.doctype.bulk_salary_structure_assignment.bulk_salary_structure_assignment import (
 	BulkSalaryStructureAssignment,
 )
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.test_utils import create_company, create_department, create_employee_grade
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.test_utils import create_company, create_department, create_employee_grade
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestBulkSalaryStructureAssignment(HRMSTestSuite):

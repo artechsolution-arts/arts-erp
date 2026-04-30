@@ -38,7 +38,7 @@ artech_engine.ui.form.on("Employee Attendance Tool", {
 		if (!frm.doc.date) return;
 		artech_engine
 			.call({
-				method: "hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool.get_employees",
+				method: "artech_hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool.get_employees",
 				args: {
 					date: frm.doc.date,
 					department: frm.doc.department,
@@ -270,7 +270,7 @@ artech_engine.ui.form.on("Employee Attendance Tool", {
 	mark_full_day_attendance(frm, employees_to_mark_full_day, employees_to_mark_half_day) {
 		artech_engine
 			.call({
-				method: "hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool.mark_employee_attendance",
+				method: "artech_hrms.hr.doctype.employee_attendance_tool.employee_attendance_tool.mark_employee_attendance",
 				args: {
 					employee_list: employees_to_mark_full_day,
 					status: frm.doc.status,

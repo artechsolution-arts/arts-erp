@@ -1,10 +1,10 @@
 artech_engine.ui.form.on("Leave Adjustment", {
 	refresh(frm) {
-		hrms.leave_utils.add_view_ledger_button(frm);
+		artech_hrms.leave_utils.add_view_ledger_button(frm);
 
 		frm.set_query("leave_type", () => {
 			return {
-				query: "hrms.hr.doctype.leave_adjustment.leave_adjustment.get_allocated_leave_types",
+				query: "artech_hrms.hr.doctype.leave_adjustment.leave_adjustment.get_allocated_leave_types",
 				filters: {
 					employee: frm.doc.employee,
 				},
@@ -29,7 +29,7 @@ artech_engine.ui.form.on("Leave Adjustment", {
 	set_leave_allocation: function (frm) {
 		if (frm.doc.posting_date && frm.doc.employee && frm.doc.leave_type) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.leave_adjustment.leave_adjustment.get_leave_allocation_for_posting_date",
+				method: "artech_hrms.hr.doctype.leave_adjustment.leave_adjustment.get_leave_allocation_for_posting_date",
 				args: {
 					posting_date: frm.doc.posting_date,
 					employee: frm.doc.employee,

@@ -11,8 +11,8 @@ from artech_engine.model.document import Document
 from artech_engine.utils import cstr, flt
 from artech_engine.utils.data import format_time, get_link_to_form, getdate
 
-from hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
-from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
+from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
 	get_assigned_salary_structure,
 )
 
@@ -26,7 +26,7 @@ class OvertimeSlip(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.overtime_details.overtime_details import OvertimeDetails
+		from artech_hrms.hr.doctype.overtime_details.overtime_details import OvertimeDetails
 
 		amended_from: DF.Link | None
 		company: DF.Link
@@ -336,7 +336,7 @@ class OvertimeSlip(Document):
 		return applicable_daily_amount / standard_working_hours
 
 	def _make_salary_slip(self, salary_structure):
-		from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+		from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 		return make_salary_slip(
 			salary_structure,
@@ -374,7 +374,7 @@ class OvertimeSlip(Document):
 	def get_holiday_map(self):
 		from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 
-		from hrms.utils.holiday_list import get_holiday_dates_between
+		from artech_hrms.utils.holiday_list import get_holiday_dates_between
 
 		holiday_list = get_holiday_list_for_employee(self.employee)
 		holiday_dates = get_holiday_dates_between(

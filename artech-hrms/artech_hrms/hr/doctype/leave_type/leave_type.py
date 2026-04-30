@@ -101,7 +101,7 @@ class LeaveType(Document):
 				)
 
 	def clear_cache(self):
-		from hrms.payroll.doctype.salary_slip.salary_slip import LEAVE_TYPE_MAP
+		from artech_hrms.payroll.doctype.salary_slip.salary_slip import LEAVE_TYPE_MAP
 
 		artech_engine.cache().delete_value(LEAVE_TYPE_MAP)
 		return super().clear_cache()

@@ -1,7 +1,7 @@
 artech_engine.provide("artech_engine.dashboards.chart_sources");
 
 artech_engine.dashboards.chart_sources["Employees by Age"] = {
-	method: "hrms.hr.dashboard_chart_source.employees_by_age.employees_by_age.get_data",
+	method: "artech_hrms.hr.dashboard_chart_source.employees_by_age.employees_by_age.get_data",
 	filters: [
 		{
 			fieldname: "company",

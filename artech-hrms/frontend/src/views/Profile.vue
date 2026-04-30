@@ -244,7 +244,7 @@ const employeeDoc = createDocumentResource({
 })
 
 const employeeDocType = createResource({
-	url: "hrms.api.get_doctype_fields",
+	url: "artech_hrms.api.get_doctype_fields",
 	params: { doctype: DOCTYPE },
 	auto: true,
 })

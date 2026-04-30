@@ -4,7 +4,7 @@ import artech_engine
 
 import artech
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 def create_leave_period(from_date, to_date, company=None):

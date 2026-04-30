@@ -7,7 +7,7 @@ from artech_engine.model.naming import set_name_from_naming_options
 from artech_engine.utils import get_link_to_form, getdate, pretty_date
 from artech_engine.website.website_generator import WebsiteGenerator
 
-from hrms.hr.doctype.staffing_plan.staffing_plan import (
+from artech_hrms.hr.doctype.staffing_plan.staffing_plan import (
 	get_active_staffing_plan_details,
 	get_designation_counts,
 )

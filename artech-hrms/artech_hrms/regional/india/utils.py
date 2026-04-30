@@ -4,8 +4,8 @@ import artech_engine
 from artech_engine import _
 from artech_engine.utils import add_days, date_diff, flt, get_link_to_form, month_diff
 
-from hrms.hr.utils import get_salary_assignments
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.hr.utils import get_salary_assignments
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 
 def calculate_annual_eligible_hra_exemption(doc):

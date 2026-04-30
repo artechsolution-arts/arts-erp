@@ -6,7 +6,7 @@ from artech_engine import _, bold
 from artech_engine.model.document import Document
 from artech_engine.utils import comma_and, date_diff, formatdate, get_link_to_form, getdate
 
-from hrms.hr.utils import validate_active_employee
+from artech_hrms.hr.utils import validate_active_employee
 
 
 class AdditionalSalary(Document):

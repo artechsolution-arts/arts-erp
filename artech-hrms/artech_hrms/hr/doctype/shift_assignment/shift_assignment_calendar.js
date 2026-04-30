@@ -7,5 +7,5 @@ artech_engine.views.calendar["Shift Assignment"] = {
 		allDay: "allDay",
 		convertToUserTz: "convertToUserTz",
 	},
-	get_events_method: "hrms.hr.doctype.shift_assignment.shift_assignment.get_events",
+	get_events_method: "artech_hrms.hr.doctype.shift_assignment.shift_assignment.get_events",
 };

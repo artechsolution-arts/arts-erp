@@ -5,7 +5,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import add_days, format_date, get_link_to_form, get_weekday, getdate, nowdate
 
-from hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import create_shift_assignment
+from artech_hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import create_shift_assignment
 
 
 class ShiftScheduleAssignment(Document):

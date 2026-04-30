@@ -11,15 +11,15 @@ from artech_engine.utils import add_days, get_datetime, get_time, getdate, nowti
 from artech.setup.doctype.designation.test_designation import create_designation
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.interview.interview import (
+from artech_hrms.hr.doctype.interview.interview import (
 	DuplicateInterviewRoundError,
 	get_feedback,
 	get_skill_wise_average_rating,
 	update_job_applicant_status,
 )
-from hrms.hr.doctype.job_applicant.job_applicant import get_interview_details
-from hrms.tests.test_utils import create_job_applicant, get_email_by_subject
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.job_applicant.job_applicant import get_interview_details
+from artech_hrms.tests.test_utils import create_job_applicant, get_email_by_subject
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestInterview(HRMSTestSuite):
@@ -57,7 +57,7 @@ class TestInterview(HRMSTestSuite):
 		self.assertIsNotNone(notification)
 
 	def test_notification_for_scheduling(self):
-		from hrms.hr.doctype.interview.interview import send_interview_reminder
+		from artech_hrms.hr.doctype.interview.interview import send_interview_reminder
 
 		setup_reminder_settings()
 
@@ -80,7 +80,7 @@ class TestInterview(HRMSTestSuite):
 		self.assertTrue(get_email_by_subject("Subject: Interview Reminder"))
 
 	def test_notification_for_feedback_submission(self):
-		from hrms.hr.doctype.interview.interview import send_daily_feedback_reminder
+		from artech_hrms.hr.doctype.interview.interview import send_daily_feedback_reminder
 
 		setup_reminder_settings()
 
@@ -118,7 +118,7 @@ class TestInterview(HRMSTestSuite):
 		)
 
 	def test_skill_wise_average_rating(self):
-		from hrms.hr.doctype.interview_feedback.test_interview_feedback import create_interview_feedback
+		from artech_hrms.hr.doctype.interview_feedback.test_interview_feedback import create_interview_feedback
 
 		job_applicant = create_job_applicant()
 		interview = create_interview_and_dependencies(job_applicant.name)
@@ -138,7 +138,7 @@ class TestInterview(HRMSTestSuite):
 		self.assertEqual(ratings, [{"skill": "Python", "rating": 0.75}, {"skill": "JS", "rating": 0.85}])
 
 	def test_get_feedback(self):
-		from hrms.hr.doctype.interview_feedback.test_interview_feedback import create_interview_feedback
+		from artech_hrms.hr.doctype.interview_feedback.test_interview_feedback import create_interview_feedback
 
 		job_applicant = create_job_applicant()
 		interview = create_interview_and_dependencies(job_applicant.name)

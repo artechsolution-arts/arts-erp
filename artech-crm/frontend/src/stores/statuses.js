@@ -5,7 +5,7 @@ import { useTelemetry } from 'frappe-ui/artech_engine'
 import { createListResource } from 'frappe-ui'
 import { reactive, h } from 'vue'
 
-export const statusesStore = defineStore('crm-statuses', () => {
+export const statusesStore = defineStore('artech_crm-statuses', () => {
   let leadStatusesByName = reactive({})
   let dealStatusesByName = reactive({})
   let communicationStatusesByName = reactive({})

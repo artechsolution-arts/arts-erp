@@ -1,7 +1,7 @@
 import artech_engine
 from artech_engine import _
 
-from hrms.hr.doctype.leave_application.leave_application import get_leave_details
+from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_details
 
 
 def execute(filters=None):

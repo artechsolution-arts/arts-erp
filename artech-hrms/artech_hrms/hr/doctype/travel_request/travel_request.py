@@ -3,7 +3,7 @@
 
 from artech_engine.model.document import Document
 
-from hrms.hr.utils import validate_active_employee
+from artech_hrms.hr.utils import validate_active_employee
 
 
 class TravelRequest(Document):
@@ -15,8 +15,8 @@ class TravelRequest(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.travel_itinerary.travel_itinerary import TravelItinerary
-		from hrms.hr.doctype.travel_request_costing.travel_request_costing import TravelRequestCosting
+		from artech_hrms.hr.doctype.travel_itinerary.travel_itinerary import TravelItinerary
+		from artech_hrms.hr.doctype.travel_request_costing.travel_request_costing import TravelRequestCosting
 
 		address_of_organizer: DF.Data | None
 		amended_from: DF.Link | None

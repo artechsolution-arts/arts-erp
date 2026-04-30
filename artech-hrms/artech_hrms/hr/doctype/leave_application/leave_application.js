@@ -2,7 +2,7 @@ artech_engine.ui.form.on("Leave Application", {
 	setup: function (frm) {
 		frm.set_query("leave_approver", function () {
 			return {
-				query: "hrms.hr.doctype.department_approver.department_approver.get_approvers",
+				query: "artech_hrms.hr.doctype.department_approver.department_approver.get_approvers",
 				filters: {
 					employee: frm.doc.employee,
 					doctype: frm.doc.doctype,
@@ -21,7 +21,7 @@ artech_engine.ui.form.on("Leave Application", {
 		}
 		if (frm.doc.docstatus == 0) {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_mandatory_approval",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_mandatory_approval",
 				args: {
 					doctype: frm.doc.doctype,
 				},
@@ -49,7 +49,7 @@ artech_engine.ui.form.on("Leave Application", {
 
 		if (frm.doc.employee) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_leave_details",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_details",
 				async: false,
 				args: {
 					employee: frm.doc.employee,
@@ -86,7 +86,7 @@ artech_engine.ui.form.on("Leave Application", {
 	},
 
 	refresh: function (frm) {
-		hrms.leave_utils.add_view_ledger_button(frm);
+		artech_hrms.leave_utils.add_view_ledger_button(frm);
 		if (frm.is_new()) {
 			frm.trigger("calculate_total_days");
 		}
@@ -115,7 +115,7 @@ artech_engine.ui.form.on("Leave Application", {
 	async set_employee(frm) {
 		if (frm.doc.employee) return;
 
-		const employee = await hrms.get_current_employee(frm);
+		const employee = await artech_hrms.get_current_employee(frm);
 		if (employee) {
 			frm.set_value("employee", employee);
 		}
@@ -209,7 +209,7 @@ artech_engine.ui.form.on("Leave Application", {
 			frm.doc.to_date
 		) {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_leave_balance_on",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_balance_on",
 				args: {
 					employee: frm.doc.employee,
 					date: frm.doc.from_date,
@@ -245,7 +245,7 @@ artech_engine.ui.form.on("Leave Application", {
 		if (frm.doc.from_date && frm.doc.to_date && frm.doc.employee && frm.doc.leave_type) {
 			// server call is done to include holidays in leave days calculations
 			return artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_number_of_leave_days",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_number_of_leave_days",
 				args: {
 					employee: frm.doc.employee,
 					leave_type: frm.doc.leave_type,
@@ -267,7 +267,7 @@ artech_engine.ui.form.on("Leave Application", {
 	set_leave_approver: function (frm) {
 		if (frm.doc.employee) {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_leave_approver",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_approver",
 				args: {
 					employee: frm.doc.employee,
 				},
@@ -284,7 +284,7 @@ artech_engine.ui.form.on("Leave Application", {
 		let self_approval_not_allowed = frm.doc.__onload
 			? frm.doc.__onload.self_leave_approval_not_allowed
 			: 0;
-		let current_employee = await hrms.get_current_employee();
+		let current_employee = await artech_hrms.get_current_employee();
 		if (
 			frm.doc.docstatus === 0 &&
 			!frm.is_dirty() &&

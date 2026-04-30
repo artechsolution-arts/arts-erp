@@ -17,7 +17,7 @@ class InterviewFeedback(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.skill_assessment.skill_assessment import SkillAssessment
+		from artech_hrms.hr.doctype.skill_assessment.skill_assessment import SkillAssessment
 
 		amended_from: DF.Link | None
 		average_rating: DF.Rating

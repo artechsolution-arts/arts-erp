@@ -9,7 +9,7 @@ from artech_engine.utils.csvutils import UnicodeWriter
 
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee
 
-from hrms.hr.utils import get_holiday_dates_for_employee
+from artech_hrms.hr.utils import get_holiday_dates_for_employee
 
 
 class UploadAttendance(Document):

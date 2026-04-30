@@ -4,8 +4,8 @@ import artech_engine
 from artech_engine import _, generate_hash
 from artech_engine.model.document import Document
 
-from crm.integrations.api import get_contact_by_phone_number
-from crm.utils import seconds_to_duration
+from artech_crm.integrations.api import get_contact_by_phone_number
+from artech_crm.utils import seconds_to_duration
 
 
 class CRMCallLog(Document):
@@ -141,7 +141,7 @@ class CRMCallLog(Document):
 		d = super().as_dict(*args, **kwargs)
 		if d.get("recording_url"):
 			d["recording_url_path"] = (
-				f"/api/method/crm.integrations.api.get_recording_url?call_log_name={d.get('name')}"
+				f"/api/method/artech_crm.integrations.api.get_recording_url?call_log_name={d.get('name')}"
 			)
 		return d
 

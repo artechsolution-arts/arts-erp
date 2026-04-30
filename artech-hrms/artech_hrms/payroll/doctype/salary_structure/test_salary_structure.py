@@ -7,19 +7,19 @@ from artech_engine.utils.make_random import get_random
 import artech
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
+from artech_hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
 	create_payroll_period,
 )
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	create_tax_slab,
 	make_deduction_salary_component,
 	make_earning_salary_component,
 	make_employee_benefit_earning_components,
 	make_employee_salary_slip,
 )
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
-from hrms.tests.test_utils import create_employee_grade
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.tests.test_utils import create_employee_grade
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestSalaryStructure(HRMSTestSuite):

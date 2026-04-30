@@ -10,7 +10,7 @@ DEMO_USERS = [
 		"last_name": "Connor",
 		"mobile_no": "+1 555 100 0002",
 		"roles": ["Sales Manager", "Sales User"],
-		"avatar": "/assets/crm/images/demo/sarah-connor.png",
+		"avatar": "/assets/artech_crm/images/demo/sarah-connor.png",
 	},
 	{
 		"email": "john.demo@example.com",
@@ -18,7 +18,7 @@ DEMO_USERS = [
 		"last_name": "Parker",
 		"mobile_no": "+1 555 100 0003",
 		"roles": ["Sales User"],
-		"avatar": "/assets/crm/images/demo/john-parker.png",
+		"avatar": "/assets/artech_crm/images/demo/john-parker.png",
 	},
 	{
 		"email": "emily.demo@example.com",
@@ -26,7 +26,7 @@ DEMO_USERS = [
 		"last_name": "Chen",
 		"mobile_no": "+1 555 100 0004",
 		"roles": ["Sales User"],
-		"avatar": "/assets/crm/images/demo/emily-chen.png",
+		"avatar": "/assets/artech_crm/images/demo/emily-chen.png",
 	},
 ]
 

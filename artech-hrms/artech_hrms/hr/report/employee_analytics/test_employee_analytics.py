@@ -4,8 +4,8 @@ from artech_engine.desk.page.setup_wizard.setup_wizard import make_records
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.report.employee_analytics.employee_analytics import execute
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.report.employee_analytics.employee_analytics import execute
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeAnalytics(HRMSTestSuite):

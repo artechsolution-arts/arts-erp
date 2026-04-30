@@ -6,8 +6,8 @@ from artech_engine.query_builder import Case, DocType
 from artech_engine.query_builder.functions import Avg, Coalesce, Count, Date, DateFormat, IfNull, Sum
 from pypika.functions import Function
 
-from crm.fcrm.doctype.crm_dashboard.crm_dashboard import create_default_manager_dashboard
-from crm.utils import sales_user_only
+from artech_crm.fcrm.doctype.crm_dashboard.crm_dashboard import create_default_manager_dashboard
+from artech_crm.utils import sales_user_only
 
 
 # Custom function for TIMESTAMPDIFF (MySQL/MariaDB)
@@ -52,8 +52,8 @@ def get_dashboard(from_date: str | None = None, to_date: str | None = None, user
 
 	for l in layout:
 		method_name = f"get_{l['name']}"
-		if hasattr(artech_engine.get_attr("crm.api.dashboard"), method_name):
-			method = getattr(artech_engine.get_attr("crm.api.dashboard"), method_name)
+		if hasattr(artech_engine.get_attr("artech_crm.api.dashboard"), method_name):
+			method = getattr(artech_engine.get_attr("artech_crm.api.dashboard"), method_name)
 			l["data"] = method(from_date, to_date, user)
 		else:
 			l["data"] = None
@@ -81,8 +81,8 @@ def get_chart(
 		user = artech_engine.session.user
 
 	method_name = f"get_{name}"
-	if hasattr(artech_engine.get_attr("crm.api.dashboard"), method_name):
-		method = getattr(artech_engine.get_attr("crm.api.dashboard"), method_name)
+	if hasattr(artech_engine.get_attr("artech_crm.api.dashboard"), method_name):
+		method = getattr(artech_engine.get_attr("artech_crm.api.dashboard"), method_name)
 		return method(from_date, to_date, user)
 	else:
 		return {"error": _("Invalid chart name")}

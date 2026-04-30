@@ -14,7 +14,7 @@ class CRMTelephonyAgent(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from crm.fcrm.doctype.crm_telephony_phone.crm_telephony_phone import CRMTelephonyPhone
+		from artech_crm.fcrm.doctype.crm_telephony_phone.crm_telephony_phone import CRMTelephonyPhone
 
 		call_receiving_device: DF.Literal["Computer", "Phone"]
 		default_medium: DF.Literal["", "Twilio", "Exotel"]

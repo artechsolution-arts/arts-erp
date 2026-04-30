@@ -6,7 +6,7 @@ from artech_engine.model.document import Document
 from artech_engine.model.mapper import get_mapped_doc
 from artech_engine.utils import flt
 
-from hrms.hr.utils import (
+from artech_hrms.hr.utils import (
 	calculate_annual_eligible_hra_exemption,
 	get_total_exemption_amount,
 	validate_active_employee,
@@ -24,7 +24,7 @@ class EmployeeTaxExemptionDeclaration(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_tax_exemption_declaration_category.employee_tax_exemption_declaration_category import (
+		from artech_hrms.payroll.doctype.employee_tax_exemption_declaration_category.employee_tax_exemption_declaration_category import (
 			EmployeeTaxExemptionDeclarationCategory,
 		)
 

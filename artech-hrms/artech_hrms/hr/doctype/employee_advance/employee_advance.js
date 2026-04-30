@@ -90,7 +90,7 @@ artech_engine.ui.form.on("Employee Advance", {
 
 	make_deduction_via_additional_salary: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.employee_advance.employee_advance.create_return_through_additional_salary",
+			method: "artech_hrms.hr.doctype.employee_advance.employee_advance.create_return_through_additional_salary",
 			args: {
 				doc: frm.doc,
 			},
@@ -102,9 +102,9 @@ artech_engine.ui.form.on("Employee Advance", {
 	},
 
 	make_payment_entry: function (frm) {
-		let method = "hrms.overrides.employee_payment_entry.get_payment_entry_for_employee";
+		let method = "artech_hrms.overrides.employee_payment_entry.get_payment_entry_for_employee";
 		if (frm.doc.__onload && frm.doc.__onload.make_payment_via_journal_entry) {
-			method = "hrms.hr.doctype.employee_advance.employee_advance.make_bank_entry";
+			method = "artech_hrms.hr.doctype.employee_advance.employee_advance.make_bank_entry";
 		}
 		return artech_engine.call({
 			method: method,
@@ -121,7 +121,7 @@ artech_engine.ui.form.on("Employee Advance", {
 
 	make_expense_claim: function (frm) {
 		return artech_engine.call({
-			method: "hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim",
+			method: "artech_hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim",
 			args: {
 				employee_advance: frm.doc.name,
 				payment_via_journal_entry: frm.doc.__onload.make_payment_via_journal_entry,
@@ -135,7 +135,7 @@ artech_engine.ui.form.on("Employee Advance", {
 
 	make_return_entry: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.employee_advance.employee_advance.make_return_entry",
+			method: "artech_hrms.hr.doctype.employee_advance.employee_advance.make_return_entry",
 			args: {
 				employee: frm.doc.employee,
 				company: frm.doc.company,

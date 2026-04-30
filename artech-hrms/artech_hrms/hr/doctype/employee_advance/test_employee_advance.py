@@ -7,20 +7,20 @@ import artech
 from artech.accounts.doctype.account.test_account import create_account
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.employee_advance.employee_advance import (
+from artech_hrms.hr.doctype.employee_advance.employee_advance import (
 	EmployeeAdvanceOverPayment,
 	create_return_through_additional_salary,
 	make_bank_entry,
 	make_return_entry,
 )
-from hrms.hr.doctype.expense_claim.expense_claim import get_advances
-from hrms.hr.doctype.expense_claim.test_expense_claim import (
+from artech_hrms.hr.doctype.expense_claim.expense_claim import get_advances
+from artech_hrms.hr.doctype.expense_claim.test_expense_claim import (
 	get_payable_account,
 	make_expense_claim,
 )
-from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeAdvance(HRMSTestSuite):
@@ -386,7 +386,7 @@ def make_journal_entry_for_advance(advance):
 
 def make_payment_entry(advance, amount=None):
 	artech_engine.db.set_single_value("Accounts Settings", "make_payment_via_journal_entry", False)
-	from hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
+	from artech_hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
 
 	payment_entry = get_payment_entry_for_employee(advance.doctype, advance.name)
 

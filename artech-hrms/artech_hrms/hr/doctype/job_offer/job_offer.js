@@ -54,7 +54,7 @@ artech_engine.ui.form.on("Job Offer", {
 
 artech.job_offer.make_employee = function (frm) {
 	artech_engine.model.open_mapped_doc({
-		method: "hrms.hr.doctype.job_offer.job_offer.make_employee",
+		method: "artech_hrms.hr.doctype.job_offer.job_offer.make_employee",
 		frm: frm,
 	});
 };

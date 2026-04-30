@@ -3,7 +3,7 @@ artech_engine.ui.form.on("Job Opening Template", {
 		if (!frm.doc.__islocal) {
 			frm.add_custom_button(__("Create Job Opening"), () => {
 				artech_engine.model.open_mapped_doc({
-					method: "hrms.hr.doctype.job_opening_template.job_opening_template.create_job_opening_from_template",
+					method: "artech_hrms.hr.doctype.job_opening_template.job_opening_template.create_job_opening_from_template",
 					frm: frm,
 				});
 			});

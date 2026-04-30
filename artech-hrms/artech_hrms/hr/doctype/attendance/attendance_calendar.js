@@ -24,5 +24,5 @@ artech_engine.views.calendar["Attendance"] = {
 			right: "month",
 		},
 	},
-	get_events_method: "hrms.hr.doctype.attendance.attendance.get_events",
+	get_events_method: "artech_hrms.hr.doctype.attendance.attendance.get_events",
 };

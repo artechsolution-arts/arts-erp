@@ -4,9 +4,9 @@ import artech_engine
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.appraisal_template.test_appraisal_template import create_kras
-from hrms.hr.doctype.goal.goal import get_children, update_status
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.appraisal_template.test_appraisal_template import create_kras
+from artech_hrms.hr.doctype.goal.goal import get_children, update_status
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestGoal(HRMSTestSuite):

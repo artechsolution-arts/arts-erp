@@ -289,7 +289,7 @@ const slaPolicyListResource = inject('slaPolicyListResource')
 const step = inject('step')
 const updateStep = inject('updateStep')
 
-const deskUrl = `${window.location.origin}/app/crm-service-level-agreement/${step.value.data?.name}`
+const deskUrl = `${window.location.origin}/app/artech_crm-service-level-agreement/${step.value.data?.name}`
 
 const getSlaResource = createResource({
   url: 'artech_engine.client.get',

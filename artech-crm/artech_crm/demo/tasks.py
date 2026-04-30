@@ -1,6 +1,6 @@
 import artech_engine
 
-from crm.demo.utils import backdate, resolve_owners
+from artech_crm.demo.utils import backdate, resolve_owners
 
 
 def create_demo_tasks(lead_names, demo_users):

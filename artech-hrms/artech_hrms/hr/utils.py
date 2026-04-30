@@ -35,7 +35,7 @@ from artech.setup.doctype.employee.employee import (
 	get_holiday_list_for_employee,
 )
 
-from hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
+from artech_hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
 	calculate_pro_rated_leaves,
 )
 
@@ -326,7 +326,7 @@ def get_leave_period(from_date: str | datetime.date, to_date: str | datetime.dat
 
 def generate_leave_encashment():
 	"""Generates a draft leave encashment on allocation expiry"""
-	from hrms.hr.doctype.leave_encashment.leave_encashment import create_leave_encashment
+	from artech_hrms.hr.doctype.leave_encashment.leave_encashment import create_leave_encashment
 
 	if artech_engine.db.get_single_value("HR Settings", "auto_leave_encashment"):
 		leave_type = artech_engine.get_all("Leave Type", filters={"allow_encashment": 1}, fields=["name"])
@@ -811,7 +811,7 @@ def validate_active_employee(employee, method=None):
 
 def validate_loan_repay_from_salary(doc, method=None):
 	if doc.applicant_type == "Employee" and doc.repay_from_salary:
-		from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
+		from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
 			get_employee_currency,
 		)
 

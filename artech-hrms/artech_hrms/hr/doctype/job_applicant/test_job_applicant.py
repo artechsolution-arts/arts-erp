@@ -5,9 +5,9 @@ from artech_engine.utils import nowdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.job_offer.test_job_offer import create_job_offer
-from hrms.tests.test_utils import create_job_applicant
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.job_offer.test_job_offer import create_job_offer
+from artech_hrms.tests.test_utils import create_job_applicant
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestJobApplicant(HRMSTestSuite):

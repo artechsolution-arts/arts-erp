@@ -11,7 +11,7 @@ from artech_engine.utils import get_link_to_form
 
 from artech.accounts.utils import build_qb_match_conditions
 
-from hrms.hr.utils import validate_bulk_tool_fields
+from artech_hrms.hr.utils import validate_bulk_tool_fields
 
 
 class ShiftAssignmentTool(Document):

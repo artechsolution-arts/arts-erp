@@ -65,15 +65,15 @@ def get_active_employees() -> int:
 
 @artech_engine.whitelist(allow_guest=True)
 def subscription_updated(app: str, plan: str):
-	if app in ["hrms", "artech"] and plan:
+	if app in ["artech_hrms", "artech"] and plan:
 		update_erpnext_access()
 
 
 def update_erpnext_access(user_input: dict | None):
 	"""
-	Called from hooks after setup wizard completion, ignored if user has no hrms subscription
-	enables artech workspaces and roles if user has subscribed to both hrms and artech
-	disables artech workspaces and roles if user has subscribed to hrms but not artech
+	Called from hooks after setup wizard completion, ignored if user has no artech_hrms subscription
+	enables artech workspaces and roles if user has subscribed to both artech_hrms and artech
+	disables artech workspaces and roles if user has subscribed to artech_hrms but not artech
 	"""
 	if not artech_engine.utils.get_url().endswith(".frappehr.com"):
 		return
@@ -121,12 +121,12 @@ def update_erpnext_roles(disable: bool = True):
 
 
 def set_app_logo():
-	artech_engine.db.set_single_value("Navbar Settings", "app_logo", "/assets/hrms/images/frappe-hr-logo.svg")
+	artech_engine.db.set_single_value("Navbar Settings", "app_logo", "/assets/artech_hrms/images/frappe-hr-logo.svg")
 
 
 def get_erpnext_roles() -> set:
 	erpnext_roles = get_roles_for_app("artech")
-	hrms_roles = get_roles_for_app("hrms")
+	hrms_roles = get_roles_for_app("artech_hrms")
 	return erpnext_roles - hrms_roles - set(STANDARD_ROLES)
 
 

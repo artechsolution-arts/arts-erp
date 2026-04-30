@@ -1,10 +1,10 @@
-artech_engine.provide("hrms");
+artech_engine.provide("artech_hrms");
 
-$.extend(hrms, {
+$.extend(artech_hrms, {
 	proceed_save_with_reminders_frequency_change: () => {
 		artech_engine.ui.hide_open_dialog();
 		artech_engine.call({
-			method: "hrms.hr.doctype.hr_settings.hr_settings.set_proceed_with_frequency_change",
+			method: "artech_hrms.hr.doctype.hr_settings.hr_settings.set_proceed_with_frequency_change",
 			callback: () => {
 				// nosemgrep: frappe-semgrep-rules.rules.frappe-cur-frm-usage
 				cur_frm.save();
@@ -115,7 +115,7 @@ $.extend(hrms, {
 	handle_realtime_bulk_action_notification: (frm, event, doctype) => {
 		artech_engine.realtime.off(event);
 		artech_engine.realtime.on(event, (message) => {
-			hrms.notify_bulk_action_status(
+			artech_hrms.notify_bulk_action_status(
 				doctype,
 				message.failure,
 				message.success,

@@ -6,8 +6,8 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import cint, flt, get_link_to_form, getdate
 
-from hrms.payroll.doctype.payroll_period.payroll_period import get_payroll_period
-from hrms.payroll.doctype.salary_structure.salary_structure import validate_max_benefit_for_flexible_benefit
+from artech_hrms.payroll.doctype.payroll_period.payroll_period import get_payroll_period
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import validate_max_benefit_for_flexible_benefit
 
 
 class DuplicateAssignment(artech_engine.ValidationError):
@@ -23,8 +23,8 @@ class SalaryStructureAssignment(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
-		from hrms.payroll.doctype.employee_cost_center.employee_cost_center import EmployeeCostCenter
+		from artech_hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
+		from artech_hrms.payroll.doctype.employee_cost_center.employee_cost_center import EmployeeCostCenter
 
 		amended_from: DF.Link | None
 		base: DF.Currency

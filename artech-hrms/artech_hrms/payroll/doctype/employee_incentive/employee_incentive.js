@@ -51,7 +51,7 @@ artech_engine.ui.form.on("Employee Incentive", {
 
 	get_employee_currency: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+			method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 			args: {
 				employee: frm.doc.employee,
 			},

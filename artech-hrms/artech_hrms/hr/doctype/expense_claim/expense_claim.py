@@ -19,9 +19,9 @@ from artech.accounts.utils import (
 )
 from artech.controllers.accounts_controller import AccountsController
 
-import hrms
-from hrms.hr.utils import set_employee_name, share_doc_with_approver, validate_active_employee
-from hrms.mixins.pwa_notifications import PWANotificationsMixin
+import artech_hrms
+from artech_hrms.hr.utils import set_employee_name, share_doc_with_approver, validate_active_employee
+from artech_hrms.mixins.pwa_notifications import PWANotificationsMixin
 
 
 class InvalidExpenseApproverError(artech_engine.ValidationError):
@@ -45,9 +45,9 @@ class ExpenseClaim(AccountsController, PWANotificationsMixin):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.expense_claim_advance.expense_claim_advance import ExpenseClaimAdvance
-		from hrms.hr.doctype.expense_claim_detail.expense_claim_detail import ExpenseClaimDetail
-		from hrms.hr.doctype.expense_taxes_and_charges.expense_taxes_and_charges import ExpenseTaxesandCharges
+		from artech_hrms.hr.doctype.expense_claim_advance.expense_claim_advance import ExpenseClaimAdvance
+		from artech_hrms.hr.doctype.expense_claim_detail.expense_claim_detail import ExpenseClaimDetail
+		from artech_hrms.hr.doctype.expense_taxes_and_charges.expense_taxes_and_charges import ExpenseTaxesandCharges
 
 		advances: DF.Table[ExpenseClaimAdvance]
 		amended_from: DF.Link | None
@@ -190,8 +190,8 @@ class ExpenseClaim(AccountsController, PWANotificationsMixin):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:my_claims", employee_user)
-		hrms.refetch_resource("hrms:team_claims")
+		artech_hrms.refetch_resource("artech_hrms:my_claims", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:team_claims")
 
 	def on_submit(self):
 		if self.approval_status == "Draft":

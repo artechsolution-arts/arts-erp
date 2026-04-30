@@ -130,7 +130,7 @@ var show_dialog = function (frm, table, field_labels) {
 			return;
 		}
 		artech_engine.call({
-			method: "hrms.hr.utils.get_employee_field_property",
+			method: "artech_hrms.hr.utils.get_employee_field_property",
 			args: { employee: frm.doc.employee, fieldname: property },
 			callback: function (r) {
 				if (r.message) {

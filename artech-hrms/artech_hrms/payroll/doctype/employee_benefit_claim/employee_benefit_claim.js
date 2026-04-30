@@ -2,7 +2,7 @@ artech_engine.ui.form.on("Employee Benefit Claim", {
 	setup: (frm) => {
 		frm.set_query("earning_component", () => {
 			return {
-				query: "hrms.payroll.doctype.employee_benefit_claim.employee_benefit_claim.get_benefit_components",
+				query: "artech_hrms.payroll.doctype.employee_benefit_claim.employee_benefit_claim.get_benefit_components",
 				filters: {
 					employee: frm.doc.employee,
 					date: frm.doc.payroll_date,
@@ -15,7 +15,7 @@ artech_engine.ui.form.on("Employee Benefit Claim", {
 		frm.set_value("earning_component", null);
 		if (frm.doc.employee) {
 			artech_engine.call({
-				method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+				method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 				args: {
 					employee: frm.doc.employee,
 				},

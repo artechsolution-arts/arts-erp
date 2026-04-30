@@ -126,7 +126,10 @@
       "Bash(ngrok config *)",
       "Bash(pkill -f \"ngrok http\")",
       "Bash(chmod +x /Users/MURALI/artech-bench/apps/artech/setup.sh /Users/MURALI/artech-bench/apps/artech/artech-start.sh)",
-      "Bash(chmod +x /Users/MURALI/Downloads/erpnext-develop/setup.sh /Users/MURALI/Downloads/erpnext-develop/artech-start.sh)"
+      "Bash(chmod +x /Users/MURALI/Downloads/erpnext-develop/setup.sh /Users/MURALI/Downloads/erpnext-develop/artech-start.sh)",
+      "Bash(git push *)",
+      "Bash(git mv *)",
+      "Bash(xargs rm *)"
     ]
   }
 }

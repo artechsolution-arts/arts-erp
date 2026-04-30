@@ -5,10 +5,10 @@ import artech_engine
 from artech.setup.doctype.designation.test_designation import create_designation
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.appraisal_cycle.test_appraisal_cycle import create_appraisal_cycle
-from hrms.hr.doctype.appraisal_template.test_appraisal_template import create_appraisal_template
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.appraisal_cycle.test_appraisal_cycle import create_appraisal_cycle
+from artech_hrms.hr.doctype.appraisal_template.test_appraisal_template import create_appraisal_template
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeePerformanceFeedback(HRMSTestSuite):

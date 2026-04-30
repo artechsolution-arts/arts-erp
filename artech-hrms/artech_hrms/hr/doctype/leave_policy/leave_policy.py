@@ -15,7 +15,7 @@ class LeavePolicy(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.leave_policy_detail.leave_policy_detail import LeavePolicyDetail
+		from artech_hrms.hr.doctype.leave_policy_detail.leave_policy_detail import LeavePolicyDetail
 
 		amended_from: DF.Link | None
 		leave_policy_details: DF.Table[LeavePolicyDetail]

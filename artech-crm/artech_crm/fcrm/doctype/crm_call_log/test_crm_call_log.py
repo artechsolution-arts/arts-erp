@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.tests import IntegrationTestCase
 
-from crm.fcrm.doctype.crm_call_log.crm_call_log import (
+from artech_crm.fcrm.doctype.crm_call_log.crm_call_log import (
 	create_lead_from_call_log,
 	get_call_log,
 	parse_call_log,
@@ -135,7 +135,7 @@ class TestCRMCallLog(IntegrationTestCase):
 
 	def test_default_list_data_returns_actual_logs(self):
 		"""Test default_list_data returns actual call log data"""
-		from crm.fcrm.doctype.crm_call_log.crm_call_log import CRMCallLog
+		from artech_crm.fcrm.doctype.crm_call_log.crm_call_log import CRMCallLog
 
 		# Create test call logs with valid users
 		create_test_call_log(

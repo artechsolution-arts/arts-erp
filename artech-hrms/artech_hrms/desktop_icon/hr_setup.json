@@ -1,5 +1,5 @@
 {
- "app": "hrms",
+ "app": "artech_hrms",
  "creation": "2025-11-19 13:17:44.832657",
  "docstatus": 0,
  "doctype": "Desktop Icon",
@@ -10,7 +10,7 @@
  "label": "HR Setup",
  "link_to": "HR Setup",
  "link_type": "Workspace Sidebar",
- "logo_url": "/assets/hrms/icons/desktop_icons/hr_setup.svg",
+ "logo_url": "/assets/artech_hrms/icons/desktop_icons/hr_setup.svg",
  "modified": "2026-03-11 12:47:56.005334",
  "modified_by": "Administrator",
  "name": "HR Setup",

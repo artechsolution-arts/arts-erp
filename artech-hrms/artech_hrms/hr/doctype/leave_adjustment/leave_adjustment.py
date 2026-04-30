@@ -6,8 +6,8 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import cint, flt, get_link_to_form
 
-from hrms.hr.doctype.leave_application.leave_application import get_leave_balance_on
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
+from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_balance_on
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
 
 
 class LeaveAdjustment(Document):

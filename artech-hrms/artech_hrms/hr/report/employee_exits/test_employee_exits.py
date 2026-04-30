@@ -3,13 +3,13 @@ from artech_engine.utils import add_days, getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.exit_interview.test_exit_interview import create_exit_interview
-from hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
+from artech_hrms.hr.doctype.exit_interview.test_exit_interview import create_exit_interview
+from artech_hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
 	create_full_and_final_statement,
 )
-from hrms.hr.report.employee_exits.employee_exits import execute
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.report.employee_exits.employee_exits import execute
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeExits(HRMSTestSuite):

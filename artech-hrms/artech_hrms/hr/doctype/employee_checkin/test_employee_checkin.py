@@ -15,18 +15,18 @@ from artech_engine.utils import (
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.employee_checkin.employee_checkin import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.employee_checkin.employee_checkin import (
 	CheckinRadiusExceededError,
 	add_log_based_on_employee_field,
 	bulk_fetch_shift,
 	calculate_working_hours,
 	mark_attendance_and_link_log,
 )
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list, make_leave_application
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list, make_leave_application
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeCheckin(HRMSTestSuite):

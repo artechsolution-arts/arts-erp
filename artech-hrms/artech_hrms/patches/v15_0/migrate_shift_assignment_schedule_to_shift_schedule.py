@@ -1,6 +1,6 @@
 import artech_engine
 
-from hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
+from artech_hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
 
 
 def execute():

@@ -57,13 +57,13 @@ artech_engine.ui.form.on("Salary Structure", {
 		frm.set_query("salary_component", "earnings", function () {
 			return {
 				filters: { component_type: "earning", company: frm.doc.company },
-				query: "hrms.payroll.doctype.salary_structure.salary_structure.get_salary_component",
+				query: "artech_hrms.payroll.doctype.salary_structure.salary_structure.get_salary_component",
 			};
 		});
 		frm.set_query("salary_component", "deductions", function () {
 			return {
 				filters: { component_type: "deduction", company: frm.doc.company },
-				query: "hrms.payroll.doctype.salary_structure.salary_structure.get_salary_component",
+				query: "artech_hrms.payroll.doctype.salary_structure.salary_structure.get_salary_component",
 			};
 		});
 	},
@@ -176,7 +176,7 @@ artech_engine.ui.form.on("Salary Structure", {
 
 	preview_salary_slip: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure.salary_structure.get_employees",
+			method: "artech_hrms.payroll.doctype.salary_structure.salary_structure.get_employees",
 			args: {
 				salary_structure: frm.doc.name,
 			},
@@ -219,7 +219,7 @@ artech_engine.ui.form.on("Salary Structure", {
 			? "Salary Slip based on Timesheet"
 			: "Salary Slip Standard";
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure.salary_structure.make_salary_slip",
+			method: "artech_hrms.payroll.doctype.salary_structure.salary_structure.make_salary_slip",
 			args: {
 				source_name: frm.doc.name,
 				employee: employee,
@@ -292,7 +292,7 @@ cur_frm.cscript.validate = function (doc, cdt, cdn) {
 artech_engine.ui.form.on("Salary Detail", {
 	form_render: function (frm, cdt, cdn) {
 		const row = locals[cdt][cdn];
-		hrms.payroll_utils.set_autocompletions_for_condition_and_formula(frm, row);
+		artech_hrms.payroll_utils.set_autocompletions_for_condition_and_formula(frm, row);
 	},
 
 	amount: function (frm) {

@@ -5,9 +5,9 @@ import artech_engine
 from artech.setup.doctype.designation.test_designation import create_designation
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.job_opening.test_job_opening import get_job_opening
-from hrms.hr.doctype.job_requisition.job_requisition import make_job_opening
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.job_opening.test_job_opening import get_job_opening
+from artech_hrms.hr.doctype.job_requisition.job_requisition import make_job_opening
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestJobRequisition(HRMSTestSuite):

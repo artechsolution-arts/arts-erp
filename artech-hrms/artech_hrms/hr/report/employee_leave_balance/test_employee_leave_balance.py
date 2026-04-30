@@ -3,20 +3,20 @@ from artech_engine.utils import add_days, add_months, flt, get_year_ending, get_
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import (
 	expire_allocation,
 	process_expired_allocation,
 )
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.hr.report.employee_leave_balance.employee_leave_balance import execute
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.hr.report.employee_leave_balance.employee_leave_balance import execute
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_holiday_list,
 	make_leave_application,
 )
-from hrms.tests.test_utils import get_first_day, get_first_sunday, get_last_day
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import get_first_day, get_first_sunday, get_last_day
+from artech_hrms.tests.utils import HRMSTestSuite
 
 test_records = artech_engine.get_test_records("Leave Type")
 

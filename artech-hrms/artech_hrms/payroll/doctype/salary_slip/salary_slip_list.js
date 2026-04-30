@@ -18,7 +18,7 @@ artech_engine.listview_settings["Salary Slip"] = {
 
 			artech_engine.confirm(__("Are you sure you want to email the selected salary slips?"), () => {
 				listview.call_for_selected_items(
-					"hrms.payroll.doctype.salary_slip.salary_slip.enqueue_email_salary_slips",
+					"artech_hrms.payroll.doctype.salary_slip.salary_slip.enqueue_email_salary_slips",
 				);
 			});
 		});

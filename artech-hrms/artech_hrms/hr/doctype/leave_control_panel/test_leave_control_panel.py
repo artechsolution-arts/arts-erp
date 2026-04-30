@@ -6,12 +6,12 @@ import artech_engine
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
-from hrms.hr.doctype.leave_control_panel.leave_control_panel import LeaveControlPanel
-from hrms.hr.doctype.leave_period.test_leave_period import create_leave_period
-from hrms.hr.doctype.leave_policy.test_leave_policy import create_leave_policy
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
+from artech_hrms.hr.doctype.leave_control_panel.leave_control_panel import LeaveControlPanel
+from artech_hrms.hr.doctype.leave_period.test_leave_period import create_leave_period
+from artech_hrms.hr.doctype.leave_policy.test_leave_policy import create_leave_policy
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveControlPanel(HRMSTestSuite):

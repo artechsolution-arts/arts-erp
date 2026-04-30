@@ -1,7 +1,7 @@
 artech_engine.ui.form.on("Bulk Salary Structure Assignment", {
 	setup(frm) {
 		frm.trigger("set_queries");
-		hrms.setup_employee_filter_group(frm);
+		artech_hrms.setup_employee_filter_group(frm);
 	},
 
 	async refresh(frm) {
@@ -10,7 +10,7 @@ artech_engine.ui.form.on("Bulk Salary Structure Assignment", {
 		frm.trigger("set_primary_action");
 		await frm.trigger("set_payroll_payable_account");
 		frm.trigger("get_employees");
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_salary_structure_assignment",
 			"Salary Structure Assignment",
@@ -138,7 +138,7 @@ artech_engine.ui.form.on("Bulk Salary Structure Assignment", {
 			},
 		};
 
-		hrms.render_employees_datatable(
+		artech_hrms.render_employees_datatable(
 			frm,
 			columns,
 			employees,
@@ -251,7 +251,7 @@ artech_engine.ui.form.on("Bulk Salary Structure Assignment", {
 				employees_with_base_zero.push(`<b>${row_content["employee"]}</b>`);
 		});
 
-		hrms.validate_mandatory_fields(frm, checked_rows_content);
+		artech_hrms.validate_mandatory_fields(frm, checked_rows_content);
 		if (employees_with_base_zero.length)
 			return frm.events.validate_base_zero(
 				frm,

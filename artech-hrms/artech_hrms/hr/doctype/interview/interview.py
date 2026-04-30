@@ -23,7 +23,7 @@ class Interview(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.interview_detail.interview_detail import InterviewDetail
+		from artech_hrms.hr.doctype.interview_detail.interview_detail import InterviewDetail
 
 		amended_from: DF.Link | None
 		average_rating: DF.Rating
@@ -97,7 +97,7 @@ class Interview(Document):
 			title=_("Update Job Applicant"),
 			primary_action={
 				"label": _("Mark as {0}").format(job_applicant_status),
-				"server_action": "hrms.hr.doctype.interview.interview.update_job_applicant_status",
+				"server_action": "artech_hrms.hr.doctype.interview.interview.update_job_applicant_status",
 				"args": {"job_applicant": self.job_applicant, "status": job_applicant_status},
 			},
 		)

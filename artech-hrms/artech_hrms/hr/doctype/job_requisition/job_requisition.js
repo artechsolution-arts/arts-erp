@@ -36,7 +36,7 @@ artech_engine.ui.form.on("Job Requisition", {
 				__("Create Job Opening"),
 				() => {
 					artech_engine.model.open_mapped_doc({
-						method: "hrms.hr.doctype.job_requisition.job_requisition.make_job_opening",
+						method: "artech_hrms.hr.doctype.job_requisition.job_requisition.make_job_opening",
 						frm: frm,
 					});
 				},

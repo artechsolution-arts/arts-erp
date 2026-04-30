@@ -15,13 +15,13 @@ artech_engine.ui.form.on("Shift Location", {
 			]);
 
 		if (!frm.doc.__islocal)
-			hrms.add_shift_tools_button_to_form(frm, {
+			artech_hrms.add_shift_tools_button_to_form(frm, {
 				action: "Assign Shift",
 				shift_location: frm.doc.name,
 			});
 	},
 
 	fetch_geolocation: (frm) => {
-		hrms.fetch_geolocation(frm);
+		artech_hrms.fetch_geolocation(frm);
 	},
 });

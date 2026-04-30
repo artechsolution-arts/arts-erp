@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.model.document import Document
 
-from crm.api.exchange_rate import get_exchange_rate
+from artech_crm.api.exchange_rate import get_exchange_rate
 
 
 class CRMOrganization(Document):

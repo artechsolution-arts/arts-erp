@@ -18,7 +18,7 @@ class TrainingEvent(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.training_event_employee.training_event_employee import TrainingEventEmployee
+		from artech_hrms.hr.doctype.training_event_employee.training_event_employee import TrainingEventEmployee
 
 		amended_from: DF.Link | None
 		company: DF.Link | None

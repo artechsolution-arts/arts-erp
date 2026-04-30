@@ -1,4 +1,4 @@
-from crm.install import add_default_fields_layout
+from artech_crm.install import add_default_fields_layout
 
 
 def execute():

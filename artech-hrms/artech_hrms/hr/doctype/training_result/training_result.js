@@ -2,7 +2,7 @@ artech_engine.ui.form.on("Training Result", {
 	training_event: function (frm) {
 		if (frm.doc.training_event && !frm.doc.docstatus) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.training_result.training_result.get_employees",
+				method: "artech_hrms.hr.doctype.training_result.training_result.get_employees",
 				args: {
 					training_event: frm.doc.training_event,
 				},

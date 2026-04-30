@@ -5,9 +5,9 @@ from artech_engine.utils import add_days, nowdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.shift_request.shift_request import OverlappingShiftRequestError
-from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.shift_request.shift_request import OverlappingShiftRequestError
+from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestShiftRequest(HRMSTestSuite):

@@ -4,7 +4,7 @@ from artech_engine.utils import cint, flt, get_link_to_form
 
 from artech import get_default_company
 
-from hrms.hr.utils import validate_bulk_tool_fields
+from artech_hrms.hr.utils import validate_bulk_tool_fields
 
 
 class LeaveControlPanel(Document):

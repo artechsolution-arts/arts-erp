@@ -6,10 +6,10 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import get_link_to_form
 
-import hrms
-from hrms.hr.doctype.shift_assignment.shift_assignment import has_overlapping_timings
-from hrms.hr.utils import share_doc_with_approver, validate_active_employee
-from hrms.mixins.pwa_notifications import PWANotificationsMixin
+import artech_hrms
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import has_overlapping_timings
+from artech_hrms.hr.utils import share_doc_with_approver, validate_active_employee
+from artech_hrms.mixins.pwa_notifications import PWANotificationsMixin
 
 
 class OverlappingShiftRequestError(artech_engine.ValidationError):
@@ -54,8 +54,8 @@ class ShiftRequest(Document, PWANotificationsMixin):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:my_shift_requests", employee_user)
-		hrms.refetch_resource("hrms:team_shift_requests")
+		artech_hrms.refetch_resource("artech_hrms:my_shift_requests", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:team_shift_requests")
 
 	def after_insert(self):
 		self.notify_approver()

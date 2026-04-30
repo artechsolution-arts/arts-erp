@@ -5,7 +5,7 @@ from artech_engine.query_builder import Order
 from pypika.functions import Replace
 from werkzeug.wrappers import Response
 
-from crm.utils import are_same_phone_number, parse_phone_number
+from artech_crm.utils import are_same_phone_number, parse_phone_number
 
 
 def _get_recording_credentials(telephony_medium: str) -> tuple:

@@ -19,7 +19,7 @@ class SalaryWithholding(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.salary_withholding_cycle.salary_withholding_cycle import (
+		from artech_hrms.payroll.doctype.salary_withholding_cycle.salary_withholding_cycle import (
 			SalaryWithholdingCycle,
 		)
 

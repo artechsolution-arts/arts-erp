@@ -1,5 +1,5 @@
 {
- "app": "hrms",
+ "app": "artech_hrms",
  "charts": [],
  "content": "[{\"id\":\"MUnSuJ_4ZW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"rgbG6r_PeK\",\"type\":\"card\",\"data\":{\"card_name\":\"Tax Setup\",\"col\":4}},{\"id\":\"yJJhpwR32W\",\"type\":\"card\",\"data\":{\"card_name\":\"Exemption\",\"col\":4}},{\"id\":\"fklpIA_dvG\",\"type\":\"card\",\"data\":{\"card_name\":\"Benefits\",\"col\":4}},{\"id\":\"V_L6VdkAlV\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2022-08-20 17:04:52.350699",

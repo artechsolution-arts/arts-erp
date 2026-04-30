@@ -1,5 +1,5 @@
 {
- "app": "hrms",
+ "app": "artech_hrms",
  "creation": "2025-11-17 20:33:43.192437",
  "docstatus": 0,
  "doctype": "Desktop Icon",
@@ -10,7 +10,7 @@
  "label": "Payroll",
  "link_to": "Payroll",
  "link_type": "Workspace Sidebar",
- "logo_url": "/assets/hrms/icons/desktop_icons/salary_payout.svg",
+ "logo_url": "/assets/artech_hrms/icons/desktop_icons/salary_payout.svg",
  "modified": "2026-01-01 20:07:01.308523",
  "modified_by": "Administrator",
  "name": "Payroll",

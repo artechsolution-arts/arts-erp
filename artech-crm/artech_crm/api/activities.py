@@ -7,7 +7,7 @@ from artech_engine.desk.form.load import get_docinfo
 from artech_engine.query_builder import JoinType
 from artech_engine.translate import get_translated_doctypes
 
-from crm.fcrm.doctype.crm_call_log.crm_call_log import parse_call_log
+from artech_crm.fcrm.doctype.crm_call_log.crm_call_log import parse_call_log
 
 
 @artech_engine.whitelist()

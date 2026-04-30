@@ -11,7 +11,7 @@ from artech.accounts.doctype.payment_entry.payment_entry import (
 from artech.accounts.utils import get_account_currency
 from artech.setup.utils import get_exchange_rate
 
-from hrms.hr.doctype.expense_claim.expense_claim import get_outstanding_amount_for_claim
+from artech_hrms.hr.doctype.expense_claim.expense_claim import get_outstanding_amount_for_claim
 
 
 class EmployeePaymentEntry(PaymentEntry):

@@ -71,7 +71,7 @@
 		"currency": "USD",
 		"exchange_rate": 1,
 		"source": "Referral",
-		"deal_owner": "crm.user1@example.com",
+		"deal_owner": "artech_crm.user1@example.com",
 		"probability": 35
 	},
 	{
@@ -93,7 +93,7 @@
 		"currency": "USD",
 		"exchange_rate": 1,
 		"source": "Email Campaign",
-		"deal_owner": "crm.user1@example.com",
+		"deal_owner": "artech_crm.user1@example.com",
 		"probability": 25
 	},
 	{

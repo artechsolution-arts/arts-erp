@@ -30,7 +30,7 @@ artech_engine.ui.form.on("Exit Interview", {
 
 	send_exit_questionnaire: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.exit_interview.exit_interview.send_exit_questionnaire",
+			method: "artech_hrms.hr.doctype.exit_interview.exit_interview.send_exit_questionnaire",
 			args: {
 				interviews: [frm.doc],
 			},

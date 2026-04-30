@@ -32,7 +32,7 @@ def oauth_providers():
 				{
 					"name": provider.name,
 					"provider_name": provider.provider_name,
-					"auth_url": get_oauth2_authorize_url(provider.name, "/crm"),
+					"auth_url": get_oauth2_authorize_url(provider.name, "/artech_crm"),
 					"icon": icon,
 				}
 			)

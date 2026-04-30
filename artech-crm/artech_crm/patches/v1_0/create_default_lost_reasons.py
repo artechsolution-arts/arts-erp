@@ -1,4 +1,4 @@
-from crm.install import add_default_lost_reasons
+from artech_crm.install import add_default_lost_reasons
 
 
 def execute():

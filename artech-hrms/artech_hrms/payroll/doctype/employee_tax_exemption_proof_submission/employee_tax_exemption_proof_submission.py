@@ -4,7 +4,7 @@
 from artech_engine.model.document import Document
 from artech_engine.utils import flt
 
-from hrms.hr.utils import (
+from artech_hrms.hr.utils import (
 	calculate_hra_exemption_for_period,
 	get_total_exemption_amount,
 	validate_active_employee,
@@ -22,7 +22,7 @@ class EmployeeTaxExemptionProofSubmission(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_tax_exemption_proof_submission_detail.employee_tax_exemption_proof_submission_detail import (
+		from artech_hrms.payroll.doctype.employee_tax_exemption_proof_submission_detail.employee_tax_exemption_proof_submission_detail import (
 			EmployeeTaxExemptionProofSubmissionDetail,
 		)
 

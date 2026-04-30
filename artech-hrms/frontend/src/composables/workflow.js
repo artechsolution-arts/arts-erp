@@ -4,9 +4,9 @@ import { userResource } from "@/data/user"
 
 export default function useWorkflow(doctype) {
 	const workflowDoc = createResource({
-		url: "hrms.api.get_workflow",
+		url: "artech_hrms.api.get_workflow",
 		params: { doctype: doctype },
-		cache: ["hrms:workflow", doctype],
+		cache: ["artech_hrms:workflow", doctype],
 	})
 	workflowDoc.reload()
 

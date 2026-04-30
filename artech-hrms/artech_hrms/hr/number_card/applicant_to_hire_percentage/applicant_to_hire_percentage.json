@@ -11,7 +11,7 @@
  "is_public": 1,
  "is_standard": 1,
  "label": "Applicant-to-Hire Percentage",
- "method": "hrms.hr.doctype.job_applicant.job_applicant.get_applicant_to_hire_percentage",
+ "method": "artech_hrms.hr.doctype.job_applicant.job_applicant.get_applicant_to_hire_percentage",
  "modified": "2025-09-17 19:03:25.915647",
  "modified_by": "Administrator",
  "module": "HR",

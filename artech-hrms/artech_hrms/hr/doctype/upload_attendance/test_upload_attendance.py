@@ -6,8 +6,8 @@ from artech_engine.utils import getdate
 import artech
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.upload_attendance.upload_attendance import get_data
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.upload_attendance.upload_attendance import get_data
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestUploadAttendance(HRMSTestSuite):

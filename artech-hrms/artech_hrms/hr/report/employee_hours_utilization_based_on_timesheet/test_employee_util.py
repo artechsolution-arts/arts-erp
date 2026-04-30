@@ -4,10 +4,10 @@ from artech_engine.utils.make_random import get_random
 from artech.projects.doctype.project.test_project import make_project
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.report.employee_hours_utilization_based_on_timesheet.employee_hours_utilization_based_on_timesheet import (
+from artech_hrms.hr.report.employee_hours_utilization_based_on_timesheet.employee_hours_utilization_based_on_timesheet import (
 	execute,
 )
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeUtilization(HRMSTestSuite):

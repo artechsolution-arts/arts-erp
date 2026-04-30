@@ -22,7 +22,7 @@ artech_engine.ui.form.on("Interview Type", {
 	},
 	create_interview: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.interview_type.interview_type.create_interview",
+			method: "artech_hrms.hr.doctype.interview_type.interview_type.create_interview",
 			args: {
 				docname: frm.doc.name,
 			},

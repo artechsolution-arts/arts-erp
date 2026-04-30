@@ -5,17 +5,17 @@ from artech_engine.utils import add_days, flt, get_first_day, getdate, nowdate, 
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
-from hrms.hr.doctype.overtime_type.test_overtime_type import create_overtime_type
-from hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_earning_salary_component
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+from artech_hrms.hr.doctype.overtime_type.test_overtime_type import create_overtime_type
+from artech_hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_earning_salary_component
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestOvertimeSlip(HRMSTestSuite):
 	def test_overtime_calculation_and_additional_salary_creation(self):
-		from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+		from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
 
 		employee = make_employee("test_overtime_slip_salary@example.com", company="_Test Company")
 		salary_structure = make_salary_structure(
@@ -80,8 +80,8 @@ class TestOvertimeSlip(HRMSTestSuite):
 
 	def test_overtime_slip_creation_via_payroll_entry(self):
 		"""Test creation of overtime slips via payroll entry."""
-		from hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
-		from hrms.payroll.doctype.payroll_entry.test_payroll_entry import get_payroll_entry
+		from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
+		from artech_hrms.payroll.doctype.payroll_entry.test_payroll_entry import get_payroll_entry
 
 		date = getdate()
 		month_start_date = get_first_day(date)

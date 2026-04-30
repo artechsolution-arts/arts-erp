@@ -1,7 +1,7 @@
 artech_engine.provide("artech_engine.treeview_settings");
 
 artech_engine.treeview_settings["Goal"] = {
-	get_tree_nodes: "hrms.hr.doctype.goal.goal.get_children",
+	get_tree_nodes: "artech_hrms.hr.doctype.goal.goal.get_children",
 	filters: [
 		{
 			fieldname: "company",
@@ -136,7 +136,7 @@ artech_engine.treeview_settings["Goal"] = {
 			mandatory_depends_on: "eval:doc.appraisal_cycle && !doc.parent_goal",
 			get_query() {
 				return {
-					query: "hrms.hr.doctype.appraisal.appraisal.get_kras_for_employee",
+					query: "artech_hrms.hr.doctype.appraisal.appraisal.get_kras_for_employee",
 					filters: {
 						employee: cur_dialog.get_value("employee"),
 						appraisal_cycle: cur_dialog.get_value("appraisal_cycle"),
@@ -211,7 +211,7 @@ artech_engine.treeview_settings["Goal"] = {
 	},
 	breadcrumb: "Performance",
 	get_tree_root: false,
-	add_tree_node: "hrms.hr.doctype.goal.goal.add_tree_node",
+	add_tree_node: "artech_hrms.hr.doctype.goal.goal.add_tree_node",
 	root_label: __("All Goals"),
 	ignore_fields: ["parent_goal"],
 	post_render(treeview) {
@@ -271,7 +271,7 @@ artech_engine.treeview_settings["Goal"] = {
 function update_progress(node, progress) {
 	return artech_engine
 		.call({
-			method: "hrms.hr.doctype.goal.goal.update_progress",
+			method: "artech_hrms.hr.doctype.goal.goal.update_progress",
 			args: {
 				goal: node.data.value,
 				progress: progress,

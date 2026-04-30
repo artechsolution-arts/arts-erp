@@ -1,4 +1,4 @@
-from hrms.setup import add_non_standard_user_types
+from artech_hrms.setup import add_non_standard_user_types
 
 
 def execute():

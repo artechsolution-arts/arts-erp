@@ -8,9 +8,9 @@ const transformAdvanceData = (data) => {
 }
 
 export const advanceBalance = createResource({
-	url: "hrms.api.get_employee_advance_balance",
+	url: "artech_hrms.api.get_employee_advance_balance",
 	auto: true,
-	cache: "hrms:employee_advance_balance",
+	cache: "artech_hrms:employee_advance_balance",
 	transform(data) {
 		return transformAdvanceData(data)
 	},

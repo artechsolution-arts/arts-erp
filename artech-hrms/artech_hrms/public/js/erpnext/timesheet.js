@@ -11,7 +11,7 @@ artech_engine.ui.form.on("Timesheet", {
 
 	make_salary_slip: function (frm) {
 		artech_engine.model.open_mapped_doc({
-			method: "hrms.payroll.doctype.salary_slip.salary_slip.make_salary_slip_from_timesheet",
+			method: "artech_hrms.payroll.doctype.salary_slip.salary_slip.make_salary_slip_from_timesheet",
 			frm: frm,
 		});
 	},

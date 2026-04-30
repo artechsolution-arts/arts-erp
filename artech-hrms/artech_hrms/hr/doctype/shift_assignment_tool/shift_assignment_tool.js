@@ -1,6 +1,6 @@
 artech_engine.ui.form.on("Shift Assignment Tool", {
 	setup(frm) {
-		hrms.setup_employee_filter_group(frm);
+		artech_hrms.setup_employee_filter_group(frm);
 	},
 
 	refresh(frm) {
@@ -9,17 +9,17 @@ artech_engine.ui.form.on("Shift Assignment Tool", {
 		frm.trigger("set_primary_action");
 		frm.trigger("get_employees");
 
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_shift_assignment",
 			"Shift Assignment",
 		);
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_shift_schedule_assignment",
 			"Shift Schedule Assignment",
 		);
-		hrms.handle_realtime_bulk_action_notification(
+		artech_hrms.handle_realtime_bulk_action_notification(
 			frm,
 			"completed_bulk_shift_request_processing",
 			"Shift Request",
@@ -170,7 +170,7 @@ artech_engine.ui.form.on("Shift Assignment Tool", {
 			columns = frm.events.get_process_shift_requests_datatable_columns();
 			no_data_message = "There are no open Shift Requests based on the given filters.";
 		}
-		hrms.render_employees_datatable(frm, columns, employees, no_data_message);
+		artech_hrms.render_employees_datatable(frm, columns, employees, no_data_message);
 	},
 
 	get_assign_shift_datatable_columns() {
@@ -253,7 +253,7 @@ artech_engine.ui.form.on("Shift Assignment Tool", {
 			selected_employees.push(rows[idx].employee);
 		});
 
-		hrms.validate_mandatory_fields(frm, selected_employees);
+		artech_hrms.validate_mandatory_fields(frm, selected_employees);
 		artech_engine.confirm(
 			__("{0} to {1} employee(s)?", [__(frm.doc.action), selected_employees.length]),
 			() => {
@@ -281,7 +281,7 @@ artech_engine.ui.form.on("Shift Assignment Tool", {
 			});
 		});
 
-		hrms.validate_mandatory_fields(frm, selected_requests, "Shift Requests");
+		artech_hrms.validate_mandatory_fields(frm, selected_requests, "Shift Requests");
 		artech_engine.confirm(
 			__("Process {0} Shift Request(s) as <b>{1}</b>?", [selected_requests.length, status]),
 			() => {

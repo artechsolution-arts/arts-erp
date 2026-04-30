@@ -18,7 +18,7 @@ from artech_engine.utils.user import add_role
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import (
+from artech_hrms.hr.doctype.attendance.attendance import (
 	DuplicateAttendanceError,
 	OverlappingShiftAttendanceError,
 	get_events,
@@ -26,12 +26,12 @@ from hrms.hr.doctype.attendance.attendance import (
 	mark_attendance,
 	mark_bulk_attendance,
 )
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	assign_holiday_list,
 	create_holiday_list_assignment,
 )
-from hrms.tests.test_utils import get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestAttendance(HRMSTestSuite):
@@ -56,7 +56,7 @@ class TestAttendance(HRMSTestSuite):
 		self.assertRaises(DuplicateAttendanceError, attendance.insert)
 
 	def test_duplicate_attendance_with_shift(self):
-		from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+		from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
 
 		employee = make_employee("test_duplicate_attendance@example.com", company="_Test Company")
 		date = nowdate()
@@ -92,7 +92,7 @@ class TestAttendance(HRMSTestSuite):
 		self.assertRaises(DuplicateAttendanceError, attendance.insert)
 
 	def test_overlapping_shift_attendance_validation(self):
-		from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+		from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
 
 		employee = make_employee("test_overlap_attendance@example.com", company="_Test Company")
 		date = nowdate()
@@ -118,7 +118,7 @@ class TestAttendance(HRMSTestSuite):
 
 	def test_allow_attendance_with_different_shifts(self):
 		# allows attendance with 2 different non-overlapping shifts
-		from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+		from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
 
 		employee = make_employee("test_duplicate_attendance@example.com", company="_Test Company")
 		date = nowdate()
@@ -199,7 +199,7 @@ class TestAttendance(HRMSTestSuite):
 		self.assertNotIn(first_sunday, unmarked_days)
 
 	def test_unmarked_days_excluding_holidays_across_two_holiday_list_assignments(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
 
 		employee = make_employee("test_unmarked_days_exclude_holidays@example.com", company="_Test Company")
 		start_date = get_first_day(getdate())
@@ -251,8 +251,8 @@ class TestAttendance(HRMSTestSuite):
 		self.assertNotIn(add_days(relieving_date, 1), unmarked_days)
 
 	def test_duplicate_attendance_when_created_from_checkins_and_tool(self):
-		from hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
-		from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+		from artech_hrms.hr.doctype.employee_checkin.test_employee_checkin import make_checkin
+		from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
 
 		shift = setup_shift_type(shift_type="Shift 1", start_time="08:00:00", end_time="17:00:00")
 		employee = make_employee(

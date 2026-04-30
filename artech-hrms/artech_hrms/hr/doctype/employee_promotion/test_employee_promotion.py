@@ -3,8 +3,8 @@
 import artech_engine
 from artech_engine.utils import add_days, getdate
 
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_employee
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_employee
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeePromotion(HRMSTestSuite):

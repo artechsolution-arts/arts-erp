@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.model.document import Document
 
-from hrms.hr.utils import set_geolocation_from_coordinates
+from artech_hrms.hr.utils import set_geolocation_from_coordinates
 
 
 class ShiftLocation(Document):

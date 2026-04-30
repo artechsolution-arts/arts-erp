@@ -16,7 +16,7 @@ class AppraisalCycle(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.appraisee.appraisee import Appraisee
+		from artech_hrms.hr.doctype.appraisee.appraisee import Appraisee
 
 		appraisees: DF.Table[Appraisee]
 		branch: DF.Link | None

@@ -111,7 +111,7 @@ artech_engine.listview_settings["Attendance"] = {
 								]),
 								() => {
 									artech_engine.call({
-										method: "hrms.hr.doctype.attendance.attendance.mark_bulk_attendance",
+										method: "artech_hrms.hr.doctype.attendance.attendance.mark_bulk_attendance",
 										args: {
 											data: data,
 										},
@@ -155,7 +155,7 @@ artech_engine.listview_settings["Attendance"] = {
 
 			artech_engine
 				.call({
-					method: "hrms.hr.doctype.attendance.attendance.get_unmarked_days",
+					method: "artech_hrms.hr.doctype.attendance.attendance.get_unmarked_days",
 					async: false,
 					args: {
 						employee: fields.employee.value,

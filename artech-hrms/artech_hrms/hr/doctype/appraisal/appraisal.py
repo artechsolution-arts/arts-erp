@@ -4,10 +4,10 @@ from artech_engine.model.document import Document
 from artech_engine.query_builder.functions import Avg
 from artech_engine.utils import flt, get_link_to_form, now
 
-from hrms.hr.doctype.appraisal_cycle.appraisal_cycle import validate_active_appraisal_cycle
-from hrms.hr.utils import validate_active_employee
-from hrms.mixins.appraisal import AppraisalMixin
-from hrms.payroll.utils import sanitize_expression
+from artech_hrms.hr.doctype.appraisal_cycle.appraisal_cycle import validate_active_appraisal_cycle
+from artech_hrms.hr.utils import validate_active_employee
+from artech_hrms.mixins.appraisal import AppraisalMixin
+from artech_hrms.payroll.utils import sanitize_expression
 
 
 class Appraisal(Document, AppraisalMixin):
@@ -19,9 +19,9 @@ class Appraisal(Document, AppraisalMixin):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.appraisal_goal.appraisal_goal import AppraisalGoal
-		from hrms.hr.doctype.appraisal_kra.appraisal_kra import AppraisalKRA
-		from hrms.hr.doctype.employee_feedback_rating.employee_feedback_rating import EmployeeFeedbackRating
+		from artech_hrms.hr.doctype.appraisal_goal.appraisal_goal import AppraisalGoal
+		from artech_hrms.hr.doctype.appraisal_kra.appraisal_kra import AppraisalKRA
+		from artech_hrms.hr.doctype.employee_feedback_rating.employee_feedback_rating import EmployeeFeedbackRating
 
 		amended_from: DF.Link | None
 		appraisal_cycle: DF.Link

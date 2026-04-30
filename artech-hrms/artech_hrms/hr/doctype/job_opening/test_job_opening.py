@@ -5,9 +5,9 @@ from artech_engine.utils import add_days, getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.job_opening.job_opening import close_expired_job_openings
-from hrms.hr.doctype.staffing_plan.test_staffing_plan import make_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.job_opening.job_opening import close_expired_job_openings
+from artech_hrms.hr.doctype.staffing_plan.test_staffing_plan import make_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestJobOpening(HRMSTestSuite):

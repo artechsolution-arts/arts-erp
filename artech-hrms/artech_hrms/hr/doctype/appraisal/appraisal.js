@@ -62,7 +62,7 @@ artech_engine.ui.form.on("Appraisal", {
 
 	show_feedback_history(frm) {
 		artech_engine.require("performance.bundle.js", () => {
-			const feedback_history = new hrms.PerformanceFeedback({
+			const feedback_history = new artech_hrms.PerformanceFeedback({
 				frm: frm,
 				wrapper: $(frm.fields_dict.feedback_html.wrapper),
 			});

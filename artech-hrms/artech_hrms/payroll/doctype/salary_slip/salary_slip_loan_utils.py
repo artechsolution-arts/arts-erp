@@ -4,7 +4,7 @@ import artech_engine
 from artech_engine import _
 
 if TYPE_CHECKING:
-	from hrms.payroll.doctype.salary_slip.salary_slip import SalarySlip
+	from artech_hrms.payroll.doctype.salary_slip.salary_slip import SalarySlip
 
 
 def if_lending_app_installed(function):

@@ -6,13 +6,13 @@ from artech_engine.utils import add_days, add_months, nowdate
 import artech
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_employee_salary_slip
-from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+from artech_hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_employee_salary_slip
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 	make_salary_slip,
 	make_salary_structure,
 )
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestAdditionalSalary(HRMSTestSuite):

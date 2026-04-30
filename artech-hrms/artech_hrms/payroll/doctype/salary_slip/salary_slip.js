@@ -56,7 +56,7 @@ artech_engine.ui.form.on("Salary Slip", {
 
 	set_end_date: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.payroll_entry.payroll_entry.get_end_date",
+			method: "artech_hrms.payroll.doctype.payroll_entry.payroll_entry.get_end_date",
 			args: {
 				frequency: frm.doc.payroll_frequency,
 				start_date: frm.doc.start_date,
@@ -268,7 +268,7 @@ artech_engine.ui.form.on("Salary Slip", {
 	set_payment_days_description: function (frm) {
 		if (frm.doc.docstatus !== 0) return;
 
-		artech_engine.call("hrms.payroll.utils.get_payroll_settings_for_payment_days").then((r) => {
+		artech_engine.call("artech_hrms.payroll.utils.get_payroll_settings_for_payment_days").then((r) => {
 			const {
 				payroll_based_on,
 				consider_unmarked_attendance_as,

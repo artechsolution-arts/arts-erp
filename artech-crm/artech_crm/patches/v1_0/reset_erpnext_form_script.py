@@ -1,6 +1,6 @@
 import artech_engine
 
-from crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings import get_crm_form_script
+from artech_crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings import get_crm_form_script
 
 
 def execute():

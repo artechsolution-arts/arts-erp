@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.model.document import Document
 
-from crm.lead_syncing.doctype.lead_sync_source.facebook import (
+from artech_crm.lead_syncing.doctype.lead_sync_source.facebook import (
 	FacebookSyncSource,
 	fetch_and_store_pages_from_facebook,
 )

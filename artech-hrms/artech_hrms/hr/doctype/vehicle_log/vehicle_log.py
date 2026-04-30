@@ -16,7 +16,7 @@ class VehicleLog(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.vehicle_service.vehicle_service import VehicleService
+		from artech_hrms.hr.doctype.vehicle_service.vehicle_service import VehicleService
 
 		amended_from: DF.Link | None
 		date: DF.Date

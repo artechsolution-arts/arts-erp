@@ -13,7 +13,7 @@ artech_engine.ui.form.on("Interview Feedback", {
 
 	interview_type: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.interview.interview.get_expected_skill_set",
+			method: "artech_hrms.hr.doctype.interview.interview.get_expected_skill_set",
 			args: {
 				interview_type: frm.doc.interview_type,
 			},
@@ -25,7 +25,7 @@ artech_engine.ui.form.on("Interview Feedback", {
 
 	interview: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.interview_feedback.interview_feedback.get_applicable_interviewers",
+			method: "artech_hrms.hr.doctype.interview_feedback.interview_feedback.get_applicable_interviewers",
 			args: {
 				interview: frm.doc.interview || "",
 			},

@@ -244,7 +244,7 @@ function refresh_allowed_leave_types(quick_entry) {
 
 	return artech_engine
 		.call({
-			method: "hrms.hr.doctype.leave_application.leave_application.get_leave_details",
+			method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_details",
 			args: {
 				employee,
 				date,
@@ -298,7 +298,7 @@ function refresh_leave_metrics(quick_entry) {
 
 	artech_engine
 		.call({
-			method: "hrms.hr.doctype.leave_application.leave_application.get_leave_metrics_and_details",
+			method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_metrics_and_details",
 			args: {
 				employee,
 				leave_type,
@@ -434,7 +434,7 @@ function sync_leave_approver(quick_entry, employee, options = {}) {
 
 	return artech_engine
 		.call({
-			method: "hrms.hr.doctype.leave_application.leave_application.get_leave_approver_and_mandatory",
+			method: "artech_hrms.hr.doctype.leave_application.leave_application.get_leave_approver_and_mandatory",
 			args: {
 				employee,
 			},
@@ -531,7 +531,7 @@ artech_engine.views.calendar["Leave Application"] = {
 			doc.from_date = from_date;
 			doc.to_date = to_date;
 			doc.employee =
-				(await hrms.get_current_employee()) ||
+				(await artech_hrms.get_current_employee()) ||
 				artech_engine.defaults.get_user_default("employee");
 
 			const can_change_employee = artech_engine.user.has_role([
@@ -647,5 +647,5 @@ artech_engine.views.calendar["Leave Application"] = {
 			);
 		},
 	},
-	get_events_method: "hrms.hr.doctype.leave_application.leave_application.get_events",
+	get_events_method: "artech_hrms.hr.doctype.leave_application.leave_application.get_events",
 };

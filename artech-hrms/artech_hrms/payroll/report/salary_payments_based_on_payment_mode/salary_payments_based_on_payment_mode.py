@@ -6,7 +6,7 @@ from artech_engine import _
 
 import artech
 
-from hrms.payroll.report.provident_fund_deductions.provident_fund_deductions import get_conditions
+from artech_hrms.payroll.report.provident_fund_deductions.provident_fund_deductions import get_conditions
 
 
 def execute(filters=None):

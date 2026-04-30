@@ -166,7 +166,7 @@ const lastLoadedQuery = ref('')
 
 if (effectiveMode.value === 'contacts') {
   filterOptions.value = createResource({
-    url: 'crm.api.contact.search_emails',
+    url: 'artech_crm.api.contact.search_emails',
     method: 'POST',
     cache: ['ContactEmails'],
     params: { txt: '' },

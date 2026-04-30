@@ -10,8 +10,8 @@ from artech_engine.utils import flt, get_link_to_form, nowdate
 import artech
 from artech.accounts.doctype.journal_entry.journal_entry import get_default_bank_cash_account
 
-import hrms
-from hrms.hr.utils import validate_active_employee
+import artech_hrms
+from artech_hrms.hr.utils import validate_active_employee
 
 
 class EmployeeAdvanceOverPayment(artech_engine.ValidationError):
@@ -107,7 +107,7 @@ class EmployeeAdvance(Document):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:employee_advance_balance", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:employee_advance_balance", employee_user)
 
 	def validate_advance_account_type(self):
 		if not self.advance_account:

@@ -22,19 +22,19 @@ bench set-redis-socketio-host redis://redis:6379
 sed -i '/redis/d' ./Procfile
 sed -i '/watch/d' ./Procfile
 
-bench get-app crm --branch main
+bench get-app artech_crm --branch main
 
-bench new-site crm.localhost \
+bench new-site artech_crm.localhost \
     --force \
     --mariadb-root-password 123 \
     --admin-password admin \
     --no-mariadb-socket
 
-bench --site crm.localhost install-app crm
-bench --site crm.localhost set-config developer_mode 1
-bench --site crm.localhost set-config mute_emails 1
-bench --site crm.localhost set-config server_script_enabled 1
-bench --site crm.localhost clear-cache
-bench use crm.localhost
+bench --site artech_crm.localhost install-app artech_crm
+bench --site artech_crm.localhost set-config developer_mode 1
+bench --site artech_crm.localhost set-config mute_emails 1
+bench --site artech_crm.localhost set-config server_script_enabled 1
+bench --site artech_crm.localhost clear-cache
+bench use artech_crm.localhost
 
 bench start

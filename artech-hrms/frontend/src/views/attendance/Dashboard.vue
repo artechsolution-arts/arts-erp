@@ -72,9 +72,9 @@ import {
 const dayjs = inject("$dayjs")
 
 const shifts = createResource({
-	url: "hrms.api.get_shifts",
+	url: "artech_hrms.api.get_shifts",
 	auto: true,
-	cache: "hrms:shifts",
+	cache: "artech_hrms:shifts",
 	transform: (data) => {
 		return data.map((assignment) => {
 			assignment.doctype = "Shift Assignment"

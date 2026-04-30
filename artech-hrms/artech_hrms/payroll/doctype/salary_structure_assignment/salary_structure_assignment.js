@@ -122,7 +122,7 @@ artech_engine.ui.form.on("Salary Structure Assignment", {
 					? "Salary Slip based on Timesheet"
 					: "Salary Slip Standard";
 				artech_engine.call({
-					method: "hrms.payroll.doctype.salary_structure.salary_structure.make_salary_slip",
+					method: "artech_hrms.payroll.doctype.salary_structure.salary_structure.make_salary_slip",
 					args: {
 						source_name: frm.doc.salary_structure,
 						employee: frm.doc.employee,

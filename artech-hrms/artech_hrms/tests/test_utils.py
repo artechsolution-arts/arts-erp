@@ -38,10 +38,10 @@ def before_tests():
 
 
 def set_defaults():
-	from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+	from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 		create_holiday_list_assignment,
 	)
-	from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+	from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
 
 	make_holiday_list("Salary Slip Test Holiday List")
 	artech_engine.db.set_value("Company", "_Test Company", "default_holiday_list", "Salary Slip Test Holiday List")

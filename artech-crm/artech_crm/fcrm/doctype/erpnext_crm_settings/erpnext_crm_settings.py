@@ -73,7 +73,7 @@ class ERPNextCRMSettings(Document):
 	def create_custom_fields(self):
 		if not self.is_erpnext_in_different_site:
 			try:
-				from artech.crm.frappe_crm_api import create_custom_fields_for_frappe_crm
+				from artech.artech_crm.frappe_crm_api import create_custom_fields_for_frappe_crm
 
 				create_custom_fields_for_frappe_crm()
 			except ImportError:
@@ -99,7 +99,7 @@ class ERPNextCRMSettings(Document):
 	def create_custom_fields_in_remote_site(self):
 		client = get_erpnext_site_client(self)
 		try:
-			client.post_api("artech.crm.frappe_crm_api.create_custom_fields_for_frappe_crm")
+			client.post_api("artech.artech_crm.frappe_crm_api.create_custom_fields_for_frappe_crm")
 		except Exception:
 			_log_and_throw(
 				"Error while creating custom field in ERPNext, check error log for more details",
@@ -229,7 +229,7 @@ def create_prospect_in_remote_site(crm_deal, erpnext_crm_settings):
 			address = address.as_dict()
 
 		return client.post_api(
-			"artech.crm.frappe_crm_api.create_prospect_against_crm_deal",
+			"artech.artech_crm.frappe_crm_api.create_prospect_against_crm_deal",
 			{
 				"organization": doc.organization,
 				"lead_name": doc.lead_name,
@@ -325,14 +325,14 @@ def create_customer_in_erpnext(doc, method):
 	try:
 		if not erpnext_crm_settings.is_erpnext_in_different_site:
 			try:
-				from artech.crm.frappe_crm_api import create_customer
+				from artech.artech_crm.frappe_crm_api import create_customer
 			except ImportError:
 				artech_engine.throw(_("ERPNext is not installed in the current site"))
 
 			customer_name = create_customer(customer_data)
 		else:
 			client = get_erpnext_site_client(erpnext_crm_settings)
-			customer_name = client.post_api("artech.crm.frappe_crm_api.create_customer", customer_data)
+			customer_name = client.post_api("artech.artech_crm.frappe_crm_api.create_customer", customer_data)
 
 		if not customer_name:
 			_log_and_throw(
@@ -370,7 +370,7 @@ def get_crm_form_script():
 			label: __("Create Quotation"),
 			onClick: () => {
 				call(
-					"crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.get_quotation_url",
+					"artech_crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.get_quotation_url",
 					{
 						crm_deal: this.doc.name,
 						organization: this.doc.organization
@@ -388,7 +388,7 @@ def get_crm_form_script():
 		})
 
 		// Add View Customer Button
-		call("crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.get_customer_link", {
+		call("artech_crm.fcrm.doctype.erpnext_crm_settings.erpnext_crm_settings.get_customer_link", {
 			crm_deal: this.doc.name
 		}).then((customer_url) => {
 			if (customer_url) {

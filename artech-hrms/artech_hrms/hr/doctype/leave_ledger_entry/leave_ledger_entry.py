@@ -248,7 +248,7 @@ def expire_allocation(allocation: str | Document | artech_engine._dict, expiry_d
 
 def expire_carried_forward_allocation(allocation):
 	"""Expires remaining leaves in the on carried forward allocation"""
-	from hrms.hr.doctype.leave_application.leave_application import get_leaves_for_period
+	from artech_hrms.hr.doctype.leave_application.leave_application import get_leaves_for_period
 
 	leaves_taken = get_leaves_for_period(
 		allocation.employee,

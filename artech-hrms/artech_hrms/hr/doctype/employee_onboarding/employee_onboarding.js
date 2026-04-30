@@ -49,7 +49,7 @@ artech_engine.ui.form.on("Employee Onboarding", {
 				__("Employee"),
 				function () {
 					artech_engine.model.open_mapped_doc({
-						method: "hrms.hr.doctype.employee_onboarding.employee_onboarding.make_employee",
+						method: "artech_hrms.hr.doctype.employee_onboarding.employee_onboarding.make_employee",
 						frm: frm,
 					});
 				},
@@ -71,7 +71,7 @@ artech_engine.ui.form.on("Employee Onboarding", {
 		frm.set_value("activities", "");
 		if (frm.doc.employee_onboarding_template) {
 			artech_engine.call({
-				method: "hrms.controllers.employee_boarding_controller.get_onboarding_details",
+				method: "artech_hrms.controllers.employee_boarding_controller.get_onboarding_details",
 				args: {
 					parent: frm.doc.employee_onboarding_template,
 					parenttype: "Employee Onboarding Template",

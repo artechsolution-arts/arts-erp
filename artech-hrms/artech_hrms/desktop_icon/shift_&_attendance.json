@@ -1,5 +1,5 @@
 {
- "app": "hrms",
+ "app": "artech_hrms",
  "creation": "2025-11-17 20:33:43.199386",
  "docstatus": 0,
  "doctype": "Desktop Icon",
@@ -10,7 +10,7 @@
  "label": "Shift & Attendance",
  "link_to": "Shift & Attendance",
  "link_type": "Workspace Sidebar",
- "logo_url": "/assets/hrms/icons/desktop_icons/shift-attendence.svg",
+ "logo_url": "/assets/artech_hrms/icons/desktop_icons/shift-attendence.svg",
  "modified": "2026-01-01 20:07:01.284302",
  "modified_by": "Administrator",
  "name": "Shift & Attendance",

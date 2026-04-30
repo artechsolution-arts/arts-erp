@@ -12,7 +12,7 @@
  "is_public": 1,
  "is_standard": 1,
  "label": "Job Offer Acceptance Rate",
- "method": "hrms.hr.doctype.job_offer.job_offer.get_offer_acceptance_rate",
+ "method": "artech_hrms.hr.doctype.job_offer.job_offer.get_offer_acceptance_rate",
  "modified": "2025-09-17 19:04:19.372554",
  "modified_by": "Administrator",
  "module": "HR",

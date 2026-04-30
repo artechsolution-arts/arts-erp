@@ -67,7 +67,7 @@ artech_engine.ui.form.on("Interview", {
 
 	submit_feedback: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.interview.interview.get_expected_skill_set",
+			method: "artech_hrms.hr.doctype.interview.interview.get_expected_skill_set",
 			args: {
 				interview_type: frm.doc.interview_type,
 			},
@@ -158,7 +158,7 @@ artech_engine.ui.form.on("Interview", {
 			primary_action: function (values) {
 				artech_engine
 					.call({
-						method: "hrms.hr.doctype.interview.interview.create_interview_feedback",
+						method: "artech_hrms.hr.doctype.interview.interview.create_interview_feedback",
 						args: {
 							data: values,
 							interview_name: frm.doc.name,
@@ -213,7 +213,7 @@ artech_engine.ui.form.on("Interview", {
 
 	set_applicable_interviewers(frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.interview.interview.get_interviewers",
+			method: "artech_hrms.hr.doctype.interview.interview.get_interviewers",
 			args: {
 				interview_type: frm.doc.interview_type || "",
 			},
@@ -230,7 +230,7 @@ artech_engine.ui.form.on("Interview", {
 	load_skills_average_rating(frm) {
 		artech_engine
 			.call({
-				method: "hrms.hr.doctype.interview.interview.get_skill_wise_average_rating",
+				method: "artech_hrms.hr.doctype.interview.interview.get_skill_wise_average_rating",
 				args: { interview: frm.doc.name },
 			})
 			.then((r) => {
@@ -241,7 +241,7 @@ artech_engine.ui.form.on("Interview", {
 	load_feedback(frm) {
 		artech_engine
 			.call({
-				method: "hrms.hr.doctype.interview.interview.get_feedback",
+				method: "artech_hrms.hr.doctype.interview.interview.get_feedback",
 				args: { interview: frm.doc.name },
 			})
 			.then((r) => {

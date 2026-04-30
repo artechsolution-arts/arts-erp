@@ -1,4 +1,4 @@
-from crm.install import add_default_quick_filters
+from artech_crm.install import add_default_quick_filters
 
 
 def execute():

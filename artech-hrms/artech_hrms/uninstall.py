@@ -1,6 +1,6 @@
 import click
 
-from hrms.setup import before_uninstall as remove_custom_fields
+from artech_hrms.setup import before_uninstall as remove_custom_fields
 
 
 def before_uninstall():
@@ -9,7 +9,7 @@ def before_uninstall():
 		remove_custom_fields()
 
 	except Exception as e:
-		BUG_REPORT_URL = "https://github.com/artech_engine/hrms/issues/new"
+		BUG_REPORT_URL = "https://github.com/artech_engine/artech_hrms/issues/new"
 		click.secho(
 			"Removing Customizations for Frappe HR failed due to an error."
 			" Please try again or"

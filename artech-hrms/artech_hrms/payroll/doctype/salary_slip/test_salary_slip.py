@@ -25,14 +25,14 @@ from artech.accounts.utils import get_fiscal_year
 from artech.setup.doctype.employee.employee import InactiveEmployeeStatusError
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import create_leave_allocation
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
 	create_exemption_category,
 	create_payroll_period,
 )
-from hrms.payroll.doctype.payroll_entry.payroll_entry import get_month_details
-from hrms.payroll.doctype.salary_slip.salary_slip import (
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_month_details
+from artech_hrms.payroll.doctype.salary_slip.salary_slip import (
 	HOLIDAYS_BETWEEN_DATES,
 	LEAVE_TYPE_MAP,
 	SALARY_COMPONENT_VALUES,
@@ -41,9 +41,9 @@ from hrms.payroll.doctype.salary_slip.salary_slip import (
 	_safe_eval,
 	make_salary_slip_from_timesheet,
 )
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
-from hrms.tests.test_utils import get_email_by_subject, get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.tests.test_utils import get_email_by_subject, get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestSalarySlip(HRMSTestSuite):
@@ -57,7 +57,7 @@ class TestSalarySlip(HRMSTestSuite):
 
 	@HRMSTestSuite.change_settings("Payroll Settings", {"show_leave_balances_in_salary_slip": True})
 	def test_leave_details(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		emp_id = make_employee("test_leave_details@salary.com", company="_Test Company")
 
@@ -85,7 +85,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(leave_detail.available_leaves, 6)
 
 	def test_employee_status_inactive(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		employee = make_employee("test_employee_status@company.com", company="_Test Company")
 		employee_doc = artech_engine.get_doc("Employee", employee)
@@ -504,7 +504,7 @@ class TestSalarySlip(HRMSTestSuite):
 
 	@HRMSTestSuite.change_settings("Payroll Settings", {"payroll_based_on": "Leave"})
 	def test_payment_days_calculation_for_lwp_on_month_boundaries(self):
-		from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+		from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 			create_holiday_list_assignment,
 		)
 
@@ -577,7 +577,7 @@ class TestSalarySlip(HRMSTestSuite):
 
 	@HRMSTestSuite.change_settings("Payroll Settings", {"payroll_based_on": "Attendance"})
 	def test_component_amount_dependent_on_another_payment_days_based_component(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 
@@ -815,7 +815,7 @@ class TestSalarySlip(HRMSTestSuite):
 
 	@HRMSTestSuite.change_settings("Payroll Settings", {"include_holidays_in_total_working_days": 1})
 	def test_payment_days(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 
@@ -944,7 +944,7 @@ class TestSalarySlip(HRMSTestSuite):
 				self.assertEqual(ss.end_date, nowdate())
 
 	def test_multi_currency_salary_slip(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		applicant = make_employee("test_multi_currency_salary_slip@salary.com", company="_Test Company")
 		artech_engine.db.sql("""delete from `tabSalary Structure` where name='Test Multi Currency Salary Slip'""")
@@ -963,7 +963,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(salary_slip.base_gross_pay, 78000 * 70)
 
 	def test_year_to_date_computation(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		applicant = make_employee("test_ytd@salary.com", company="_Test Company")
 
@@ -1006,7 +1006,7 @@ class TestSalarySlip(HRMSTestSuite):
 			self.assertEqual(slip.year_to_date, year_to_date)
 
 	def test_component_wise_year_to_date_computation(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		employee_name = "test_component_wise_ytd@salary.com"
 		applicant = make_employee(employee_name, company="_Test Company")
@@ -1064,7 +1064,7 @@ class TestSalarySlip(HRMSTestSuite):
 		create_tax_slab(payroll_period, allow_tax_exemption=True, currency="INR")
 		employee = make_employee("test_tax@salary.slip", company="_Test Company")
 
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		salary_structure = make_salary_structure(
 			"Structure to test tax",
@@ -1156,7 +1156,7 @@ class TestSalarySlip(HRMSTestSuite):
 		# Basic has "Depends on Payment Days" enabled
 		# Test default amount for SA is based on default amount for BS (irrespective of PD)
 		# Test amount for SA is based on amount for BS (based on PD)
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		month_start_date = get_first_day(nowdate())
 		joining_date = add_days(month_start_date, 3)
@@ -1198,7 +1198,7 @@ class TestSalarySlip(HRMSTestSuite):
 		for doc in delete_docs:
 			artech_engine.db.sql(f"DELETE FROM `tab{doc}` WHERE employee='{employee}'")
 
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		salary_structure = make_salary_structure(
 			"Structure to test tax",
@@ -1284,7 +1284,7 @@ class TestSalarySlip(HRMSTestSuite):
 		Tests whether component using statistical component in the formula
 		gets the updated value based on payment days
 		"""
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 
@@ -1323,8 +1323,8 @@ class TestSalarySlip(HRMSTestSuite):
 	def test_salary_slip_generation_against_opening_entries_in_ssa(self):
 		import math
 
-		from hrms.payroll.doctype.payroll_period.payroll_period import get_period_factor
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.payroll_period.payroll_period import get_period_factor
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		artech_engine.db.sql("DELETE FROM `tabPayroll Period` where company = '_Test Company'")
 		artech_engine.db.sql("DELETE FROM `tabIncome Tax Slab` where currency = 'INR'")
@@ -1418,7 +1418,7 @@ class TestSalarySlip(HRMSTestSuite):
 		artech_engine.db.sql("DELETE FROM `tabIncome Tax Slab` where currency = 'INR'")
 
 	def test_income_tax_breakup_fields(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		artech_engine.db.delete("Income Tax Slab", {"currency": "INR"})
 		emp = make_employee(
@@ -1473,7 +1473,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(flt(salary_slip.total_income_tax, 2), 136843.25)
 
 	def test_income_tax_breakup_when_tax_added_via_additional_salary(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		artech_engine.db.delete("Income Tax Slab", {"currency": "INR"})
 		emp = make_employee(
@@ -1553,7 +1553,7 @@ class TestSalarySlip(HRMSTestSuite):
 		)
 
 	def test_tax_period_for_mid_month_payroll_period(self):
-		from hrms.payroll.doctype.payroll_period.payroll_period import get_period_factor
+		from artech_hrms.payroll.doctype.payroll_period.payroll_period import get_period_factor
 
 		artech_engine.db.delete("Payroll Period", {"company": "_Test Company"})
 		payroll_period = create_payroll_period(
@@ -1606,7 +1606,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(ss.payment_days, (days_between_start_and_relieving - len(holidays)))
 
 	def test_zero_value_component(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		emp = make_employee(
 			"test_zero_value_component@salary.com",
@@ -1641,7 +1641,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertNotIn("Overtime", earnings)
 
 	def test_component_default_amount_against_statistical_component(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 
@@ -1677,7 +1677,7 @@ class TestSalarySlip(HRMSTestSuite):
 				self.assertEqual(earning.default_amount, 19000)
 
 	def test_variable_tax_component(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		emp = make_employee(
 			"testtaxcomponents@salary.com",
@@ -1737,7 +1737,7 @@ class TestSalarySlip(HRMSTestSuite):
 
 	def test_opening_balances_excluded_from_tax_calculation(self):
 		"""tests if opening balances in salary structure assignment are excluded from tax when assignment date is before payroll period"""
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		artech_engine.db.delete("Income Tax Slab", {"currency": "INR"})
 		emp = make_employee(
@@ -1791,8 +1791,8 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(salary_slip.income_tax_deducted_till_date, salary_slip.current_month_income_tax)
 
 	def test_tax_payable_with_tax_relief_and_marginal_relief_limits(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-		from hrms.regional.india.setup import setup
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.regional.india.setup import setup
 
 		setup()
 
@@ -1844,7 +1844,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertEqual(salary_slip.status, "Cancelled")
 
 	def test_salary_component_for_payment_days_zero(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 			make_salary_structure,
 		)
@@ -1911,7 +1911,7 @@ class TestSalarySlip(HRMSTestSuite):
 		self.assertNotIn("House Rent Allowance", earnings)
 
 	def test_salary_component_for_additional_salary_zero(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		emp = make_employee(
 			"test_zero_value_component@salary.com",
@@ -2038,7 +2038,7 @@ def make_employee_salary_slip(
 	posting_date: str | None = None,
 	payroll_period: dict | None = None,
 ) -> dict:
-	from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+	from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 	if not salary_structure:
 		salary_structure = payroll_frequency + " Salary Structure Test for Salary Slip"
@@ -2716,7 +2716,7 @@ def create_recurring_additional_salary(employee, salary_component, amount, from_
 
 
 def make_salary_structure_for_timesheet(employee, company=None):
-	from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+	from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 		create_salary_structure_assignment,
 		make_salary_structure,
 	)
@@ -2896,7 +2896,7 @@ def make_salary_structure_for_statistical_component(company):
 
 
 def make_salary_slip_with_non_taxable_component() -> SalarySlip:
-	from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+	from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 		create_salary_structure_assignment,
 		make_salary_structure,
 	)

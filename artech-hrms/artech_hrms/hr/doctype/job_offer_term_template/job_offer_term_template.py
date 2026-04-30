@@ -13,7 +13,7 @@ class JobOfferTermTemplate(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.job_offer_term.job_offer_term import JobOfferTerm
+		from artech_hrms.hr.doctype.job_offer_term.job_offer_term import JobOfferTerm
 
 		offer_terms: DF.Table[JobOfferTerm]
 		title: DF.Data | None

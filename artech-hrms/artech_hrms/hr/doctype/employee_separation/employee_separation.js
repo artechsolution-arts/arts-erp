@@ -38,7 +38,7 @@ artech_engine.ui.form.on("Employee Separation", {
 		frm.set_value("activities", "");
 		if (frm.doc.employee_separation_template) {
 			artech_engine.call({
-				method: "hrms.controllers.employee_boarding_controller.get_onboarding_details",
+				method: "artech_hrms.controllers.employee_boarding_controller.get_onboarding_details",
 				args: {
 					parent: frm.doc.employee_separation_template,
 					parenttype: "Employee Separation Template",

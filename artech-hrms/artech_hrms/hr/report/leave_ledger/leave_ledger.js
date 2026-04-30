@@ -89,7 +89,7 @@ artech_engine.query_reports["Leave Ledger"] = {
 
 		artech_engine.call({
 			type: "GET",
-			method: "hrms.hr.utils.get_leave_period",
+			method: "artech_hrms.hr.utils.get_leave_period",
 			args: {
 				from_date: today,
 				to_date: today,

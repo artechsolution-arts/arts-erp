@@ -3,14 +3,14 @@
 import artech_engine
 from artech_engine.utils import add_days, add_months, get_year_ending, get_year_start, getdate
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.attendance_request.attendance_request import OverlappingAttendanceRequestError
-from hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.attendance_request.attendance_request import OverlappingAttendanceRequestError
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_leave_application,
 )
-from hrms.tests.test_utils import add_date_to_holiday_list, get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import add_date_to_holiday_list, get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestAttendanceRequest(HRMSTestSuite):

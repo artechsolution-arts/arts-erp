@@ -25,7 +25,7 @@ artech_engine.ui.form.on("Goal", {
 
 		frm.set_query("kra", () => {
 			return {
-				query: "hrms.hr.doctype.appraisal.appraisal.get_kras_for_employee",
+				query: "artech_hrms.hr.doctype.appraisal.appraisal.get_kras_for_employee",
 				filters: {
 					employee: frm.doc.employee,
 					appraisal_cycle: frm.doc.appraisal_cycle,

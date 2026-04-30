@@ -4,7 +4,7 @@
 import artech_engine
 from artech_engine import _
 
-from hrms.hr.doctype.daily_work_summary.daily_work_summary import get_user_emails_from_group
+from artech_hrms.hr.doctype.daily_work_summary.daily_work_summary import get_user_emails_from_group
 
 
 def execute(filters=None):

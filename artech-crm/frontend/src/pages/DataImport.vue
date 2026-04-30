@@ -16,31 +16,31 @@ const route = useRoute()
 const doctypeMap = {
   'CRM Lead': {
     title: 'Leads',
-    listRoute: '/crm/leads',
-    pageRoute: `/crm/leads/docname`,
+    listRoute: '/artech_crm/leads',
+    pageRoute: `/artech_crm/leads/docname`,
   },
   'CRM Deal': {
     title: 'Deals',
-    listRoute: '/crm/deals',
-    pageRoute: `/crm/deals/docname`,
+    listRoute: '/artech_crm/deals',
+    pageRoute: `/artech_crm/deals/docname`,
   },
   Contact: {
     title: 'Contacts',
-    listRoute: '/crm/contacts',
-    pageRoute: `/crm/contacts/docname`,
+    listRoute: '/artech_crm/contacts',
+    pageRoute: `/artech_crm/contacts/docname`,
   },
   'CRM Task': {
     title: 'Tasks',
-    listRoute: '/crm/tasks',
+    listRoute: '/artech_crm/tasks',
   },
   'CRM Organization': {
     title: 'Organizations',
-    listRoute: '/crm/organizations',
-    pageRoute: `/crm/organizations/docname`,
+    listRoute: '/artech_crm/organizations',
+    pageRoute: `/artech_crm/organizations/docname`,
   },
   'CRM Call Log': {
     title: 'Call Log',
-    listRoute: '/crm/call-logs',
+    listRoute: '/artech_crm/call-logs',
   },
 }
 

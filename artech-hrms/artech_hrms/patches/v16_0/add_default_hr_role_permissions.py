@@ -1,4 +1,4 @@
-from hrms.setup import add_default_hr_permissions
+from artech_hrms.setup import add_default_hr_permissions
 
 
 def execute():

@@ -16,13 +16,13 @@ def create_demo_data(_args: dict | None = None):
 	if artech_engine.db.get_default(DEMO_STATE_KEY):
 		return
 
-	from crm.demo.activities import create_demo_activities
-	from crm.demo.call_logs import create_demo_call_logs
-	from crm.demo.deals import create_demo_deals
-	from crm.demo.leads import create_demo_leads
-	from crm.demo.notes import create_demo_notes
-	from crm.demo.tasks import create_demo_tasks
-	from crm.demo.users import create_demo_users
+	from artech_crm.demo.activities import create_demo_activities
+	from artech_crm.demo.call_logs import create_demo_call_logs
+	from artech_crm.demo.deals import create_demo_deals
+	from artech_crm.demo.leads import create_demo_leads
+	from artech_crm.demo.notes import create_demo_notes
+	from artech_crm.demo.tasks import create_demo_tasks
+	from artech_crm.demo.users import create_demo_users
 
 	demo_users = create_demo_users()
 	lead_names = create_demo_leads(demo_users)
@@ -31,7 +31,7 @@ def create_demo_data(_args: dict | None = None):
 	call_log_names = create_demo_call_logs(lead_names, demo_users)
 	activity_data = create_demo_activities(lead_names, demo_users)
 
-	from crm.demo.leads import rebackdate_demo_leads
+	from artech_crm.demo.leads import rebackdate_demo_leads
 
 	rebackdate_demo_leads(lead_names, demo_users)
 
@@ -44,7 +44,7 @@ def create_demo_data(_args: dict | None = None):
 	artech_engine.db.set_default(DEMO_DEALS_KEY, json.dumps(deal_data))
 	artech_engine.db.set_default(DEMO_STATE_KEY, "1")
 
-	capture("demo_data_created", "crm")
+	capture("demo_data_created", "artech_crm")
 
 
 @artech_engine.whitelist()
@@ -54,13 +54,13 @@ def clear_demo_data():
 	if not artech_engine.db.get_default(DEMO_STATE_KEY):
 		return
 
-	from crm.demo.activities import delete_demo_activities
-	from crm.demo.call_logs import delete_demo_call_logs
-	from crm.demo.deals import delete_demo_deals
-	from crm.demo.leads import delete_demo_leads
-	from crm.demo.notes import delete_demo_notes
-	from crm.demo.tasks import delete_demo_tasks
-	from crm.demo.users import DEMO_USER_EMAILS, delete_demo_users
+	from artech_crm.demo.activities import delete_demo_activities
+	from artech_crm.demo.call_logs import delete_demo_call_logs
+	from artech_crm.demo.deals import delete_demo_deals
+	from artech_crm.demo.leads import delete_demo_leads
+	from artech_crm.demo.notes import delete_demo_notes
+	from artech_crm.demo.tasks import delete_demo_tasks
+	from artech_crm.demo.users import DEMO_USER_EMAILS, delete_demo_users
 
 	lead_names = json.loads(artech_engine.db.get_default(DEMO_LEADS_KEY) or "[]")
 	note_names = json.loads(artech_engine.db.get_default(DEMO_NOTES_KEY) or "[]")
@@ -83,7 +83,7 @@ def clear_demo_data():
 	artech_engine.db.set_default(DEMO_DEALS_KEY, None)
 	artech_engine.db.set_default(DEMO_STATE_KEY, None)
 
-	capture("demo_data_cleared", "crm")
+	capture("demo_data_cleared", "artech_crm")
 
 
 @artech_engine.whitelist()

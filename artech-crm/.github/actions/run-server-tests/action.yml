@@ -12,7 +12,7 @@ inputs:
     app:
         description: App to test
         required: false
-        default: "crm"
+        default: "artech_crm"
     enable-coverage:
         description: When true, include coverage flag during test execution
         required: false

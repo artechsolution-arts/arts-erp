@@ -23,7 +23,7 @@ def delete_company_fixtures():
 
 	for country in countries:
 		try:
-			module_name = f"hrms.regional.{artech_engine.scrub(country)}.setup.uninstall"
+			module_name = f"artech_hrms.regional.{artech_engine.scrub(country)}.setup.uninstall"
 			artech_engine.get_attr(module_name)()
 		except (ImportError, AttributeError):
 			# regional file or method does not exist
@@ -37,7 +37,7 @@ def delete_company_fixtures():
 
 def run_regional_setup(country):
 	try:
-		module_name = f"hrms.regional.{artech_engine.scrub(country)}.setup.setup"
+		module_name = f"artech_hrms.regional.{artech_engine.scrub(country)}.setup.setup"
 		artech_engine.get_attr(module_name)()
 	except ImportError:
 		pass
@@ -68,10 +68,10 @@ def make_salary_components(country):
 
 	# default components already added
 	if not artech_engine.db.exists("Salary Component", "Basic"):
-		file_path = artech_engine.get_app_path("hrms", "payroll", "data", file_name)
+		file_path = artech_engine.get_app_path("artech_hrms", "payroll", "data", file_name)
 		docs.extend(json.loads(read_data_file(file_path)))
 
-	file_path = artech_engine.get_app_path("hrms", "regional", artech_engine.scrub(country), "data", file_name)
+	file_path = artech_engine.get_app_path("artech_hrms", "regional", artech_engine.scrub(country), "data", file_name)
 	docs.extend(json.loads(read_data_file(file_path)))
 
 	for d in docs:

@@ -9,5 +9,5 @@ artech_engine.views.calendar["Interview"] = {
 	},
 	order_by: "scheduled_on",
 	gantt: true,
-	get_events_method: "hrms.hr.doctype.interview.interview.get_events",
+	get_events_method: "artech_hrms.hr.doctype.interview.interview.get_events",
 };

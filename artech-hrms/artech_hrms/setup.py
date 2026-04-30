@@ -8,7 +8,7 @@ from artech_engine.desk.page.setup_wizard.install_fixtures import (
 from artech_engine.desk.page.setup_wizard.setup_wizard import make_records
 from artech_engine.permissions import add_permission, update_permission_property
 
-from hrms.overrides.company import delete_company_fixtures
+from artech_hrms.overrides.company import delete_company_fixtures
 
 
 def after_install():
@@ -426,7 +426,7 @@ def make_fixtures():
 
 
 def setup_notifications():
-	base_path = artech_engine.get_app_path("hrms", "hr", "doctype")
+	base_path = artech_engine.get_app_path("artech_hrms", "hr", "doctype")
 
 	# Leave Application
 	response = artech_engine.read_file(
@@ -578,7 +578,7 @@ def run_post_install_patches():
 			if not patch_name:
 				continue
 
-			artech_engine.get_attr(f"hrms.patches.post_install.{patch_name}.execute")()
+			artech_engine.get_attr(f"artech_hrms.patches.post_install.{patch_name}.execute")()
 	finally:
 		artech_engine.flags.in_patch = False
 

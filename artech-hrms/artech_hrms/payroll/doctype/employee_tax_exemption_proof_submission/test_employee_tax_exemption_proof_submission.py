@@ -4,7 +4,7 @@ import artech_engine
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
+from artech_hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
 	PAYROLL_PERIOD_END,
 	PAYROLL_PERIOD_NAME,
 	PAYROLL_PERIOD_START,
@@ -12,7 +12,7 @@ from hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_e
 	create_payroll_period,
 	setup_hra_exemption_prerequisites,
 )
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeTaxExemptionProofSubmission(HRMSTestSuite):

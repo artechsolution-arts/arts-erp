@@ -28,7 +28,7 @@ artech_engine.ui.form.on("Employee", {
 
 	date_of_birth(frm) {
 		frm.call({
-			method: "hrms.overrides.employee_master.get_retirement_date",
+			method: "artech_hrms.overrides.employee_master.get_retirement_date",
 			args: {
 				date_of_birth: frm.doc.date_of_birth,
 			},

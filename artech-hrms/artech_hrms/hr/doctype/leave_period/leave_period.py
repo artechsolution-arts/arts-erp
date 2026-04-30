@@ -6,7 +6,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import getdate
 
-from hrms.hr.utils import validate_overlap
+from artech_hrms.hr.utils import validate_overlap
 
 
 class LeavePeriod(Document):

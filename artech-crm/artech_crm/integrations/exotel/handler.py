@@ -3,12 +3,12 @@ import requests
 from artech_engine import _
 from artech_engine.integrations.utils import create_request_log
 
-from crm.integrations.api import get_contact_by_phone_number
+from artech_crm.integrations.api import get_contact_by_phone_number
 
 # Endpoints for webhook
 
 # Incoming Call:
-# <site>/api/method/crm.integrations.exotel.handler.handle_request?key=<exotel-webhook-verify-token>
+# <site>/api/method/artech_crm.integrations.exotel.handler.handle_request?key=<exotel-webhook-verify-token>
 
 # Exotel Reference:
 # https://developer.exotel.com/api/
@@ -151,7 +151,7 @@ def get_status_updater_url():
 	from artech_engine.utils.data import get_url
 
 	webhook_verify_token = artech_engine.db.get_single_value("CRM Exotel Settings", "webhook_verify_token")
-	return get_url(f"api/method/crm.integrations.exotel.handler.handle_request?key={webhook_verify_token}")
+	return get_url(f"api/method/artech_crm.integrations.exotel.handler.handle_request?key={webhook_verify_token}")
 
 
 def get_exotel_settings():

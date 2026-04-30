@@ -1,6 +1,6 @@
 import click
 
-from hrms.setup import after_install as setup
+from artech_hrms.setup import after_install as setup
 
 
 def after_install():
@@ -11,7 +11,7 @@ def after_install():
 		click.secho("Thank you for installing Frappe HR!", fg="green")
 
 	except Exception as e:
-		BUG_REPORT_URL = "https://github.com/artech_engine/hrms/issues/new"
+		BUG_REPORT_URL = "https://github.com/artech_engine/artech_hrms/issues/new"
 		click.secho(
 			"Installation for Frappe HR app failed due to an error."
 			" Please try re-installing the app or"

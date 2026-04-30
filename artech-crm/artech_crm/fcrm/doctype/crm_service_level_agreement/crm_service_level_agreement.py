@@ -14,7 +14,7 @@ from artech_engine.utils import (
 	time_diff_in_seconds,
 )
 
-from crm.fcrm.doctype.crm_service_level_agreement.utils import get_context
+from artech_crm.fcrm.doctype.crm_service_level_agreement.utils import get_context
 
 
 class CRMServiceLevelAgreement(Document):
@@ -26,8 +26,8 @@ class CRMServiceLevelAgreement(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from crm.fcrm.doctype.crm_service_day.crm_service_day import CRMServiceDay
-		from crm.fcrm.doctype.crm_service_level_priority.crm_service_level_priority import (
+		from artech_crm.fcrm.doctype.crm_service_day.crm_service_day import CRMServiceDay
+		from artech_crm.fcrm.doctype.crm_service_level_priority.crm_service_level_priority import (
 			CRMServiceLevelPriority,
 		)
 

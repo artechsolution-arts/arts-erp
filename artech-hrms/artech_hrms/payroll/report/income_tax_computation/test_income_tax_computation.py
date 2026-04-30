@@ -3,17 +3,17 @@ from artech_engine.utils import getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
+from artech_hrms.payroll.doctype.employee_tax_exemption_declaration.test_employee_tax_exemption_declaration import (
 	create_payroll_period,
 )
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	create_exemption_declaration,
 	create_salary_slips_for_payroll_period,
 	create_tax_slab,
 )
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.payroll.report.income_tax_computation.income_tax_computation import execute
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.payroll.report.income_tax_computation.income_tax_computation import execute
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestIncomeTaxComputation(HRMSTestSuite):

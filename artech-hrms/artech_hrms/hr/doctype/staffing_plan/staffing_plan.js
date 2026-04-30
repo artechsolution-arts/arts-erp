@@ -93,7 +93,7 @@ var set_number_of_positions = function (frm, cdt, cdn) {
 	let child = locals[cdt][cdn];
 	if (!child.designation) artech_engine.throw(__("Please enter the designation"));
 	artech_engine.call({
-		method: "hrms.hr.doctype.staffing_plan.staffing_plan.get_designation_counts",
+		method: "artech_hrms.hr.doctype.staffing_plan.staffing_plan.get_designation_counts",
 		args: {
 			designation: child.designation,
 			company: frm.doc.company,

@@ -2,7 +2,7 @@ artech_engine.ui.form.on("Appointment Letter", {
 	appointment_letter_template: function (frm) {
 		if (frm.doc.appointment_letter_template) {
 			artech_engine.call({
-				method: "hrms.hr.doctype.appointment_letter.appointment_letter.get_appointment_letter_details",
+				method: "artech_hrms.hr.doctype.appointment_letter.appointment_letter.get_appointment_letter_details",
 				args: {
 					template: frm.doc.appointment_letter_template,
 				},

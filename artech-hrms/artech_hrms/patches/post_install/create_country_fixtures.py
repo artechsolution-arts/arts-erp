@@ -1,6 +1,6 @@
 import artech_engine
 
-from hrms.overrides.company import make_salary_components, run_regional_setup
+from artech_hrms.overrides.company import make_salary_components, run_regional_setup
 
 
 def execute():

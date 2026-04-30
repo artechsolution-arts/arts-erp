@@ -5,21 +5,21 @@ from artech_engine.utils import add_days, get_year_ending, get_year_start, getda
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	assign_holiday_list,
 	create_holiday_list_assignment,
 )
-from hrms.hr.doctype.leave_allocation.leave_allocation import OverlapError
-from hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
-from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
-from hrms.hr.report.monthly_attendance_sheet.monthly_attendance_sheet import execute
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.leave_allocation.leave_allocation import OverlapError
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
+from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+from artech_hrms.hr.report.monthly_attendance_sheet.monthly_attendance_sheet import execute
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_holiday_list,
 	make_leave_application,
 )
-from hrms.tests.test_utils import create_company, create_department, get_first_day_for_prev_month
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import create_company, create_department, get_first_day_for_prev_month
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestMonthlyAttendanceSheet(HRMSTestSuite):

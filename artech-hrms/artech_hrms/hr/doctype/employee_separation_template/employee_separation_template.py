@@ -13,7 +13,7 @@ class EmployeeSeparationTemplate(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
+		from artech_hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
 			EmployeeBoardingActivity,
 		)
 

@@ -8,8 +8,8 @@ from artech_engine.query_builder.functions import Coalesce
 from artech_engine.query_builder.terms import SubQuery
 from artech_engine.utils import get_link_to_form
 
-from hrms.hr.utils import validate_bulk_tool_fields
-from hrms.payroll.doctype.salary_structure.salary_structure import (
+from artech_hrms.hr.utils import validate_bulk_tool_fields
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import (
 	create_salary_structure_assignment,
 )
 

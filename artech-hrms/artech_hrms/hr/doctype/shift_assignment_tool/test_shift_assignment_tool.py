@@ -5,12 +5,12 @@ from artech_engine.utils import add_days, getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import ShiftAssignmentTool
-from hrms.hr.doctype.shift_request.test_shift_request import make_shift_request
-from hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
-from hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.shift_assignment_tool.shift_assignment_tool import ShiftAssignmentTool
+from artech_hrms.hr.doctype.shift_request.test_shift_request import make_shift_request
+from artech_hrms.hr.doctype.shift_schedule.shift_schedule import get_or_insert_shift_schedule
+from artech_hrms.hr.doctype.shift_type.test_shift_type import make_shift_assignment, setup_shift_type
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestShiftAssignmentTool(HRMSTestSuite):

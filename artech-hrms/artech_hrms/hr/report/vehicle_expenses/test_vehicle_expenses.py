@@ -4,10 +4,10 @@ from artech_engine.utils import getdate
 from artech.accounts.utils import get_fiscal_year
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.vehicle_log.test_vehicle_log import get_vehicle, make_vehicle_log
-from hrms.hr.doctype.vehicle_log.vehicle_log import make_expense_claim
-from hrms.hr.report.vehicle_expenses.vehicle_expenses import execute
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.vehicle_log.test_vehicle_log import get_vehicle, make_vehicle_log
+from artech_hrms.hr.doctype.vehicle_log.vehicle_log import make_expense_claim
+from artech_hrms.hr.report.vehicle_expenses.vehicle_expenses import execute
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestVehicleExpenses(HRMSTestSuite):

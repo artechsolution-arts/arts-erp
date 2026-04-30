@@ -5,7 +5,7 @@ import os
 import artech_engine
 import artech_engine.utils
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 # test_records = artech_engine.get_test_records('Daily Work Summary')
 
@@ -68,7 +68,7 @@ class TestDailyWorkSummary(HRMSTestSuite):
 		self.users = artech_engine.get_all("User", fields=["email"], filters=dict(email=("!=", "test@example.com")))
 		self.setup_groups(hour)
 
-		from hrms.hr.doctype.daily_work_summary_group.daily_work_summary_group import trigger_emails
+		from artech_hrms.hr.doctype.daily_work_summary_group.daily_work_summary_group import trigger_emails
 
 		trigger_emails()
 

@@ -5,7 +5,7 @@ from artech_engine.utils import today
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeGrievance(HRMSTestSuite):

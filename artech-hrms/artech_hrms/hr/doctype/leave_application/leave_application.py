@@ -20,20 +20,20 @@ from artech_engine.utils import (
 from artech.buying.doctype.supplier_scorecard.supplier_scorecard import daterange
 from artech.setup.doctype.employee.employee import get_holiday_list_for_employee, is_holiday
 
-import hrms
-from hrms.api import get_current_employee_info
-from hrms.hr.doctype.leave_block_list.leave_block_list import get_applicable_block_dates
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
-from hrms.hr.utils import (
+import artech_hrms
+from artech_hrms.api import get_current_employee_info
+from artech_hrms.hr.doctype.leave_block_list.leave_block_list import get_applicable_block_dates
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
+from artech_hrms.hr.utils import (
 	get_holiday_dates_for_employee,
 	get_leave_period,
 	set_employee_name,
 	share_doc_with_approver,
 	validate_active_employee,
 )
-from hrms.mixins.pwa_notifications import PWANotificationsMixin
-from hrms.utils import get_employee_email
-from hrms.utils.holiday_list import get_holiday_dates_between_range
+from artech_hrms.mixins.pwa_notifications import PWANotificationsMixin
+from artech_hrms.utils import get_employee_email
+from artech_hrms.utils.holiday_list import get_holiday_dates_between_range
 
 
 class LeaveDayBlockedError(artech_engine.ValidationError):
@@ -176,8 +176,8 @@ class LeaveApplication(Document, PWANotificationsMixin):
 
 	def publish_update(self):
 		employee_user = artech_engine.db.get_value("Employee", self.employee, "user_id", cache=True)
-		hrms.refetch_resource("hrms:my_leaves", employee_user)
-		hrms.refetch_resource("hrms:team_leaves")
+		artech_hrms.refetch_resource("artech_hrms:my_leaves", employee_user)
+		artech_hrms.refetch_resource("artech_hrms:team_leaves")
 
 	def validate_applicable_after(self):
 		if self.leave_type:

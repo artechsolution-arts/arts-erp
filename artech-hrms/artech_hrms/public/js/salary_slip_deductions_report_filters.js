@@ -1,6 +1,6 @@
-artech_engine.provide("hrms.salary_slip_deductions_report_filters");
+artech_engine.provide("artech_hrms.salary_slip_deductions_report_filters");
 
-hrms.salary_slip_deductions_report_filters = {
+artech_hrms.salary_slip_deductions_report_filters = {
 	filters: [
 		{
 			fieldname: "company",
@@ -52,7 +52,7 @@ hrms.salary_slip_deductions_report_filters = {
 	],
 	onload: function () {
 		return artech_engine.call({
-			method: "hrms.payroll.report.provident_fund_deductions.provident_fund_deductions.get_years",
+			method: "artech_hrms.payroll.report.provident_fund_deductions.provident_fund_deductions.get_years",
 			callback: function (r) {
 				var year_filter = artech_engine.query_report.get_filter("year");
 				year_filter.df.options = r.message;

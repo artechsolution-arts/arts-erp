@@ -5,8 +5,8 @@ from artech_engine.utils.data import add_to_date, today
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import expire_allocation
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import expire_allocation
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveLedgerEntry(HRMSTestSuite):

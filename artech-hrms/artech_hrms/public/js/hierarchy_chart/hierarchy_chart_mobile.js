@@ -1,4 +1,4 @@
-hrms.HierarchyChartMobile = class {
+artech_hrms.HierarchyChartMobile = class {
 	/* Options:
 		- doctype
 		- wrapper: wrapper for the hierarchy view

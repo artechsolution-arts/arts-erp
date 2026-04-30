@@ -1,4 +1,4 @@
-from crm.install import add_default_scripts
+from artech_crm.install import add_default_scripts
 
 
 def execute():

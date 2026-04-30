@@ -22,7 +22,7 @@ artech_engine.ui.form.on("Employee Checkin", {
 	},
 
 	fetch_geolocation: (frm) => {
-		hrms.fetch_geolocation(frm);
+		artech_hrms.fetch_geolocation(frm);
 	},
 
 	add_fetch_shift_button(frm) {

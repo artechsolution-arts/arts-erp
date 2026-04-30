@@ -1,6 +1,6 @@
-hrms.organizational_chart = hrms.organizational_chart || {};
+artech_hrms.organizational_chart = artech_hrms.organizational_chart || {};
 
-Object.assign(hrms.organizational_chart, {
+Object.assign(artech_hrms.organizational_chart, {
 	get_employee_count(company) {
 		const args = {
 			doctype: "Employee",
@@ -158,17 +158,17 @@ artech_engine.pages["organizational-chart"].on_page_load = function (wrapper) {
 	$(wrapper).bind("show", () => {
 		artech_engine.require("hierarchy-chart.bundle.js", () => {
 			let organizational_chart;
-			let method = "hrms.hr.page.organizational_chart.organizational_chart.get_children";
+			let method = "artech_hrms.hr.page.organizational_chart.organizational_chart.get_children";
 			const device_type = artech_engine.is_mobile() ? "mobile" : "desktop";
 
 			if (artech_engine.is_mobile()) {
-				organizational_chart = new hrms.HierarchyChartMobile("Employee", wrapper, method);
+				organizational_chart = new artech_hrms.HierarchyChartMobile("Employee", wrapper, method);
 			} else {
-				organizational_chart = new hrms.HierarchyChart("Employee", wrapper, method);
+				organizational_chart = new artech_hrms.HierarchyChart("Employee", wrapper, method);
 			}
 
 			artech_engine.breadcrumbs.add("HR");
-			hrms.organizational_chart.bind_empty_state_handler(
+			artech_hrms.organizational_chart.bind_empty_state_handler(
 				organizational_chart,
 				method,
 				device_type,

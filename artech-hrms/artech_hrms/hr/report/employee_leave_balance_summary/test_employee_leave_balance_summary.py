@@ -3,16 +3,16 @@ from artech_engine.utils import add_days, flt, get_year_ending, get_year_start, 
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
-from hrms.hr.report.employee_leave_balance_summary.employee_leave_balance_summary import execute
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.hr.doctype.leave_application.test_leave_application import make_allocation_record
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
+from artech_hrms.hr.report.employee_leave_balance_summary.employee_leave_balance_summary import execute
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_holiday_list,
 	make_leave_application,
 )
-from hrms.tests.test_utils import get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.test_utils import get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 test_records = artech_engine.get_test_records("Leave Type")
 

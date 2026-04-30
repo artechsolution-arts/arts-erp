@@ -297,6 +297,6 @@ def fill_employee_holiday_list_date_gaps_with_company_holiday_list(
 
 
 def invalidate_cache(doc, method=None):
-	from hrms.payroll.doctype.salary_slip.salary_slip import HOLIDAYS_BETWEEN_DATES
+	from artech_hrms.payroll.doctype.salary_slip.salary_slip import HOLIDAYS_BETWEEN_DATES
 
 	artech_engine.cache().delete_value(HOLIDAYS_BETWEEN_DATES)

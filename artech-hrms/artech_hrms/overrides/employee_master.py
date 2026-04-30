@@ -43,9 +43,9 @@ def validate_onboarding_process(doc, method=None):
 
 
 def publish_update(doc, method=None):
-	import hrms
+	import artech_hrms
 
-	hrms.refetch_resource("hrms:employee", doc.user_id)
+	artech_hrms.refetch_resource("artech_hrms:employee", doc.user_id)
 
 
 def update_job_applicant_and_offer(doc, method=None):

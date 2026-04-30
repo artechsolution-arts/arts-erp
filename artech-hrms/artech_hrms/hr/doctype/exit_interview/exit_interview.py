@@ -17,7 +17,7 @@ class ExitInterview(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.interviewer.interviewer import Interviewer
+		from artech_hrms.hr.doctype.interviewer.interviewer import Interviewer
 
 		amended_from: DF.Link | None
 		company: DF.Link

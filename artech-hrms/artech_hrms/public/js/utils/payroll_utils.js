@@ -1,4 +1,4 @@
-hrms.payroll_utils = {
+artech_hrms.payroll_utils = {
 	set_autocompletions_for_condition_and_formula: function (frm, child_row = "") {
 		const autocompletions = [];
 		artech_engine.run_serially([
@@ -6,7 +6,7 @@ hrms.payroll_utils = {
 				(doctype) =>
 					artech_engine.model.with_doctype(doctype, () => {
 						autocompletions.push(
-							...hrms.get_doctype_fields_for_autocompletion(doctype),
+							...artech_hrms.get_doctype_fields_for_autocompletion(doctype),
 						);
 					}),
 			),

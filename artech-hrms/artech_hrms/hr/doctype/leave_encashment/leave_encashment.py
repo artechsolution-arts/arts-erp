@@ -9,10 +9,10 @@ from artech_engine.utils import flt, format_date, get_link_to_form, getdate
 from artech.accounts.general_ledger import make_gl_entries
 from artech.controllers.accounts_controller import AccountsController
 
-from hrms.hr.doctype.leave_application.leave_application import get_leaves_for_period
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
-from hrms.hr.utils import set_employee_name, validate_active_employee
-from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
+from artech_hrms.hr.doctype.leave_application.leave_application import get_leaves_for_period
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import create_leave_ledger_entry
+from artech_hrms.hr.utils import set_employee_name, validate_active_employee
+from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import (
 	get_assigned_salary_structure,
 )
 

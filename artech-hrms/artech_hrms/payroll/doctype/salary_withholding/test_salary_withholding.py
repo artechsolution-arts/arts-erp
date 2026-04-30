@@ -5,10 +5,10 @@ from artech_engine.utils import getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
-from hrms.payroll.doctype.payroll_entry.test_payroll_entry import make_payroll_entry
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.payroll_entry.payroll_entry import get_start_end_dates
+from artech_hrms.payroll.doctype.payroll_entry.test_payroll_entry import make_payroll_entry
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.utils import HRMSTestSuite
 
 COMPANY_NAME = "_Test Company"
 MONTH_1_START = getdate("2024-01-01")

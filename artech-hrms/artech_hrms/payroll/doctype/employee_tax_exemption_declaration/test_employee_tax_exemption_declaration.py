@@ -6,8 +6,8 @@ from artech_engine.utils import add_months, getdate
 import artech
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.utils import DuplicateDeclarationError
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.utils import DuplicateDeclarationError
+from artech_hrms.tests.utils import HRMSTestSuite
 
 PAYROLL_PERIOD_NAME = "_Test Exemption Period"
 PAYROLL_PERIOD_START = "2022-01-01"
@@ -322,8 +322,8 @@ class TestEmployeeTaxExemptionDeclaration(HRMSTestSuite):
 		artech_engine.flags.country = current_country
 
 	def test_india_hra_exemption_with_multiple_assignments(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import create_tax_slab
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import create_tax_slab
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 			make_salary_structure,
 		)
@@ -472,8 +472,8 @@ def create_exemption_category():
 
 
 def setup_hra_exemption_prerequisites(frequency, employee=None, from_date=None):
-	from hrms.payroll.doctype.salary_slip.test_salary_slip import create_tax_slab
-	from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+	from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import create_tax_slab
+	from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 	payroll_period = create_payroll_period(
 		name=PAYROLL_PERIOD_NAME,

@@ -129,7 +129,7 @@ artech_engine.query_reports["Monthly Attendance Sheet"] = {
 	],
 	onload: function () {
 		return artech_engine.call({
-			method: "hrms.hr.report.monthly_attendance_sheet.monthly_attendance_sheet.get_attendance_years",
+			method: "artech_hrms.hr.report.monthly_attendance_sheet.monthly_attendance_sheet.get_attendance_years",
 			callback: function (r) {
 				var year_filter = artech_engine.query_report.get_filter("year");
 				year_filter.df.options = r.message;

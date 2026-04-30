@@ -9,7 +9,7 @@ from artech_engine.utils import cint, cstr, flt, get_link_to_form
 
 import artech
 
-from hrms.payroll.utils import sanitize_expression
+from artech_hrms.payroll.utils import sanitize_expression
 
 
 class SalaryStructure(Document):
@@ -21,8 +21,8 @@ class SalaryStructure(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
-		from hrms.payroll.doctype.salary_detail.salary_detail import SalaryDetail
+		from artech_hrms.payroll.doctype.employee_benefit_detail.employee_benefit_detail import EmployeeBenefitDetail
+		from artech_hrms.payroll.doctype.salary_detail.salary_detail import SalaryDetail
 
 		amended_from: DF.Link | None
 		company: DF.Link

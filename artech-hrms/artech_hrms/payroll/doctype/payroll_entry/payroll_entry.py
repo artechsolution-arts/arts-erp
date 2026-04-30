@@ -28,8 +28,8 @@ from artech.accounts.doctype.accounting_dimension.accounting_dimension import (
 )
 from artech.accounts.utils import get_fiscal_year
 
-from hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
-from hrms.payroll.doctype.salary_withholding.salary_withholding import link_bank_entry_in_salary_withholdings
+from artech_hrms.payroll.doctype.salary_slip.salary_slip_loan_utils import if_lending_app_installed
+from artech_hrms.payroll.doctype.salary_withholding.salary_withholding import link_bank_entry_in_salary_withholdings
 
 
 class PayrollEntry(Document):
@@ -41,7 +41,7 @@ class PayrollEntry(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.payroll_employee_detail.payroll_employee_detail import PayrollEmployeeDetail
+		from artech_hrms.payroll.doctype.payroll_employee_detail.payroll_employee_detail import PayrollEmployeeDetail
 
 		amended_from: DF.Link | None
 		bank_account: DF.Link | None
@@ -1258,7 +1258,7 @@ class PayrollEntry(Document):
 
 	@artech_engine.whitelist()
 	def create_overtime_slips(self) -> None:
-		from hrms.hr.doctype.overtime_slip.overtime_slip import (
+		from artech_hrms.hr.doctype.overtime_slip.overtime_slip import (
 			create_overtime_slips_for_employees,
 			filter_employees_for_overtime_slip_creation,
 		)
@@ -1295,7 +1295,7 @@ class PayrollEntry(Document):
 
 	@artech_engine.whitelist()
 	def submit_overtime_slips(self) -> None:
-		from hrms.hr.doctype.overtime_slip.overtime_slip import (
+		from artech_hrms.hr.doctype.overtime_slip.overtime_slip import (
 			submit_overtime_slips_for_employees,
 		)
 
@@ -1332,7 +1332,7 @@ class PayrollEntry(Document):
 
 	@artech_engine.whitelist()
 	def get_overtime_slip_details(self) -> list[bool]:
-		from hrms.hr.doctype.overtime_slip.overtime_slip import filter_employees_for_overtime_slip_creation
+		from artech_hrms.hr.doctype.overtime_slip.overtime_slip import filter_employees_for_overtime_slip_creation
 
 		employee_eligible_for_overtime = unsubmitted_overtime_slips = []
 

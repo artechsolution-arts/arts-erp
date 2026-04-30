@@ -12,7 +12,7 @@ class ExpenseClaimType(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.expense_claim_account.expense_claim_account import ExpenseClaimAccount
+		from artech_hrms.hr.doctype.expense_claim_account.expense_claim_account import ExpenseClaimAccount
 
 		accounts: DF.Table[ExpenseClaimAccount]
 		deferred_expense_account: DF.Check

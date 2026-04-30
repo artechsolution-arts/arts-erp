@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 import artech_engine
 
-from crm.demo.utils import backdate, fix_auto_records, resolve_owners
+from artech_crm.demo.utils import backdate, fix_auto_records, resolve_owners
 
 # Days ago each lead was created — index matches leads_data order
 _LEAD_DAYS = [58, 52, 47, 43, 38, 34, 28, 22, 17, 30, 13, 8]

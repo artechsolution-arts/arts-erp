@@ -90,7 +90,7 @@ artech_engine.ui.form.on("Appraisal Cycle", {
 		await Promise.all(
 			["Employee", "Appraisal Cycle", "Appraisal"].map((doctype) =>
 				artech_engine.model.with_doctype(doctype, () => {
-					autocompletions.push(...hrms.get_doctype_fields_for_autocompletion(doctype));
+					autocompletions.push(...artech_hrms.get_doctype_fields_for_autocompletion(doctype));
 				}),
 			),
 		);
@@ -147,7 +147,7 @@ artech_engine.ui.form.on("Appraisal Cycle", {
 		if (frm.doc.__islocal) return;
 
 		artech_engine
-			.call("hrms.hr.doctype.appraisal_cycle.appraisal_cycle.get_appraisal_cycle_summary", {
+			.call("artech_hrms.hr.doctype.appraisal_cycle.appraisal_cycle.get_appraisal_cycle_summary", {
 				cycle_name: frm.doc.name,
 			})
 			.then((r) => {

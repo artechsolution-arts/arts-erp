@@ -16,7 +16,7 @@ class CRMHolidayList(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from crm.fcrm.doctype.crm_holiday.crm_holiday import CRMHoliday
+		from artech_crm.fcrm.doctype.crm_holiday.crm_holiday import CRMHoliday
 
 		from_date: DF.Date
 		holiday_list_name: DF.Data

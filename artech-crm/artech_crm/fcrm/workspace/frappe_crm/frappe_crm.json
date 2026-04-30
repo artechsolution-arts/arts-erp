@@ -46,7 +46,7 @@
    "doc_view": "List",
    "label": "CRM Portal Page",
    "type": "URL",
-   "url": "/crm"
+   "url": "/artech_crm"
   },
   {
    "color": "Grey",

@@ -5,14 +5,14 @@ from artech_engine.utils import add_days, get_year_ending, get_year_start, getda
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	create_holiday_list_assignment,
 )
-from hrms.hr.report.employees_working_on_a_holiday.employees_working_on_a_holiday import execute
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.test_utils import get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.report.employees_working_on_a_holiday.employees_working_on_a_holiday import execute
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.test_utils import get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeesWorkingOnAHoliday(HRMSTestSuite):

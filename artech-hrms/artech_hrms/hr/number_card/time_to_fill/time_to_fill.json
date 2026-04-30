@@ -12,7 +12,7 @@
  "is_public": 1,
  "is_standard": 1,
  "label": "Time to Fill",
- "method": "hrms.hr.doctype.job_requisition.job_requisition.get_avg_time_to_fill",
+ "method": "artech_hrms.hr.doctype.job_requisition.job_requisition.get_avg_time_to_fill",
  "modified": "2025-09-17 19:05:34.012311",
  "modified_by": "Administrator",
  "module": "HR",

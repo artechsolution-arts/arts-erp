@@ -8,11 +8,11 @@ from artech_engine.desk.form.assign_to import add as assign
 from artech_engine.model.document import Document
 from artech_engine.utils import has_gravatar, validate_email_address
 
-from crm.fcrm.doctype.crm_service_level_agreement.utils import get_sla
-from crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import (
+from artech_crm.fcrm.doctype.crm_service_level_agreement.utils import get_sla
+from artech_crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import (
 	add_status_change_log,
 )
-from crm.fcrm.doctype.utils import add_or_remove_lost_reason_section_in_sidepanel
+from artech_crm.fcrm.doctype.utils import add_or_remove_lost_reason_section_in_sidepanel
 
 
 class CRMLead(Document):
@@ -24,11 +24,11 @@ class CRMLead(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from crm.fcrm.doctype.crm_products.crm_products import CRMProducts
-		from crm.fcrm.doctype.crm_rolling_response_time.crm_rolling_response_time import (
+		from artech_crm.fcrm.doctype.crm_products.crm_products import CRMProducts
+		from artech_crm.fcrm.doctype.crm_rolling_response_time.crm_rolling_response_time import (
 			CRMRollingResponseTime,
 		)
-		from crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import CRMStatusChangeLog
+		from artech_crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import CRMStatusChangeLog
 
 		annual_revenue: DF.Currency
 		communication_status: DF.Link | None

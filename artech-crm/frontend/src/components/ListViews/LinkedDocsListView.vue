@@ -114,7 +114,7 @@ const viewLinkedDoc = (doc) => {
       id = doc.reference_docname
       break
     case 'CRM Notification':
-      page = 'crm-notification'
+      page = 'artech_crm-notification'
       id = doc.reference_docname
       openDesk = true
       break
@@ -125,7 +125,7 @@ const viewLinkedDoc = (doc) => {
     default:
       break
   }
-  let base = '/crm'
+  let base = '/artech_crm'
   if (openDesk) {
     base = '/app'
   }

@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.tests import IntegrationTestCase
 
-from crm.fcrm.doctype.crm_lead.crm_lead import convert_to_deal
+from artech_crm.fcrm.doctype.crm_lead.crm_lead import convert_to_deal
 
 
 class TestCRMLead(IntegrationTestCase):
@@ -117,8 +117,8 @@ class TestCRMLead(IntegrationTestCase):
 		with self.assertRaises(artech_engine.exceptions.ValidationError) as context:
 			create_lead(
 				first_name="Test",
-				email="crm.user1@example.com",
-				lead_owner="crm.user1@example.com",
+				email="artech_crm.user1@example.com",
+				lead_owner="artech_crm.user1@example.com",
 			)
 		self.assertIn("Lead Owner cannot be same as the Lead Email Address", str(context.exception))
 
@@ -172,15 +172,15 @@ class TestCRMLead(IntegrationTestCase):
 		)
 		self.assertEqual(len(after_docshares), initial_docshare_count)
 
-		lead.lead_owner = "crm.user1@example.com"
+		lead.lead_owner = "artech_crm.user1@example.com"
 		lead.save()
 		lead.reload()
 
 		# Verify new owner is assigned and shared
-		self.assertEqual(lead.lead_owner, "crm.user1@example.com")
+		self.assertEqual(lead.lead_owner, "artech_crm.user1@example.com")
 		new_docshare = artech_engine.db.exists(
 			"DocShare",
-			{"user": "crm.user1@example.com", "share_name": lead.name, "share_doctype": "CRM Lead"},
+			{"user": "artech_crm.user1@example.com", "share_name": lead.name, "share_doctype": "CRM Lead"},
 		)
 		self.assertTrue(new_docshare)
 
@@ -492,19 +492,19 @@ class TestCRMLead(IntegrationTestCase):
 			lead_owner="Administrator",
 		)
 
-		lead.assign_agent("crm.user1@example.com")
+		lead.assign_agent("artech_crm.user1@example.com")
 
 		lead_assignees = lead.get_assigned_users()
 
 		self.assertIn("Administrator", lead_assignees)
-		self.assertIn("crm.user1@example.com", lead_assignees)
+		self.assertIn("artech_crm.user1@example.com", lead_assignees)
 
 		deal_name = lead.convert_to_deal()
 		deal = artech_engine.get_doc("CRM Deal", deal_name)
 
 		deal_assignees = deal.get_assigned_users()
 		self.assertIn("Administrator", deal_assignees)
-		self.assertIn("crm.user1@example.com", deal_assignees)
+		self.assertIn("artech_crm.user1@example.com", deal_assignees)
 
 
 def create_lead(**kwargs):

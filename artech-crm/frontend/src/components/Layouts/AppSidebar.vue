@@ -139,7 +139,7 @@
       :afterSkipAll="() => capture('onboarding_steps_skipped')"
       :afterReset="(step) => capture('onboarding_step_reset_' + step)"
       :afterResetAll="() => capture('onboarding_steps_reset')"
-      docsLink="https://docs.artech_engine.io/crm"
+      docsLink="https://docs.artech_engine.io/artech_crm"
     />
     <IntermediateStepModal
       v-model="showIntermediateModal"
@@ -336,13 +336,13 @@ const { isOnboardingStepsCompleted, setUp } = useOnboarding('frappecrm')
 async function getFirstLead() {
   let firstLead = localStorage.getItem('firstLead' + user)
   if (firstLead) return firstLead
-  return await call('crm.api.onboarding.get_first_lead')
+  return await call('artech_crm.api.onboarding.get_first_lead')
 }
 
 async function getFirstDeal() {
   let firstDeal = localStorage.getItem('firstDeal' + user)
   if (firstDeal) return firstDeal
-  return await call('crm.api.onboarding.get_first_deal')
+  return await call('artech_crm.api.onboarding.get_first_deal')
 }
 
 const showIntermediateModal = ref(false)
@@ -397,7 +397,7 @@ const steps = reactive([
       currentStep.value = {
         title: __('Convert lead to deal'),
         buttonLabel: __('Convert'),
-        videoURL: '/assets/crm/videos/convertToDeal.mov',
+        videoURL: '/assets/artech_crm/videos/convertToDeal.mov',
         onClick: async () => {
           showIntermediateModal.value = false
           currentStep.value = {}
@@ -512,7 +512,7 @@ const steps = reactive([
       currentStep.value = {
         title: __('Change deal status'),
         buttonLabel: __('Change'),
-        videoURL: '/assets/crm/videos/changeDealStatus.mov',
+        videoURL: '/assets/artech_crm/videos/changeDealStatus.mov',
         onClick: async () => {
           showIntermediateModal.value = false
           currentStep.value = {}

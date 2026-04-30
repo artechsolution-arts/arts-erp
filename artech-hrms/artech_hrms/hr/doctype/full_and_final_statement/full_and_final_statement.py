@@ -5,7 +5,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import flt, get_link_to_form, today
 
-from hrms.hr.doctype.full_and_final_statement.full_and_final_statement_loan_utils import (
+from artech_hrms.hr.doctype.full_and_final_statement.full_and_final_statement_loan_utils import (
 	cancel_loan_repayment,
 	process_loan_accrual,
 )
@@ -20,8 +20,8 @@ class FullandFinalStatement(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.full_and_final_asset.full_and_final_asset import FullandFinalAsset
-		from hrms.hr.doctype.full_and_final_outstanding_statement.full_and_final_outstanding_statement import (
+		from artech_hrms.hr.doctype.full_and_final_asset.full_and_final_asset import FullandFinalAsset
+		from artech_hrms.hr.doctype.full_and_final_outstanding_statement.full_and_final_outstanding_statement import (
 			FullandFinalOutstandingStatement,
 		)
 

@@ -1,12 +1,12 @@
 {
-  "name": "crm-ui",
+  "name": "artech_crm-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/assets/crm/frontend/ && yarn copy-html-entry",
-    "copy-html-entry": "cp ../crm/public/frontend/index.html ../crm/www/crm.html",
+    "build": "vite build --base=/assets/artech_crm/frontend/ && yarn copy-html-entry",
+    "copy-html-entry": "cp ../artech_crm/public/frontend/index.html ../artech_crm/www/artech_crm.html",
     "serve": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",

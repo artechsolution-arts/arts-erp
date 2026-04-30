@@ -1,4 +1,4 @@
-artech_engine.provide("hrms.hr");
+artech_engine.provide("artech_hrms.hr");
 artech_engine.provide("artech.accounts.dimensions");
 
 artech_engine.ui.form.on("Expense Claim", {
@@ -16,7 +16,7 @@ artech_engine.ui.form.on("Expense Claim", {
 
 		frm.set_query("expense_approver", function () {
 			return {
-				query: "hrms.hr.doctype.department_approver.department_approver.get_approvers",
+				query: "artech_hrms.hr.doctype.department_approver.department_approver.get_approvers",
 				filters: {
 					employee: frm.doc.employee,
 					doctype: frm.doc.doctype,
@@ -81,7 +81,7 @@ artech_engine.ui.form.on("Expense Claim", {
 
 		if (frm.doc.docstatus == 0) {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.leave_application.leave_application.get_mandatory_approval",
+				method: "artech_hrms.hr.doctype.leave_application.leave_application.get_mandatory_approval",
 				args: {
 					doctype: frm.doc.doctype,
 				},
@@ -363,9 +363,9 @@ artech_engine.ui.form.on("Expense Claim", {
 		});
 	},
 	make_payment_entry: function (frm) {
-		let method = "hrms.overrides.employee_payment_entry.get_payment_entry_for_employee";
+		let method = "artech_hrms.overrides.employee_payment_entry.get_payment_entry_for_employee";
 		if (frm.doc.__onload && frm.doc.__onload.make_payment_via_journal_entry) {
-			method = "hrms.hr.doctype.expense_claim.expense_claim.make_bank_entry";
+			method = "artech_hrms.hr.doctype.expense_claim.expense_claim.make_bank_entry";
 		}
 		return artech_engine.call({
 			method: method,
@@ -389,7 +389,7 @@ artech_engine.ui.form.on("Expense Claim", {
 				continue;
 			}
 			artech_engine.call({
-				method: "hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim_account_and_cost_center",
+				method: "artech_hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim_account_and_cost_center",
 				args: {
 					expense_claim_type: expense.expense_type,
 					company: frm.doc.company,
@@ -462,7 +462,7 @@ artech_engine.ui.form.on("Expense Claim", {
 	get_advances: function (frm) {
 		if (frm.doc.employee) {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.expense_claim.expense_claim.get_advances",
+				method: "artech_hrms.hr.doctype.expense_claim.expense_claim.get_advances",
 				args: {
 					expense_claim: frm.doc,
 				},
@@ -496,7 +496,7 @@ artech_engine.ui.form.on("Expense Claim", {
 		let self_approval_not_allowed = frm.doc.__onload
 			? frm.doc.__onload.self_expense_approval_not_allowed
 			: 0;
-		let current_employee = await hrms.get_current_employee();
+		let current_employee = await artech_hrms.get_current_employee();
 		if (
 			frm.doc.docstatus === 0 &&
 			!frm.is_dirty() &&
@@ -530,7 +530,7 @@ artech_engine.ui.form.on("Expense Claim Detail", {
 			return;
 		}
 		return artech_engine.call({
-			method: "hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim_account_and_cost_center",
+			method: "artech_hrms.hr.doctype.expense_claim.expense_claim.get_expense_claim_account_and_cost_center",
 			args: {
 				expense_claim_type: d.expense_type,
 				company: frm.doc.company,
@@ -571,7 +571,7 @@ artech_engine.ui.form.on("Expense Claim Advance", {
 			refresh_field("advances");
 		} else {
 			return artech_engine.call({
-				method: "hrms.hr.doctype.expense_claim.expense_claim.get_advances",
+				method: "artech_hrms.hr.doctype.expense_claim.expense_claim.get_advances",
 				args: {
 					expense_claim: frm.doc,
 					advance_id: child.employee_advance,

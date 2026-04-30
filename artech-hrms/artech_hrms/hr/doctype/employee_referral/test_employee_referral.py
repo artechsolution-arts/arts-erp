@@ -6,11 +6,11 @@ from artech_engine.utils import today
 from artech.setup.doctype.designation.test_designation import create_designation
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.employee_referral.employee_referral import (
+from artech_hrms.hr.doctype.employee_referral.employee_referral import (
 	create_additional_salary,
 	create_job_applicant,
 )
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeReferral(HRMSTestSuite):

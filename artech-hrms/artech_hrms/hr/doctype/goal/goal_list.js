@@ -117,7 +117,7 @@ artech_engine.listview_settings["Goal"] = {
 	update_status: function (status, goals, listview) {
 		artech_engine
 			.call({
-				method: "hrms.hr.doctype.goal.goal.update_status",
+				method: "artech_hrms.hr.doctype.goal.goal.update_status",
 				args: {
 					status: status,
 					goals: goals,

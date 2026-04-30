@@ -4,7 +4,7 @@
 import artech_engine
 from artech_engine.tests import UnitTestCase
 
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_salary_component
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_salary_component
 
 
 class TestOvertimeType(UnitTestCase):

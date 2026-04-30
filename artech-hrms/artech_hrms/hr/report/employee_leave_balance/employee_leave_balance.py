@@ -8,8 +8,8 @@ from artech_engine import _
 from artech_engine.query_builder.functions import Abs, Sum
 from artech_engine.utils import add_days, cint, flt, getdate
 
-from hrms.hr.doctype.leave_allocation.leave_allocation import get_previous_allocation
-from hrms.hr.doctype.leave_application.leave_application import (
+from artech_hrms.hr.doctype.leave_allocation.leave_allocation import get_previous_allocation
+from artech_hrms.hr.doctype.leave_application.leave_application import (
 	get_leave_balance_on,
 	get_leaves_for_period,
 )

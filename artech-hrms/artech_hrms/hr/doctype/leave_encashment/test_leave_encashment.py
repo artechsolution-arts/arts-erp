@@ -5,22 +5,22 @@ from artech_engine.utils import add_days, get_year_ending, get_year_start, getda
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.expense_claim.test_expense_claim import get_payable_account
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.hr.doctype.leave_allocation.leave_allocation import get_unused_leaves
-from hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
-from hrms.hr.doctype.leave_period.test_leave_period import create_leave_period
-from hrms.hr.doctype.leave_policy.test_leave_policy import create_leave_policy
-from hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
+from artech_hrms.hr.doctype.expense_claim.test_expense_claim import get_payable_account
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.hr.doctype.leave_allocation.leave_allocation import get_unused_leaves
+from artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry import process_expired_allocation
+from artech_hrms.hr.doctype.leave_period.test_leave_period import create_leave_period
+from artech_hrms.hr.doctype.leave_policy.test_leave_policy import create_leave_policy
+from artech_hrms.hr.doctype.leave_policy_assignment.leave_policy_assignment import (
 	create_assignment_for_multiple_employees,
 )
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_holiday_list,
 	make_leave_application,
 )
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.test_utils import get_first_sunday
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.test_utils import get_first_sunday
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveEncashment(HRMSTestSuite):
@@ -302,8 +302,8 @@ class TestLeaveEncashment(HRMSTestSuite):
 
 	@assign_holiday_list("_Test Leave Encashment", "_Test Company")
 	def test_status_of_leave_encashment_after_payment_via_salary_slip(self):
-		from hrms.payroll.doctype.salary_slip.test_salary_slip import make_employee_salary_slip
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_employee_salary_slip
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 
@@ -336,10 +336,10 @@ class TestLeaveEncashment(HRMSTestSuite):
 		self.assertEqual(leave_encashment.status, "Unpaid")
 
 	def test_status_of_leave_encashment_after_payment_via_payment_entry_and_fnf(self):
-		from hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
+		from artech_hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
 			create_full_and_final_statement,
 		)
-		from hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
+		from artech_hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
 
 		payable_account = get_payable_account("_Test Company")
 
@@ -414,7 +414,7 @@ class TestLeaveEncashment(HRMSTestSuite):
 		self.assertEqual(encashment.status, "Cancelled")
 
 	def test_leave_encashment_based_on_salary_structure_assignment(self):
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import (
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import (
 			create_salary_structure_assignment,
 		)
 

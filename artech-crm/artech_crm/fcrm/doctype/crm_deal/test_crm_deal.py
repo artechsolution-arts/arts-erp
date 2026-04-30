@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.tests import IntegrationTestCase
 
-from crm.fcrm.doctype.crm_deal.crm_deal import (
+from artech_crm.fcrm.doctype.crm_deal.crm_deal import (
 	add_contact,
 	create_deal,
 	remove_contact,

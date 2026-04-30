@@ -4,7 +4,7 @@ from unittest.mock import patch
 import artech_engine
 from artech_engine.tests import IntegrationTestCase, UnitTestCase
 
-from crm.utils import (
+from artech_crm.utils import (
 	_get_communication_status,
 	_should_update_modified,
 	are_same_phone_number,
@@ -136,7 +136,7 @@ class TestUpdateModifiedTimestamp(IntegrationTestCase):
 	@staticmethod
 	def _immediate_enqueue(method, **kwargs):
 		# Only patch for update_modified_background
-		from crm.utils import update_modified_background
+		from artech_crm.utils import update_modified_background
 
 		if method == update_modified_background or (
 			isinstance(method, str) and method.endswith("update_modified_background")
@@ -464,7 +464,7 @@ class TestCreateLeadFromIncomingEmail(IntegrationTestCase):
 			{
 				"doctype": "Email Account",
 				"email_account_name": "Test CRM Incoming",
-				"email_id": "test-crm-incoming@example.com",
+				"email_id": "test-artech_crm-incoming@example.com",
 				"enable_incoming": 1,
 				"create_lead_from_incoming_email": create_lead,
 			}

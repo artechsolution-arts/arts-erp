@@ -59,7 +59,7 @@ def get_dashboard_for_employee(data):
 			"heatmap": True,
 			"heatmap_message": _("This is based on the attendance of this Employee"),
 			"fieldname": "employee",
-			"method": "hrms.overrides.employee_master.get_timeline_data",
+			"method": "artech_hrms.overrides.employee_master.get_timeline_data",
 		}
 	)
 	return data

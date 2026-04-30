@@ -5,8 +5,8 @@ from artech_engine.utils import add_days, get_first_day, get_last_day, getdate, 
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.staffing_plan.staffing_plan import ParentCompanyError, SubsidiaryCompanyError
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.staffing_plan.staffing_plan import ParentCompanyError, SubsidiaryCompanyError
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestStaffingPlan(HRMSTestSuite):
@@ -75,7 +75,7 @@ class TestStaffingPlan(HRMSTestSuite):
 		self.assertRaises(ParentCompanyError, staffing_plan.submit)
 
 	def test_staffing_details_from_job_requisition(self):
-		from hrms.hr.doctype.job_requisition.test_job_requisition import make_job_requisition
+		from artech_hrms.hr.doctype.job_requisition.test_job_requisition import make_job_requisition
 
 		employee = make_employee("test_sp@example.com", company="_Test Company", designation="Accountant")
 		requisition = make_job_requisition(requested_by=employee, designation="Accountant", no_of_positions=4)

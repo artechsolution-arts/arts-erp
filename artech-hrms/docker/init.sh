@@ -25,18 +25,18 @@ sed -i '/redis/d' ./Procfile
 sed -i '/watch/d' ./Procfile
 
 bench get-app erpnext
-bench get-app hrms
+bench get-app artech_hrms
 
-bench new-site hrms.localhost \
+bench new-site artech_hrms.localhost \
 --force \
 --mariadb-root-password 123 \
 --admin-password admin \
 --no-mariadb-socket
 
-bench --site hrms.localhost install-app hrms
-bench --site hrms.localhost set-config developer_mode 1
-bench --site hrms.localhost enable-scheduler
-bench --site hrms.localhost clear-cache
-bench use hrms.localhost
+bench --site artech_hrms.localhost install-app artech_hrms
+bench --site artech_hrms.localhost set-config developer_mode 1
+bench --site artech_hrms.localhost enable-scheduler
+bench --site artech_hrms.localhost clear-cache
+bench use artech_hrms.localhost
 
 bench start

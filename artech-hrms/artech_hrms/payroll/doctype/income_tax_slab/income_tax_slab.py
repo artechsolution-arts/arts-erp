@@ -16,10 +16,10 @@ class IncomeTaxSlab(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.payroll.doctype.income_tax_slab_other_charges.income_tax_slab_other_charges import (
+		from artech_hrms.payroll.doctype.income_tax_slab_other_charges.income_tax_slab_other_charges import (
 			IncomeTaxSlabOtherCharges,
 		)
-		from hrms.payroll.doctype.taxable_salary_slab.taxable_salary_slab import TaxableSalarySlab
+		from artech_hrms.payroll.doctype.taxable_salary_slab.taxable_salary_slab import TaxableSalarySlab
 
 		allow_tax_exemption: DF.Check
 		amended_from: DF.Link | None

@@ -5,17 +5,17 @@ from artech_engine.utils import add_days, add_months, floor, flt, get_datetime, 
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.expense_claim.test_expense_claim import get_payable_account
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
-from hrms.payroll.doctype.salary_slip.test_salary_slip import (
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.expense_claim.test_expense_claim import get_payable_account
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import assign_holiday_list
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import (
 	make_deduction_salary_component,
 	make_earning_salary_component,
 	make_employee_salary_slip,
 	make_holiday_list,
 )
-from hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.salary_structure import make_salary_slip
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestGratuity(HRMSTestSuite):
@@ -89,7 +89,7 @@ class TestGratuity(HRMSTestSuite):
 		3-6     |   1.0
 		6-9		|	1.5
 		"""
-		from hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
+		from artech_hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
 
 		sal_slip = create_salary_slip(self.employee)
 
@@ -192,7 +192,7 @@ class TestGratuity(HRMSTestSuite):
 
 	@assign_holiday_list("Salary Slip Test Holiday List", "_Test Company")
 	def test_settle_gratuity_via_fnf_statement(self):
-		from hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
+		from artech_hrms.hr.doctype.full_and_final_statement.test_full_and_final_statement import (
 			create_full_and_final_statement,
 		)
 
@@ -256,7 +256,7 @@ class TestGratuity(HRMSTestSuite):
 
 
 def setup_gratuity_rule(name: str) -> dict:
-	from hrms.regional.united_arab_emirates.setup import setup
+	from artech_hrms.regional.united_arab_emirates.setup import setup
 
 	if not artech_engine.db.exists("Gratuity Rule", name):
 		setup()

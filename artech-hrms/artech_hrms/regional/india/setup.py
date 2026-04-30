@@ -1,7 +1,7 @@
 import artech_engine
 from artech_engine.custom.doctype.custom_field.custom_field import create_custom_fields
 
-from hrms.setup import delete_custom_fields
+from artech_hrms.setup import delete_custom_fields
 
 
 def setup():

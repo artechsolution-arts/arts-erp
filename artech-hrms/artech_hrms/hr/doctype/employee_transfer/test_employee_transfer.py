@@ -5,7 +5,7 @@ from artech_engine.utils import add_days, getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeTransfer(HRMSTestSuite):
@@ -97,7 +97,7 @@ class TestEmployeeTransfer(HRMSTestSuite):
 
 	@HRMSTestSuite.change_settings("System Settings", {"number_format": "#.###,##"})
 	def test_data_formatting_in_history(self):
-		from hrms.hr.utils import get_formatted_value
+		from artech_hrms.hr.utils import get_formatted_value
 
 		value = get_formatted_value("12.500,00", "Float")
 		self.assertEqual(value, 12500.0)

@@ -26,7 +26,7 @@ artech_engine.ui.form.on("Leave Allocation", {
 	},
 
 	refresh: function (frm) {
-		hrms.leave_utils.add_view_ledger_button(frm);
+		artech_hrms.leave_utils.add_view_ledger_button(frm);
 
 		if (frm.doc.docstatus === 1 && !frm.doc.expired) {
 			var valid_expiry = moment(artech_engine.datetime.get_today()).isBetween(
@@ -105,7 +105,7 @@ artech_engine.ui.form.on("Leave Allocation", {
 
 	expire_allocation: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry.expire_allocation",
+			method: "artech_hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry.expire_allocation",
 			args: {
 				allocation: frm.doc,
 				expiry_date: artech_engine.datetime.get_today(),

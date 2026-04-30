@@ -2,12 +2,12 @@
 
 import artech_engine
 
-from hrms.hr.doctype.training_event.test_training_event import (
+from artech_hrms.hr.doctype.training_event.test_training_event import (
 	create_training_event,
 	create_training_program,
 )
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_employee
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_employee
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestTrainingFeedback(HRMSTestSuite):

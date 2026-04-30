@@ -225,7 +225,7 @@ artech_engine.ui.form.on("Payroll Entry", {
 			}
 
 			return {
-				query: "hrms.payroll.doctype.payroll_entry.payroll_entry.employee_query",
+				query: "artech_hrms.payroll.doctype.payroll_entry.payroll_entry.employee_query",
 				filters: frm.events.get_employee_filters(frm),
 			};
 		});
@@ -357,7 +357,7 @@ artech_engine.ui.form.on("Payroll Entry", {
 	set_start_end_dates: function (frm) {
 		if (frm.doc.payroll_frequency) {
 			artech_engine.call({
-				method: "hrms.payroll.doctype.payroll_entry.payroll_entry.get_start_end_dates",
+				method: "artech_hrms.payroll.doctype.payroll_entry.payroll_entry.get_start_end_dates",
 				args: {
 					payroll_frequency: frm.doc.payroll_frequency,
 					start_date: frm.doc.posting_date,
@@ -375,7 +375,7 @@ artech_engine.ui.form.on("Payroll Entry", {
 
 	set_end_date: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.payroll_entry.payroll_entry.get_end_date",
+			method: "artech_hrms.payroll.doctype.payroll_entry.payroll_entry.get_end_date",
 			args: {
 				frequency: frm.doc.payroll_frequency,
 				start_date: frm.doc.start_date,

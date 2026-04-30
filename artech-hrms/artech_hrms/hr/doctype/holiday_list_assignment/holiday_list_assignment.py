@@ -5,7 +5,7 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import format_date, get_link_to_form, getdate
 
-from hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import DuplicateAssignment
+from artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment import DuplicateAssignment
 
 
 class HolidayListAssignment(Document):

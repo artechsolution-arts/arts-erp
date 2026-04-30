@@ -24,7 +24,7 @@ artech_engine.ui.form.on("Retention Bonus", {
 	employee: function (frm) {
 		if (frm.doc.employee) {
 			artech_engine.call({
-				method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+				method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 				args: {
 					employee: frm.doc.employee,
 				},

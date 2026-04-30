@@ -8,8 +8,8 @@ from artech_engine import _
 from artech_engine.model.document import Document
 from artech_engine.utils import cint, get_datetime
 
-from hrms.hr.doctype.shift_assignment.shift_assignment import get_actual_start_end_datetime_of_shift
-from hrms.hr.utils import (
+from artech_hrms.hr.doctype.shift_assignment.shift_assignment import get_actual_start_end_datetime_of_shift
+from artech_hrms.hr.utils import (
 	get_distance_between_coordinates,
 	set_geolocation_from_coordinates,
 	validate_active_employee,

@@ -4,7 +4,7 @@ import artech_engine
 from artech_engine import _
 from werkzeug.wrappers import Response
 
-from crm.integrations.api import get_contact_by_phone_number
+from artech_crm.integrations.api import get_contact_by_phone_number
 
 from .twilio_handler import IncomingCall, Twilio, TwilioCallDetails
 

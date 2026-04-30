@@ -9,8 +9,8 @@ from artech_engine.model.document import Document
 from artech_engine.query_builder import Criterion
 from artech_engine.utils import add_days, cint, cstr, get_link_to_form, get_time, getdate, now_datetime
 
-from hrms.hr.utils import validate_active_employee
-from hrms.utils import generate_date_range
+from artech_hrms.hr.utils import validate_active_employee
+from artech_hrms.utils import generate_date_range
 
 
 class OverlappingShiftError(artech_engine.ValidationError):

@@ -1,6 +1,6 @@
-artech_engine.provide("hrms");
+artech_engine.provide("artech_hrms");
 
-hrms.PerformanceFeedback = class PerformanceFeedback {
+artech_hrms.PerformanceFeedback = class PerformanceFeedback {
 	constructor({ frm, wrapper }) {
 		this.frm = frm;
 		this.wrapper = wrapper;
@@ -29,7 +29,7 @@ hrms.PerformanceFeedback = class PerformanceFeedback {
 		return new Promise((resolve) => {
 			artech_engine
 				.call({
-					method: "hrms.hr.doctype.appraisal.appraisal.get_feedback_history",
+					method: "artech_hrms.hr.doctype.appraisal.appraisal.get_feedback_history",
 					args: {
 						employee: me.frm.doc.employee,
 						appraisal: me.frm.doc.name,

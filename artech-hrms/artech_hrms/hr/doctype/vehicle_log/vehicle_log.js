@@ -23,7 +23,7 @@ artech_engine.ui.form.on("Vehicle Log", {
 
 	expense_claim: function (frm) {
 		artech_engine.call({
-			method: "hrms.hr.doctype.vehicle_log.vehicle_log.make_expense_claim",
+			method: "artech_hrms.hr.doctype.vehicle_log.vehicle_log.make_expense_claim",
 			args: {
 				docname: frm.doc.name,
 			},

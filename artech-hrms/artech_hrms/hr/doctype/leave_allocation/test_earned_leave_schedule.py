@@ -4,9 +4,9 @@ from datetime import date
 import artech_engine
 from artech_engine.utils import add_months, get_first_day, get_last_day, get_year_ending, get_year_start, getdate
 
-from hrms.hr.doctype.leave_allocation.test_earned_leaves import make_policy_assignment
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_allocation.test_earned_leaves import make_policy_assignment
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_holiday_list
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveAllocation(HRMSTestSuite):

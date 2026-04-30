@@ -5,13 +5,13 @@ from artech_engine.utils import add_months, getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.controllers.employee_reminders import send_holidays_reminder_in_advance
-from hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
+from artech_hrms.controllers.employee_reminders import send_holidays_reminder_in_advance
+from artech_hrms.hr.doctype.holiday_list_assignment.test_holiday_list_assignment import (
 	create_holiday_list_assignment,
 )
-from hrms.hr.doctype.hr_settings.hr_settings import set_proceed_with_frequency_change
-from hrms.hr.utils import get_holidays_for_employee
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.hr_settings.hr_settings import set_proceed_with_frequency_change
+from artech_hrms.hr.utils import get_holidays_for_employee
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeReminders(HRMSTestSuite):
@@ -100,7 +100,7 @@ class TestEmployeeReminders(HRMSTestSuite):
 		employee.company = "_Test Company"
 		employee.save()
 
-		from hrms.controllers.employee_reminders import (
+		from artech_hrms.controllers.employee_reminders import (
 			get_employees_who_are_born_today,
 			send_birthday_reminders,
 		)
@@ -118,7 +118,7 @@ class TestEmployeeReminders(HRMSTestSuite):
 		self.assertTrue("Subject: Birthday Reminder" in email_queue[0].message)
 
 	def test_work_anniversary_reminders(self):
-		from hrms.controllers.employee_reminders import (
+		from artech_hrms.controllers.employee_reminders import (
 			get_employees_having_an_event_today,
 			send_work_anniversary_reminders,
 		)
@@ -153,7 +153,7 @@ class TestEmployeeReminders(HRMSTestSuite):
 			company="_Test Company",
 		)
 
-		from hrms.controllers.employee_reminders import get_employees_having_an_event_today
+		from artech_hrms.controllers.employee_reminders import get_employees_having_an_event_today
 
 		employees_having_work_anniversary = get_employees_having_an_event_today("work_anniversary")
 		employees = employees_having_work_anniversary.get("_Test Company") or []
@@ -181,7 +181,7 @@ class TestEmployeeReminders(HRMSTestSuite):
 		self.assertTrue("Holidays this Week." in email_queue[0].message)
 
 	def test_advance_holiday_reminders_monthly(self):
-		from hrms.controllers.employee_reminders import send_reminders_in_advance_monthly
+		from artech_hrms.controllers.employee_reminders import send_reminders_in_advance_monthly
 
 		setup_hr_settings("Monthly")
 
@@ -208,7 +208,7 @@ class TestEmployeeReminders(HRMSTestSuite):
 		)
 
 	def test_advance_holiday_reminders_weekly(self):
-		from hrms.controllers.employee_reminders import send_reminders_in_advance_weekly
+		from artech_hrms.controllers.employee_reminders import send_reminders_in_advance_weekly
 
 		setup_hr_settings("Weekly")
 

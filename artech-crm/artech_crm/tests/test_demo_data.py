@@ -9,7 +9,7 @@ class TestDemoData(IntegrationTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
-		from crm.demo.api import clear_demo_data
+		from artech_crm.demo.api import clear_demo_data
 
 		clear_demo_data()
 
@@ -23,8 +23,8 @@ class TestDemoData(IntegrationTestCase):
 		return False
 
 	def test_demo_data_lifecycle(self):
-		from crm.demo.api import clear_demo_data, create_demo_data
-		from crm.demo.users import DEMO_USERS
+		from artech_crm.demo.api import clear_demo_data, create_demo_data
+		from artech_crm.demo.users import DEMO_USERS
 
 		DEMO_STATE_KEY = "crm_demo_data_created"
 		DEMO_LEADS_KEY = "crm_demo_leads"
@@ -79,7 +79,7 @@ class TestDemoData(IntegrationTestCase):
 
 		# Avatars exist
 		avatar_dir = os.path.abspath(
-			os.path.join(os.path.dirname(__file__), "..", "..", "crm", "public", "images", "demo")
+			os.path.join(os.path.dirname(__file__), "..", "..", "artech_crm", "public", "images", "demo")
 		)
 		for user in DEMO_USERS:
 			filename = user["avatar"].split("/")[-1]

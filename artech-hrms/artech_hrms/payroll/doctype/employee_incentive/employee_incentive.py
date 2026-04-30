@@ -5,7 +5,7 @@ import artech_engine
 from artech_engine import _
 from artech_engine.model.document import Document
 
-from hrms.hr.utils import validate_active_employee
+from artech_hrms.hr.utils import validate_active_employee
 
 
 class EmployeeIncentive(Document):

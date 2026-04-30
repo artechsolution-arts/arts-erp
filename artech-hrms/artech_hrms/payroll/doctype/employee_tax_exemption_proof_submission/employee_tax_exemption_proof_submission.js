@@ -43,7 +43,7 @@ artech_engine.ui.form.on("Employee Tax Exemption Proof Submission", {
 
 			frm.add_custom_button(__("Get Details From Declaration"), function () {
 				artech.utils.map_current_doc({
-					method: "hrms.payroll.doctype.employee_tax_exemption_declaration.employee_tax_exemption_declaration.make_proof_submission",
+					method: "artech_hrms.payroll.doctype.employee_tax_exemption_declaration.employee_tax_exemption_declaration.make_proof_submission",
 					source_doctype: "Employee Tax Exemption Declaration",
 					target: frm,
 					date_field: "creation",
@@ -68,7 +68,7 @@ artech_engine.ui.form.on("Employee Tax Exemption Proof Submission", {
 
 	get_employee_currency: function (frm) {
 		artech_engine.call({
-			method: "hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
+			method: "artech_hrms.payroll.doctype.salary_structure_assignment.salary_structure_assignment.get_employee_currency",
 			args: {
 				employee: frm.doc.employee,
 			},

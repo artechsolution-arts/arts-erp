@@ -33,7 +33,7 @@
 		"job_title": "Marketing Director",
 		"source": "Cold Call",
 		"status": "New Lead",
-		"lead_owner": "crm.user1@example.com"
+		"lead_owner": "artech_crm.user1@example.com"
 	},
 	{
 		"doctype": "CRM Lead",
@@ -57,7 +57,7 @@
 		"job_title": "CEO",
 		"source": "Social Media",
 		"status": "New Lead",
-		"lead_owner": "crm.user1@example.com"
+		"lead_owner": "artech_crm.user1@example.com"
 	},
 	{
 		"doctype": "CRM Lead",
@@ -81,7 +81,7 @@
 		"job_title": "Founder",
 		"source": "Referral",
 		"status": "New Lead",
-		"lead_owner": "crm.user1@example.com"
+		"lead_owner": "artech_crm.user1@example.com"
 	},
 	{
 		"doctype": "CRM Lead",

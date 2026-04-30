@@ -9,7 +9,7 @@ from artech_engine.model.document import Document
 
 from artech.setup.doctype.holiday_list.holiday_list import is_holiday
 
-from hrms.hr.doctype.daily_work_summary.daily_work_summary import get_user_emails_from_group
+from artech_hrms.hr.doctype.daily_work_summary.daily_work_summary import get_user_emails_from_group
 
 
 class DailyWorkSummaryGroup(Document):
@@ -21,7 +21,7 @@ class DailyWorkSummaryGroup(Document):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.daily_work_summary_group_user.daily_work_summary_group_user import (
+		from artech_hrms.hr.doctype.daily_work_summary_group_user.daily_work_summary_group_user import (
 			DailyWorkSummaryGroupUser,
 		)
 

@@ -3,9 +3,9 @@ from artech_engine.utils import getdate
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.staffing_plan.test_staffing_plan import make_company
-from hrms.hr.report.employee_birthday.employee_birthday import execute
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.staffing_plan.test_staffing_plan import make_company
+from artech_hrms.hr.report.employee_birthday.employee_birthday import execute
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeBirthday(HRMSTestSuite):

@@ -2,8 +2,8 @@
 
 import artech_engine
 
-from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestSalaryComponent(HRMSTestSuite):

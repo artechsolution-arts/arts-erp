@@ -1,7 +1,7 @@
 # For license information, please see license.txt
 
 
-from hrms.controllers.employee_boarding_controller import EmployeeBoardingController
+from artech_hrms.controllers.employee_boarding_controller import EmployeeBoardingController
 
 
 class EmployeeSeparation(EmployeeBoardingController):
@@ -13,7 +13,7 @@ class EmployeeSeparation(EmployeeBoardingController):
 	if TYPE_CHECKING:
 		from artech_engine.types import DF
 
-		from hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
+		from artech_hrms.hr.doctype.employee_boarding_activity.employee_boarding_activity import (
 			EmployeeBoardingActivity,
 		)
 

@@ -1,6 +1,6 @@
 import artech_engine
 
-from hrms.regional.india.setup import make_custom_fields
+from artech_hrms.regional.india.setup import make_custom_fields
 
 
 def execute():

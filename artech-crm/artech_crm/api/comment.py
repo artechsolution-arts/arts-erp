@@ -6,7 +6,7 @@ from artech_engine import _
 from artech_engine.desk.form.utils import add_comment as frappe_add_comment
 from artech_engine.utils import get_fullname
 
-from crm.fcrm.doctype.crm_notification.crm_notification import notify_user
+from artech_crm.fcrm.doctype.crm_notification.crm_notification import notify_user
 
 
 def on_update(self, method):

@@ -1,6 +1,6 @@
 artech_engine.ui.form.on("CRM Lead", {
   refresh(frm) {
-    frm.add_web_link(`/crm/leads/${frm.doc.name}`, __("Open in Portal"));
+    frm.add_web_link(`/artech_crm/leads/${frm.doc.name}`, __("Open in Portal"));
   },
   update_total: function (frm) {
     let total = 0;

@@ -10,9 +10,9 @@ from artech_engine.model.document import get_controller
 from artech_engine.utils import make_filter_tuple
 from pypika import Criterion
 
-from crm.api.views import get_views
-from crm.fcrm.doctype.crm_form_script.crm_form_script import get_form_script
-from crm.utils import is_frappe_version
+from artech_crm.api.views import get_views
+from artech_crm.fcrm.doctype.crm_form_script.crm_form_script import get_form_script
+from artech_crm.utils import is_frappe_version
 
 COUNT_NAME = (
 	{"COUNT": "name", "as": "total_count"}

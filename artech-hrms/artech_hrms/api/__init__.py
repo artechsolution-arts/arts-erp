@@ -383,7 +383,7 @@ def get_leave_balance_map() -> dict[str, dict[str, float]]:
 	        'Earned Leave': {'allocated_leaves': 3.0, 'balance_leaves': 3.0},
 	}
 	"""
-	from hrms.hr.doctype.leave_application.leave_application import get_leave_details
+	from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_details
 
 	employee = get_current_employee()
 
@@ -483,7 +483,7 @@ def get_department_approvers(department: str, parentfield: str) -> list[str]:
 
 @artech_engine.whitelist()
 def get_leave_types(employee: str, date: str) -> list:
-	from hrms.hr.doctype.leave_application.leave_application import get_leave_details
+	from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_details
 
 	date = date or getdate()
 

@@ -2,7 +2,7 @@
 
 artech_engine.query_reports["Salary Payments via ECS"] = $.extend(
 	{},
-	hrms.salary_slip_deductions_report_filters,
+	artech_hrms.salary_slip_deductions_report_filters,
 );
 
 artech_engine.query_reports["Salary Payments via ECS"]["filters"].push({

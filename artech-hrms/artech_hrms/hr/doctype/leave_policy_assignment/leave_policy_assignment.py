@@ -254,8 +254,8 @@ class LeavePolicyAssignment(Document):
 	def calculate_leaves_for_passed_period(
 		self, annual_allocation, leave_details, date_of_joining, periods_passed, consider_current_period
 	):
-		from hrms.hr.utils import get_monthly_earned_leave as get_periodically_earned_leave
-		from hrms.hr.utils import get_sub_period_start_and_end
+		from artech_hrms.hr.utils import get_monthly_earned_leave as get_periodically_earned_leave
+		from artech_hrms.hr.utils import get_sub_period_start_and_end
 
 		periodically_earned_leave = get_periodically_earned_leave(
 			date_of_joining,
@@ -290,7 +290,7 @@ class LeavePolicyAssignment(Document):
 	def get_earned_leave_schedule(
 		self, annual_allocation, leave_details, date_of_joining, new_leaves_allocated
 	):
-		from hrms.hr.utils import (
+		from artech_hrms.hr.utils import (
 			get_expected_allocation_date_for_period,
 			get_monthly_earned_leave,
 			get_sub_period_start_and_end,
@@ -390,7 +390,7 @@ def calculate_periods_passed(
 
 
 def is_earned_leave_applicable_for_current_period(date_of_joining, allocate_on_day, earned_leave_frequency):
-	from hrms.hr.utils import get_semester_end, get_semester_start
+	from artech_hrms.hr.utils import get_semester_end, get_semester_start
 
 	date = getdate(artech_engine.flags.current_date) or getdate()
 	# If the date of assignment creation is >= the leave type's "Allocate On" date,

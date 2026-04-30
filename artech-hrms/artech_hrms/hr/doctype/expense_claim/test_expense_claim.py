@@ -9,13 +9,13 @@ from artech.accounts.doctype.payment_entry.test_payment_entry import get_payment
 from artech.setup.doctype.employee.test_employee import make_employee
 from artech.setup.utils import get_exchange_rate
 
-from hrms.hr.doctype.expense_claim.expense_claim import (
+from artech_hrms.hr.doctype.expense_claim.expense_claim import (
 	MismatchError,
 	get_outstanding_amount_for_claim,
 	make_bank_entry,
 	make_expense_claim_for_delivery_trip,
 )
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 company_name = "_Test Company 3"
 
@@ -161,7 +161,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(expense_claim2.status, "Paid")
 
 	def test_other_employee_advances_link_with_claim(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import make_employee_advance
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import make_employee_advance
 
 		payable_account = get_payable_account("_Test Company")
 
@@ -189,7 +189,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertRaises(artech_engine.ValidationError, claim_with_no_advance.save)
 
 	def test_expense_claim_against_fully_paid_advances(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			get_advances_for_claim,
 			make_employee_advance,
 			make_journal_entry_for_advance,
@@ -215,7 +215,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(claim.status, "Paid")
 
 	def test_advance_amount_allocation_against_claim_with_taxes(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			get_advances_for_claim,
 			make_employee_advance,
 			make_journal_entry_for_advance,
@@ -249,7 +249,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(claim.status, "Paid")
 
 	def test_expense_claim_partially_paid_via_advance(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			get_advances_for_claim,
 			make_employee_advance,
 			make_journal_entry_for_advance,
@@ -282,15 +282,15 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(claim.status, "Paid")
 
 	def test_expense_claim_with_deducted_returned_advance(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			create_return_through_additional_salary,
 			get_advances_for_claim,
 			make_employee_advance,
 			make_journal_entry_for_advance,
 		)
-		from hrms.hr.doctype.expense_claim.expense_claim import get_allocation_amount
-		from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
-		from hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
+		from artech_hrms.hr.doctype.expense_claim.expense_claim import get_allocation_amount
+		from artech_hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component
+		from artech_hrms.payroll.doctype.salary_structure.test_salary_structure import make_salary_structure
 
 		# create employee and employee advance
 		employee_name = make_employee("_T@employee.advance", "_Test Company")
@@ -391,7 +391,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		)
 		expense_claim.submit()
 
-		from hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
+		from artech_hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
 
 		pe = get_payment_entry_for_employee(expense_claim.doctype, expense_claim.name)
 		pe.save()
@@ -721,7 +721,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(1, expense_claim.docstatus)
 
 	def test_multicurrency_claim(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			create_advance_account,
 			get_advances_for_claim,
 			make_employee_advance,
@@ -831,7 +831,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(claim.total_exchange_gain_loss, 0)
 
 	def test_advance_claim_multicurrency_gain_loss(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import (
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import (
 			create_advance_account,
 			get_advances_for_claim,
 			make_employee_advance,
@@ -898,7 +898,7 @@ class TestExpenseClaim(HRMSTestSuite):
 		self.assertEqual(gain_loss_jv.total_credit, 2100)
 
 	def test_expense_claim_status_as_payment_after_unreconciliation(self):
-		from hrms.hr.doctype.employee_advance.test_employee_advance import make_payment_entry
+		from artech_hrms.hr.doctype.employee_advance.test_employee_advance import make_payment_entry
 
 		payable_account = get_payable_account(company_name)
 
@@ -1041,7 +1041,7 @@ def make_expense_claim(
 
 
 def make_claim_payment_entry(expense_claim, amount):
-	from hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
+	from artech_hrms.overrides.employee_payment_entry import get_payment_entry_for_employee
 
 	pe = get_payment_entry_for_employee("Expense Claim", expense_claim.name)
 	pe.reference_no = "1"

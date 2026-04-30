@@ -1,8 +1,8 @@
 import artech_engine
 from artech_engine.utils import getdate
 
-from hrms.hr.doctype.leave_block_list.leave_block_list import get_applicable_block_dates
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_block_list.leave_block_list import get_applicable_block_dates
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveBlockList(HRMSTestSuite):

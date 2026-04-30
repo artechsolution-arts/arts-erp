@@ -5,11 +5,11 @@ from artech_engine.utils import format_datetime
 
 from artech.setup.doctype.employee.test_employee import make_employee
 
-from hrms.hr.doctype.attendance.attendance import mark_attendance
-from hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
-from hrms.hr.report.shift_attendance.shift_attendance import execute
-from hrms.tests.test_utils import create_company
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.attendance.attendance import mark_attendance
+from artech_hrms.hr.doctype.shift_type.test_shift_type import setup_shift_type
+from artech_hrms.hr.report.shift_attendance.shift_attendance import execute
+from artech_hrms.tests.test_utils import create_company
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestShiftAttendance(HRMSTestSuite):

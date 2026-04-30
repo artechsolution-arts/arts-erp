@@ -1,5 +1,5 @@
 import html2canvas from "html2canvas";
-hrms.HierarchyChart = class {
+artech_hrms.HierarchyChart = class {
 	/* Options:
 		- doctype
 		- wrapper: wrapper for the hierarchy view
@@ -363,7 +363,7 @@ hrms.HierarchyChart = class {
 		let me = this;
 		return new Promise((resolve) => {
 			artech_engine.call({
-				method: "hrms.utils.hierarchy_chart.get_all_nodes",
+				method: "artech_hrms.utils.hierarchy_chart.get_all_nodes",
 				args: {
 					method: me.method,
 					company: me.company,

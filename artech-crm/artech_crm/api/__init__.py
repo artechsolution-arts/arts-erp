@@ -5,7 +5,7 @@ from artech_engine.core.api.file import get_max_file_size
 from artech_engine.translate import get_all_translations
 from artech_engine.utils import cstr, split_emails, validate_email_address
 
-from crm.utils import is_frappe_version
+from artech_crm.utils import is_frappe_version
 
 
 @artech_engine.whitelist(allow_guest=True)
@@ -90,7 +90,7 @@ def accept_invitation(key: str | None = None):
 	if invitation.status == "Accepted":
 		artech_engine.local.login_manager.login_as(invitation.email)
 		artech_engine.local.response["type"] = "redirect"
-		artech_engine.local.response["location"] = "/crm"
+		artech_engine.local.response["location"] = "/artech_crm"
 
 
 @artech_engine.whitelist()

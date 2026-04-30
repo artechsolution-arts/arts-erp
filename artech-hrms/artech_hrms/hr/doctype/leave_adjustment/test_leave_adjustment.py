@@ -3,14 +3,14 @@
 import artech_engine
 from artech_engine.utils import add_days, add_to_date, get_first_day, get_last_day, getdate
 
-from hrms.hr.doctype.leave_allocation.test_leave_allocation import (
+from artech_hrms.hr.doctype.leave_allocation.test_leave_allocation import (
 	create_leave_allocation,
 	process_expired_allocation,
 )
-from hrms.hr.doctype.leave_application.leave_application import get_leave_balance_on
-from hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
-from hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.hr.doctype.leave_application.leave_application import get_leave_balance_on
+from artech_hrms.hr.doctype.leave_type.test_leave_type import create_leave_type
+from artech_hrms.payroll.doctype.salary_slip.test_salary_slip import make_leave_application
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestLeaveAdjustment(HRMSTestSuite):

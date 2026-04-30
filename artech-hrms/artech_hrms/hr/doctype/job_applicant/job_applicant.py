@@ -7,7 +7,7 @@ from artech_engine.model.document import Document
 from artech_engine.model.naming import append_number_if_name_exists
 from artech_engine.utils import flt, validate_email_address
 
-from hrms.hr.doctype.interview.interview import get_interviewers
+from artech_hrms.hr.doctype.interview.interview import get_interviewers
 
 
 class DuplicationError(artech_engine.ValidationError):

@@ -3,7 +3,7 @@
 import artech_engine
 from artech_engine.utils import getdate
 
-from hrms.tests.utils import HRMSTestSuite
+from artech_hrms.tests.utils import HRMSTestSuite
 
 
 class TestEmployeeSeparation(HRMSTestSuite):

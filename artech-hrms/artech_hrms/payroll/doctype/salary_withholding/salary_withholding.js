@@ -4,7 +4,7 @@ artech_engine.ui.form.on("Salary Withholding", {
 
 		artech_engine
 			.call({
-				method: "hrms.payroll.doctype.salary_withholding.salary_withholding.get_payroll_frequency",
+				method: "artech_hrms.payroll.doctype.salary_withholding.salary_withholding.get_payroll_frequency",
 				args: {
 					employee: frm.doc.employee,
 					posting_date: frm.doc.posting_date,
